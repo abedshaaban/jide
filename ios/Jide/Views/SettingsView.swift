@@ -27,6 +27,7 @@ struct SettingsView: View {
             Form {
                 Section("Study") {
                     Stepper("New cards per day: \(newPerDay)", value: $newPerDay, in: 0...100, step: 5)
+                        .accessibilityIdentifier("settings.newPerDay")
                     ForEach(Direction.allCases) { d in
                         Toggle(d.label, isOn: Binding(
                             get: { directions.contains(d) },
@@ -57,6 +58,7 @@ struct SettingsView: View {
                     }
                     HStack {
                         Button("Test") { Speech.shared.speak("你好，我在学中文。") }
+                            .accessibilityIdentifier("settings.testVoice")
                         Button("Test slow") { Speech.shared.speak("你好，我在学中文。", slow: true) }
                     }
                     .buttonStyle(.bordered)
@@ -69,6 +71,7 @@ struct SettingsView: View {
 
                 Section("Reminder") {
                     Toggle("Daily reminder", isOn: $reminderOn)
+                        .accessibilityIdentifier("settings.reminder")
                         .onChange(of: reminderOn) { _, on in
                             Task {
                                 if on {
@@ -82,6 +85,9 @@ struct SettingsView: View {
                     if reminderOn {
                         DatePicker("Time", selection: reminderTime, displayedComponents: .hourAndMinute)
                     }
+                    Text(reminderOn ? "Reminder set for \(reminderTimeText)." : "")
+                        .font(.caption).foregroundStyle(.secondary)
+                        .accessibilityIdentifier("settings.reminderStatus")
                     if reminderDenied {
                         Text("Notifications are off for 记得. Turn them on in iOS Settings.").font(.caption).foregroundStyle(.red)
                     }
@@ -89,7 +95,9 @@ struct SettingsView: View {
 
                 Section {
                     Button("Export backup…", systemImage: "square.and.arrow.up") { export() }
+                        .accessibilityIdentifier("settings.export")
                     Button("Import backup…", systemImage: "square.and.arrow.down") { showImporter = true }
+                        .accessibilityIdentifier("settings.import")
                 } header: {
                     Text("Backup")
                 } footer: {
@@ -107,7 +115,13 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .fileExporter(isPresented: $showExporter, document: exportDoc, contentType: .json,
                           defaultFilename: "jide-backup-\(Date().formatted(.iso8601.year().month().day()))") { result in
-                if case .failure(let e) = result { message = e.localizedDescription } else { message = "Backup saved." }
+                switch result {
+                case .failure(let e):
+                    // Cancelling the picker is not an error worth an alert.
+                    if (e as NSError).code != NSUserCancelledError { message = e.localizedDescription }
+                case .success:
+                    message = "Backup saved."
+                }
             }
             .fileImporter(isPresented: $showImporter, allowedContentTypes: [.json]) { result in
                 switch result {
@@ -137,6 +151,11 @@ struct SettingsView: View {
                 Button("OK", role: .cancel) {}
             }
         }
+    }
+
+    private var reminderTimeText: String {
+        let d = Calendar.current.date(from: DateComponents(hour: reminderHour, minute: reminderMinute)) ?? Date()
+        return d.formatted(date: .omitted, time: .shortened)
     }
 
     private var reminderTime: Binding<Date> {

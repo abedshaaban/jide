@@ -14,14 +14,26 @@ struct SpeakButtons: View {
             } label: {
                 Label("Play", systemImage: "speaker.wave.2.fill")
             }
+            .accessibilityIdentifier("audio.play")
             Button {
                 speech.speak(text, slow: true)
             } label: {
                 Label("Slow", systemImage: "tortoise.fill")
             }
+            .accessibilityIdentifier("audio.slow")
         }
-        .labelStyle(compact ? AnyLabelStyle(.iconOnly) : AnyLabelStyle(.titleAndIcon))
+        .labelStyle(compact ? AnyLabelStyle(.iconOnly) : AnyLabelStyle(ViewThatFitsLabelStyle()))
         .buttonStyle(.bordered)
+    }
+}
+
+/// Icon + title, falling back to icon only when there is no room (large Dynamic Type, small phones).
+struct ViewThatFitsLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        ViewThatFits(in: .horizontal) {
+            Label(configuration).labelStyle(.titleAndIcon).lineLimit(1)
+            Label(configuration).labelStyle(.iconOnly)
+        }
     }
 }
 
@@ -52,14 +64,17 @@ struct PronunciationPractice: View {
                     Label("Mine", systemImage: "person.wave.2.fill")
                 }
                 .disabled(!hasRecording || recorder.isRecording)
+                .accessibilityIdentifier("audio.mine")
                 Button {
                     compare()
                 } label: {
                     Label("Compare", systemImage: "arrow.left.arrow.right")
                 }
                 .disabled(!hasRecording || recorder.isRecording)
+                .accessibilityIdentifier("audio.compare")
             }
             .buttonStyle(.bordered)
+            .labelStyle(ViewThatFitsLabelStyle())
 
             if recorder.isRecording {
                 ProgressView(value: Double(recorder.level))
@@ -78,7 +93,11 @@ struct PronunciationPractice: View {
             }
         }
         .onAppear(perform: refresh)
-        .onChange(of: word.id) { refresh() }
+        .onChange(of: word.id) {
+            recorder.stop()  // never keep recording into the previous word
+            refresh()
+        }
+        .onDisappear { recorder.stop() }
     }
 
     private var recordButton: some View {
@@ -95,6 +114,7 @@ struct PronunciationPractice: View {
                   systemImage: recorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
         }
         .tint(.red)
+        .accessibilityIdentifier("audio.record")
     }
 
     private func compare() {

@@ -11,7 +11,7 @@ python3 -I shared/data/scripts/build_data.py --cache DIR # reuse a download cach
 
 ```jsonc
 {
-  "version": 1,
+  "version": 3,
   "words": [{
     "rank": 1,                     // 1-based frequency rank (Wiktionary list order, duplicates removed)
     "simplified": "一",
@@ -34,7 +34,7 @@ polyphonic characters.
 
 ```jsonc
 {
-  "version": 1,
+  "version": 3,
   "characters": {
     "你": {
       "definition": "you, second person pronoun",
@@ -49,8 +49,9 @@ polyphonic characters.
 }
 ```
 
-Every character of every word has an entry when Make Me a Hanzi covers it; components
-reached through decompositions are included without stroke data.
+All 9,574 Make Me a Hanzi characters have an entry (pinyin, meaning, decomposition) so custom
+words get pinyin guesses and breakdowns. Stroke data is included only for characters used by the
+bundled words.
 
 ## Backup format
 

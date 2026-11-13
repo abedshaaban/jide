@@ -15,9 +15,16 @@ struct BrowseView: View {
         NavigationStack {
             List(filtered) { w in
                 NavigationLink { WordDetailView(word: w) } label: { WordRow(word: w) }
+                    .accessibilityIdentifier("word.\(w.simplified)")
             }
             .listStyle(.plain)
-            .searchable(text: $search, prompt: "汉字, pinyin or English")
+            .overlay {
+                if filtered.isEmpty {
+                    ContentUnavailableView.search(text: search)
+                }
+            }
+            // Always visible: the default hides it until you pull the list down, which is easy to miss.
+            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always), prompt: "汉字, pinyin or English")
             .navigationTitle("Words")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -31,6 +38,8 @@ struct BrowseView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { showAdd = true } label: { Image(systemName: "plus") }
+                        .accessibilityLabel("Add word")
+                        .accessibilityIdentifier("words.add")
                 }
             }
             .sheet(isPresented: $showAdd) { NavigationStack { AddWordView() } }
@@ -38,8 +47,7 @@ struct BrowseView: View {
     }
 
     private var filtered: [Word] {
-        let q = search.trimmingCharacters(in: .whitespaces).lowercased()
-        let key = Pinyin.searchKey(q)
+        let q = WordSearch.Query(search)
         return words.filter { w in
             switch filter {
             case .all: break
@@ -49,13 +57,7 @@ struct BrowseView: View {
             case .notes: guard !w.note.isEmpty || !w.mnemonic.isEmpty else { return false }
             case .leech: guard w.cards.contains(where: \.isLeech) else { return false }
             }
-            guard !q.isEmpty else { return true }
-            if w.simplified.contains(q) || w.traditional.contains(q) { return true }
-            if !key.isEmpty && w.searchKey.hasPrefix(key) { return true }
-            if q.count >= 2 && (w.gloss.lowercased().contains(q) || w.definitions.contains { $0.lowercased().contains(q) }) {
-                return true
-            }
-            return false
+            return WordSearch.matches(w, q)
         }
     }
 }

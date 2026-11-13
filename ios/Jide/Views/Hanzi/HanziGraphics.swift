@@ -6,7 +6,7 @@ struct HanziGraphics {
     var medians: [[CGPoint]]
 
     init?(_ info: CharacterInfo?) {
-        guard let info, let s = info.strokes, let m = info.medians, !s.isEmpty else { return nil }
+        guard let info, let s = info.strokes, let m = info.medians, !s.isEmpty, s.count == m.count else { return nil }
         strokes = s.map(HanziGraphics.parse)
         medians = m.map { $0.compactMap { p in p.count == 2 ? CGPoint(x: p[0], y: 900 - p[1]) : nil } }
     }
@@ -109,11 +109,17 @@ struct StrokeOrderView: View {
             .aspectRatio(1, contentMode: .fit)
             .contentShape(Rectangle())
             .onTapGesture { play() }
+            .accessibilityElement()
+            .accessibilityLabel("Stroke order, \(graphics.strokes.count) strokes")
+            .accessibilityIdentifier("strokeOrder.canvas")
 
             HStack {
                 Button { play() } label: { Label("Animate", systemImage: "play.fill") }
+                    .accessibilityIdentifier("strokeOrder.animate")
                 Button { stepForward() } label: { Label("Next stroke", systemImage: "forward.frame.fill") }
+                    .accessibilityIdentifier("strokeOrder.next")
                 Button { reset(showAll: true) } label: { Label("Show", systemImage: "eye") }
+                    .accessibilityIdentifier("strokeOrder.show")
             }
             .buttonStyle(.bordered)
             .labelStyle(.iconOnly)

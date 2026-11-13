@@ -48,6 +48,8 @@ struct FSRS {
     var learningSteps: [TimeInterval] = [60, 600]
     var relearningSteps: [TimeInterval] = [600]
     var maximumInterval: Int = 36500
+    /// Day arithmetic uses the calendar so a 1-day interval stays on the next calendar day across DST.
+    var calendar: Calendar = .current
 
     // MARK: Model
 
@@ -134,7 +136,7 @@ struct FSRS {
                     c.step = 0
                     c.due = now.addingTimeInterval(first)
                 } else {
-                    c.due = now.addingDays(nextInterval(stability: c.stability))
+                    c.due = now.addingDays(nextInterval(stability: c.stability), calendar: calendar)
                 }
             } else {
                 let sH = recallStability(d: card.difficulty, s: card.stability, r: r, rating: .hard)
@@ -147,9 +149,9 @@ struct FSRS {
                 iG = max(iG, iH + 1)
                 iE = max(iE, iG + 1)
                 switch rating {
-                case .hard: c.stability = sH; c.due = now.addingDays(iH)
-                case .good: c.stability = sG; c.due = now.addingDays(iG)
-                default: c.stability = sE; c.due = now.addingDays(iE)
+                case .hard: c.stability = sH; c.due = now.addingDays(iH, calendar: calendar)
+                case .good: c.stability = sG; c.due = now.addingDays(iG, calendar: calendar)
+                default: c.stability = sE; c.due = now.addingDays(iE, calendar: calendar)
                 }
                 c.state = .review
                 c.step = 0
@@ -169,7 +171,7 @@ struct FSRS {
             if r == .easy { days = max(days, nextInterval(stability: stabilityFor(.good)) + 1) }
             c.state = .review
             c.step = 0
-            c.due = now.addingDays(days)
+            c.due = now.addingDays(days, calendar: calendar)
         }
         guard !steps.isEmpty else { return rating == .again ? graduate(.hard) : graduate(rating) }
         let current = min(step, steps.count - 1)
@@ -199,7 +201,9 @@ struct FSRS {
 }
 
 extension Date {
-    func addingDays(_ days: Int) -> Date { addingTimeInterval(Double(days) * 86400) }
+    func addingDays(_ days: Int, calendar: Calendar = .current) -> Date {
+        calendar.date(byAdding: .day, value: days, to: self) ?? addingTimeInterval(Double(days) * 86400)
+    }
 }
 
 /// Short human label for an interval, e.g. "1m", "10m", "3d", "2mo".

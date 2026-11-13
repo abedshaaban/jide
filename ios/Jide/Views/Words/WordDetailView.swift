@@ -40,7 +40,9 @@ struct WordDetailView: View {
 
             Section {
                 TextField("Mnemonic: a story or image to remember it", text: $word.mnemonic, axis: .vertical)
+                    .accessibilityIdentifier("word.mnemonic")
                 TextField("Notes", text: $word.note, axis: .vertical)
+                    .accessibilityIdentifier("word.note")
             } header: {
                 Text("Notes & mnemonic")
             }
@@ -50,8 +52,9 @@ struct WordDetailView: View {
                     word.simplified.firstIndex(of: a)! < word.simplified.firstIndex(of: b)!
                 }), id: \.self) { ch in
                     NavigationLink { CharacterDetailView(character: ch) } label: {
-                        ComponentRow(character: ch)
+                        ComponentRow(character: ch, expandable: false)
                     }
+                    .accessibilityIdentifier("char.\(ch)")
                 }
             }
 
@@ -87,6 +90,8 @@ struct WordDetailView: View {
                             if d.wordIDs.contains(word.id) { Image(systemName: "checkmark") }
                         }
                     }
+                    .accessibilityIdentifier("word.deck.\(d.name)")
+                    .accessibilityValue(d.wordIDs.contains(word.id) ? "in deck" : "not in deck")
                 }
             }
 
@@ -104,6 +109,7 @@ struct WordDetailView: View {
         .confirmationDialog("Delete \(word.simplified)? Its progress and recording are removed.", isPresented: $confirmDelete,
                             titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
+                VoiceRecorder.current?.stop()
                 RecordingStore.delete(word.id)
                 for d in decks { d.wordIDs.removeAll { $0 == word.id } }
                 context.delete(word)
@@ -181,14 +187,17 @@ struct AddWordView: View {
             Section {
                 TextField("汉字", text: $hanzi)
                     .font(.title2)
+                    .accessibilityIdentifier("add.hanzi")
                     .onChange(of: hanzi) { _, new in
                         if editing == nil { pinyin = Pinyin.marks(fromNumbered: Library.shared.guessPinyin(new)) }
                     }
                 TextField("Pinyin, e.g. ni3 hao3 or nǐ hǎo", text: $pinyin)
+                    .accessibilityIdentifier("add.pinyin")
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                 if !pinyin.isEmpty { PinyinText(numbered: Pinyin.normalizeInput(pinyin)) }
                 TextField("Meaning (separate senses with ;)", text: $meaning, axis: .vertical)
+                    .accessibilityIdentifier("add.meaning")
             } footer: {
                 Text("Pinyin is guessed from each character; check polyphonic ones. Separate syllables with spaces.")
             }
@@ -204,7 +213,9 @@ struct AddWordView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
-            ToolbarItem(placement: .confirmationAction) { Button("Save", action: save) }
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Save", action: save).accessibilityIdentifier("add.save")
+            }
         }
         .onAppear {
             if let w = editing {

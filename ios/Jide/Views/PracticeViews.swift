@@ -11,6 +11,7 @@ struct ToneQuizView: View {
     @State private var word: Word?
     @State private var picks: [Int?] = []
     @State private var checked = false
+    @State private var lastCorrect = false
     @State private var sessionCorrect = 0
     @State private var sessionTotal = 0
 
@@ -23,6 +24,7 @@ struct ToneQuizView: View {
                 }
                 .pickerStyle(.segmented)
                 .onChange(of: syllableCount) { next() }
+                .accessibilityIdentifier("quiz.syllables")
                 Toggle("Only words I've studied", isOn: $onlyStudied)
                     .onChange(of: onlyStudied) { next() }
 
@@ -31,18 +33,24 @@ struct ToneQuizView: View {
                     let syl = word.syllables
                     ForEach(syl.indices, id: \.self) { i in
                         HStack(spacing: 8) {
-                            ForEach([1, 2, 3, 4, 5], id: \.self) { t in
+                            // Five buttons must fit one row; cap their text size (VoiceOver labels stay full).
+                            ForEach(ToneQuiz.options, id: \.self) { t in
                                 Button {
-                                    if !checked { picks[i] = t }
+                                    if !checked && i < picks.count { picks[i] = t }
                                 } label: {
                                     Text(t == 5 ? "·" : ["ˉ", "ˊ", "ˇ", "ˋ"][t - 1] + "\(t)")
                                         .font(.title3.bold())
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.5)
                                         .frame(maxWidth: .infinity, minHeight: 44)
                                 }
                                 .buttonStyle(.bordered)
                                 .tint(tint(i, t, correct: syl[i].tone))
+                                .accessibilityLabel(t == 5 ? "Syllable \(i + 1), neutral tone" : "Syllable \(i + 1), tone \(t)")
+                                .accessibilityIdentifier("quiz.pick.\(i).\(t)")
                             }
                         }
+                        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     }
                     if checked {
                         VStack(spacing: 6) {
@@ -52,14 +60,21 @@ struct ToneQuizView: View {
                                 .multilineTextAlignment(.center)
                         }
                         Button("Next") { next() }.buttonStyle(.borderedProminent)
+                            .accessibilityIdentifier("quiz.next")
+                        Text(lastCorrect ? "Correct" : "Not quite")
+                            .font(.headline)
+                            .foregroundStyle(lastCorrect ? .green : .red)
+                            .accessibilityIdentifier("quiz.result")
                     } else {
                         Button("Check") { check() }
                             .buttonStyle(.borderedProminent)
                             .disabled(picks.contains { $0 == nil })
+                            .accessibilityIdentifier("quiz.check")
                     }
                 } else {
                     Text("No words match. Study some cards first, or turn off \"Only words I've studied\".")
                         .foregroundStyle(.secondary)
+                        .accessibilityIdentifier("quiz.empty")
                 }
 
                 HStack {
@@ -78,18 +93,20 @@ struct ToneQuizView: View {
     }
 
     private func tint(_ i: Int, _ t: Int, correct: Int) -> Color {
+        let picked = i < picks.count && picks[i] == t
         if checked {
             if t == correct { return ToneColor.color(t) }
-            if picks[i] == t { return .black }
+            if picked { return Color(.label) }  // visible in light and dark mode
             return .gray.opacity(0.4)
         }
-        return picks[i] == t ? ToneColor.color(t) : .gray
+        return picked ? ToneColor.color(t) : .gray
     }
 
     private func check() {
         guard let word else { return }
         checked = true
-        let right = zip(picks, word.syllables).allSatisfy { $0 == $1.tone }
+        let right = ToneQuiz.grade(picks: picks, syllables: word.syllables)
+        lastCorrect = right
         sessionTotal += 1
         lifetimeTotal += 1
         if right { sessionCorrect += 1; lifetimeCorrect += 1 }
@@ -99,11 +116,8 @@ struct ToneQuizView: View {
         let n = syllableCount
         let all = (try? context.fetch(FetchDescriptor<Word>())) ?? []
         let pool = all.filter { w in
-            let syl = w.syllables
-            guard syl.count == n, w.simplified.count == n, syl.allSatisfy({ (1...5).contains($0.tone) }) else { return false }
-            if w.simplified.contains("一") || w.simplified.contains("不") { return false }
-            if n == 2 && syl[0].tone == 3 && syl[1].tone == 3 { return false }  // sandhi makes audio ambiguous
-            return !onlyStudied || w.cards.contains { $0.state != .new }
+            ToneQuiz.isEligible(simplified: w.simplified, syllables: w.syllables, count: n)
+                && (!onlyStudied || w.cards.contains { $0.state != .new })
         }
         word = pool.randomElement()
         picks = Array(repeating: nil, count: n)
@@ -130,6 +144,7 @@ struct WritingDrillView: View {
                             .font(.title)
                     }
                     WritingPracticeView(character: ch, graphics: g).id(ch)
+                        .accessibilityIdentifier("drill.writing")
                     HStack {
                         Button(revealed ? "Hide" : "Reveal") { revealed.toggle() }
                         Button("Hear") { Speech.shared.speak(word.simplified) }

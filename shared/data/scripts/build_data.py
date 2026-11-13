@@ -40,6 +40,8 @@ SOURCES = {
     "mmah_graphics.txt": "https://raw.githubusercontent.com/skishore/makemeahanzi/master/graphics.txt",
 }
 
+# Bump when the output changes so installed apps refresh dictionary fields.
+DATA_VERSION = 3
 MAX_SENTENCES = 3
 MAX_SENTENCE_LEN = 18
 
@@ -182,10 +184,16 @@ def load_mmah(cache):
 # ---------------------------------------------------------------- joining
 
 
-def choose_entry(simp, wikt_pinyin, cedict):
+STUB_DEF = re.compile(r"^(variant of|old variant|used in|see |Taiwan pr\.|also pr\.|CL:|surname )")
+BRACKET_PINYIN = re.compile(r"\[([A-Za-z:]+[1-5](?: [A-Za-z:]+[1-5])*)\]")
+
+
+def choose_entry(simp, wikt_pinyin, cedict, trad=None, gloss=""):
     cands = cedict.get(simp, [])
     if not cands:
         return None
+    # Same traditional form as the list first: 着 -> 著 has real senses, 着 -> 着 only "variant of".
+    cands = [e for e in cands if e["traditional"] == trad] or cands
     target = norm_marks(wikt_pinyin)
 
     def marks(e):
@@ -195,20 +203,59 @@ def choose_entry(simp, wikt_pinyin, cedict):
     for e in lower:
         if marks(e) == target:
             return e
-    for e in lower:
-        if strip_tones(marks(e)) == strip_tones(target):
-            return e
-    # Prefer the entry with most definitions (usually the main reading).
-    return max(lower, key=lambda e: len(e["definitions"]))
+    target_tones = [MARK_TO_PLAIN[ch][1] for ch in target if ch in MARK_TO_PLAIN]
+
+    def score(e):
+        # Shared tones with the Wiktionary reading, then real senses over "variant of"/"used in"
+        # stubs, then number of senses. The list's own pinyin is sometimes off (e.g. 吗 "mā").
+        tones = [int(s[-1]) for s in e["pinyinNumbered"].split() if s[-1].isdigit()]
+        pool = list(target_tones)
+        shared = 0
+        for t in tones:
+            if t in pool:
+                pool.remove(t)
+                shared += 1
+        real = sum(1 for d in e["definitions"] if not STUB_DEF.match(d))
+        # Function words: if the list calls it a particle, prefer the particle reading (吗 ma5, not ma2).
+        particle = ("particle" in gloss) == any("particle" in d for d in e["definitions"])
+        return (shared, real > 0, particle, real)
+
+    same = [e for e in lower if strip_tones(marks(e)) == strip_tones(target)]
+    return max(same or lower, key=score)
+
+
+def bracket_marks(d):
+    """'(courteous 您[nin2])' -> '(courteous 您[nín])'."""
+    return BRACKET_PINYIN.sub(lambda m: "[" + "".join(numbered_to_marks(x) for x in m.group(1).split()) + "]", d)
 
 
 def clean_definitions(defs):
-    out = []
+    out = [bracket_marks(d) for d in defs if not d.startswith(("CL:", "variant of", "old variant", "Taiwan pr.", "also pr."))]
+    return out or [bracket_marks(d) for d in defs]
+
+
+def resolve_variants(entry, cedict):
+    """'variant of 臺灣|台湾[Tai2 wan1]' only: borrow the senses of the entry it points to."""
+    defs = entry["definitions"]
+    if not defs or not all(STUB_DEF.match(d) for d in defs):
+        return None
     for d in defs:
-        if d.startswith(("CL:", "variant of", "old variant", "Taiwan pr.", "also pr.")):
+        m = re.match(r"^(?:old )?variant of ([^\[|]+)(?:\|([^\[]+))?\[([^\]]+)\]", d)
+        if not m:
             continue
-        out.append(d)
-    return out or defs
+        trad, simp, py = m.group(1), m.group(2) or m.group(1), m.group(3)
+        for e in cedict.get(simp, []):
+            if e["traditional"] == trad and e["pinyinNumbered"].lower() == py.lower():
+                real = [x for x in e["definitions"] if not STUB_DEF.match(x)]
+                if real:
+                    return real
+    return None
+
+
+def clean_gloss(gloss, limit=6):
+    """Wiktionary glosses are sometimes long synonym dumps; keep the first few items."""
+    parts = [p.strip() for p in gloss.split(",") if p.strip()]
+    return ", ".join(parts[:limit])
 
 
 def build_segmenter(cedict, preferred=None, numbered=False):
@@ -305,7 +352,8 @@ def main():
     cedict = load_cedict(args.cache)
     freq = load_frequency(args.cache, args.count, cedict)
     hsk = load_hsk(args.cache)
-    chosen = {w["simplified"]: choose_entry(w["simplified"], w["wiktPinyin"], cedict) for w in freq}
+    chosen = {w["simplified"]: choose_entry(w["simplified"], w["wiktPinyin"], cedict, w["traditional"], w["gloss"])
+              for w in freq}
     preferred = {k: e["pinyinNumbered"].lower() for k, e in chosen.items() if e}
     pinyin_for = build_segmenter(cedict, preferred)
     numbered_for = build_segmenter(cedict, preferred, numbered=True)
@@ -317,7 +365,7 @@ def main():
         e = chosen[w["simplified"]]
         if e:
             numbered = e["pinyinNumbered"].lower() if not w["wiktPinyin"][:1].isupper() else e["pinyinNumbered"]
-            defs = clean_definitions(e["definitions"])
+            defs = clean_definitions(resolve_variants(e, cedict) or e["definitions"])
         else:
             # Not a CEDICT headword (e.g. 很多): compose reading from its parts.
             missing.append(w["simplified"])
@@ -337,7 +385,7 @@ def main():
             "traditional": w["traditional"],
             "pinyin": marks,
             "pinyinNumbered": numbered,
-            "gloss": w["gloss"],
+            "gloss": clean_gloss(w["gloss"]),
             "definitions": defs,
             "hsk": old,
             "hsk3": new,
@@ -345,18 +393,11 @@ def main():
         })
 
     mmah, graphics = load_mmah(args.cache)
-    wanted, queue = set(), [c for w in words for c in w["simplified"]]
-    stroke_chars = set(queue)
-    while queue:
-        c = queue.pop()
-        if c in wanted or c not in mmah:
-            continue
-        wanted.add(c)
-        for comp in mmah[c].get("decomposition", ""):
-            if comp in mmah and comp not in wanted:
-                queue.append(comp)
+    # Every character gets pinyin/meaning/decomposition (custom words, component breakdown);
+    # stroke graphics only for characters of the bundled words, to keep the app small.
+    stroke_chars = {c for w in words for c in w["simplified"]}
     characters = {}
-    for c in sorted(wanted):
+    for c in sorted(mmah):
         d = mmah[c]
         entry = {
             "definition": d.get("definition", ""),
@@ -372,10 +413,10 @@ def main():
         characters[c] = entry
 
     with open(os.path.join(OUT_DIR, "words.json"), "w", encoding="utf-8") as f:
-        json.dump({"version": 1, "words": words}, f, ensure_ascii=False, indent=0, separators=(",", ":"))
+        json.dump({"version": DATA_VERSION, "words": words}, f, ensure_ascii=False, indent=0, separators=(",", ":"))
         f.write("\n")
     with open(os.path.join(OUT_DIR, "characters.json"), "w", encoding="utf-8") as f:
-        json.dump({"version": 1, "characters": characters}, f, ensure_ascii=False, separators=(",", ":"))
+        json.dump({"version": DATA_VERSION, "characters": characters}, f, ensure_ascii=False, separators=(",", ":"))
         f.write("\n")
 
     with_sent = sum(1 for w in words if w["sentences"])

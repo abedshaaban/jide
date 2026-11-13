@@ -4,6 +4,8 @@ import SwiftUI
 struct ComponentRow: View {
     var character: Character
     var depth = 0
+    /// Off inside NavigationLink rows, where the row tap navigates instead.
+    var expandable = true
     @State private var expanded = false
 
     var body: some View {
@@ -26,11 +28,13 @@ struct ComponentRow: View {
                     Text(info?.definition ?? "—").font(.caption).foregroundStyle(.secondary).lineLimit(2)
                 }
                 Spacer()
-                if !comps.isEmpty && depth < 3 {
+                if expandable && !comps.isEmpty && depth < 3 {
                     Button { withAnimation { expanded.toggle() } } label: {
                         Image(systemName: expanded ? "chevron.up" : "chevron.down")
                     }
                     .buttonStyle(.borderless)
+                    .accessibilityLabel(expanded ? "Hide components" : "Show components")
+                    .accessibilityIdentifier("component.expand.\(character)")
                 }
             }
             if expanded {
@@ -90,6 +94,7 @@ struct CharacterDetailView: View {
                         Text("Write").tag(1)
                     }
                     .pickerStyle(.segmented)
+                    .accessibilityIdentifier("char.tab")
                     if tab == 0 {
                         StrokeOrderView(graphics: graphics).frame(maxWidth: 320).frame(maxWidth: .infinity)
                     } else {
@@ -97,6 +102,7 @@ struct CharacterDetailView: View {
                     }
                 } else {
                     Text("No stroke data for this character.").foregroundStyle(.secondary)
+                        .accessibilityIdentifier("char.noStrokes")
                 }
 
                 if let comps = info?.components, !comps.isEmpty {
