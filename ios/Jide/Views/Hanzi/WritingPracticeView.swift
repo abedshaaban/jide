@@ -24,6 +24,7 @@ struct WritingPracticeView: View {
             }
             .pickerStyle(.segmented)
             .onChange(of: mode) { restart() }
+            .accessibilityIdentifier("writing.mode")
 
             ZStack {
                 HanziGrid()
@@ -36,12 +37,13 @@ struct WritingPracticeView: View {
                     ForEach(0..<min(accepted, graphics.strokes.count), id: \.self) { i in
                         GlyphShape(path: graphics.strokes[i]).fill(Color.primary)
                     }
-                    if !done && misses >= 3 {
+                    if !done && misses >= 3 && accepted < graphics.strokes.count {
                         GlyphShape(path: graphics.strokes[accepted]).fill(Color.accentColor.opacity(0.35))
                     }
                 }
                 PencilCanvas(mode: mode, graphics: graphics, accepted: $accepted, onStroke: handle)
                     .id(canvasID)
+                    .accessibilityIdentifier("writing.canvas")
                 if flashWrong {
                     RoundedRectangle(cornerRadius: 4).stroke(Color.red, lineWidth: 4)
                 }
@@ -58,12 +60,14 @@ struct WritingPracticeView: View {
                     } else {
                         Text("Stroke \(accepted + 1) of \(graphics.strokes.count)")
                             .foregroundStyle(.secondary)
+                            .accessibilityIdentifier("writing.progress")
                         if misses >= 3 { Text("· hint shown").foregroundStyle(.secondary) }
                     }
                 }
                 Spacer()
                 Button("Restart", systemImage: "arrow.counterclockwise") { restart() }
                     .buttonStyle(.bordered)
+                    .accessibilityIdentifier("writing.restart")
             }
             .font(.subheadline)
         }
@@ -78,7 +82,7 @@ struct WritingPracticeView: View {
 
     /// Returns true if the stroke should stay on the canvas.
     private func handle(_ points: [CGPoint]) -> Bool {
-        guard mode == .quiz, !done else { return mode != .quiz }
+        guard mode == .quiz, !done, accepted < graphics.medians.count else { return mode != .quiz }
         if StrokeMatcher.matches(points, graphics.medians[accepted]) {
             accepted += 1
             misses = 0

@@ -28,7 +28,7 @@ struct PinyinText: View {
     var font: Font = .title3
 
     var body: some View {
-        let syl = Pinyin.syllables(numbered: numbered)
+        let syl = Pinyin.joined(Pinyin.syllables(numbered: numbered))
         syl.enumerated().reduce(Text("")) { acc, item in
             let (i, s) = item
             let t = Text(s.text).foregroundColor(ToneColor.color(s.tone))
@@ -47,7 +47,7 @@ struct HanziText: View {
 
     var body: some View {
         let chars = Array(hanzi)
-        let syl = Pinyin.syllables(numbered: numbered)
+        let syl = Pinyin.syllables(numbered: numbered)  // erhua "r5" lines up with 儿
         let match = colored && chars.count == syl.count
         chars.enumerated().reduce(Text("")) { acc, item in
             let (i, ch) = item

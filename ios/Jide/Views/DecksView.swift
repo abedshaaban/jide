@@ -26,6 +26,7 @@ struct DecksView: View {
                         } label: {
                             DeckRowLabel(title: d.name, subtitle: "\(d.wordIDs.count) words", counts: counts[scope.id])
                         }
+                        .accessibilityIdentifier("deck.custom.\(d.name)")
                         .swipeActions(edge: .leading) {
                             Button("Study") { studying = scope }.tint(.accentColor)
                         }
@@ -35,6 +36,7 @@ struct DecksView: View {
                         try? context.save()
                     }
                     Button { showNewDeck = true } label: { Label("New deck", systemImage: "plus") }
+                        .accessibilityIdentifier("decks.new")
                 } header: {
                     Text("Custom")
                 } footer: {
@@ -47,6 +49,7 @@ struct DecksView: View {
             .fullScreenCover(item: $studying, onDismiss: refresh) { ReviewView(scope: $0) }
             .alert("New deck", isPresented: $showNewDeck) {
                 TextField("Name", text: $newDeckName)
+                    .accessibilityIdentifier("decks.newName")
                 Button("Create") {
                     let name = newDeckName.trimmingCharacters(in: .whitespaces)
                     if !name.isEmpty { context.insert(Deck(name: name)); try? context.save() }
@@ -62,14 +65,12 @@ struct DecksView: View {
             DeckRowLabel(title: scope.title, subtitle: nil, counts: counts[scope.id])
         }
         .foregroundStyle(.primary)
+        .accessibilityIdentifier("deck.\(scope.id)")
     }
 
     private func refresh() {
-        var c: [String: StudyQueue.Counts] = [:]
-        for s in [DeckScope.all, .leeches] + rankScopes + hskScopes + decks.map({ .custom($0.id, $0.name) }) {
-            c[s.id] = StudyQueue.counts(s, context)
-        }
-        counts = c
+        let scopes = [DeckScope.all, .leeches] + rankScopes + hskScopes + decks.map { .custom($0.id, $0.name) }
+        counts = StudyQueue.counts(scopes, context)
     }
 }
 
@@ -110,11 +111,18 @@ struct CustomDeckView: View {
                 TextField("Name", text: $deck.name)
                 Button("Study this deck") { studying = .custom(deck.id, deck.name) }
                     .disabled(deck.wordIDs.isEmpty)
+                    .accessibilityIdentifier("deck.study")
             }
             Section("\(deck.wordIDs.count) words") {
+                if deck.wordIDs.isEmpty {
+                    Text("No words yet. Open a word in the Words tab and tick this deck under Decks.")
+                        .foregroundStyle(.secondary)
+                        .accessibilityIdentifier("deck.emptyHint")
+                }
                 ForEach(deck.wordIDs, id: \.self) { id in
                     if let w = byID[id] {
                         NavigationLink { WordDetailView(word: w) } label: { WordRow(word: w) }
+                            .accessibilityIdentifier("word.\(w.simplified)")
                     }
                 }
                 .onDelete { idx in

@@ -6,19 +6,23 @@ struct TodayView: View {
     @State private var counts = StudyQueue.Counts()
     @State private var stats = StatsSnapshot()
     @State private var studying: DeckScope?
+    @Environment(\.dynamicTypeSize) private var typeSize
+
+    /// Side by side normally, stacked at accessibility text sizes so words don't break mid-word.
+    private var row: AnyLayout { typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: 12)) : AnyLayout(HStackLayout(spacing: 12)) }
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
-                    HStack(spacing: 12) {
+                    row {
                         StatTile(value: "\(stats.streak)", label: "day streak", systemImage: "flame.fill", tint: .orange)
                         StatTile(value: "\(stats.reviewedToday)", label: "reviewed today", systemImage: "checkmark.circle.fill",
                                  tint: .green)
                     }
 
                     VStack(spacing: 12) {
-                        HStack {
+                        row {
                             CountPill(n: counts.new, label: "new", color: .blue)
                             CountPill(n: counts.learning, label: "learning", color: .orange)
                             CountPill(n: counts.review, label: "review", color: .green)
@@ -33,6 +37,7 @@ struct TodayView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .disabled(counts.total == 0)
+                        .accessibilityIdentifier("today.study")
                     }
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 16).fill(Color(.secondarySystemBackground)))
@@ -41,11 +46,15 @@ struct TodayView: View {
                         NavigationLink { ToneQuizView() } label: {
                             PracticeRow(title: "Tone quiz", subtitle: "Hear a word, pick its tones", systemImage: "waveform")
                         }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("today.toneQuiz")
                         Divider().padding(.leading, 52)
                         NavigationLink { WritingDrillView() } label: {
                             PracticeRow(title: "Writing drill", subtitle: "Write characters you have learned",
                                         systemImage: "pencil.and.scribble")
                         }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("today.writingDrill")
                     }
                     .background(RoundedRectangle(cornerRadius: 16).fill(Color(.secondarySystemBackground)))
 
@@ -84,6 +93,7 @@ struct StatTile: View {
         VStack(alignment: .leading, spacing: 4) {
             Image(systemName: systemImage).foregroundStyle(tint)
             Text(value).font(.system(.largeTitle, design: .rounded).bold())
+                .lineLimit(1).minimumScaleFactor(0.5)
             Text(label).font(.caption).foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)

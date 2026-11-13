@@ -22,9 +22,10 @@ struct ReviewView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Close") {
-                        Speech.shared.stop()
+                        AudioCoordinator.stopAll()
                         dismiss()
                     }
+                    .accessibilityIdentifier("review.close")
                 }
             }
         }
@@ -47,6 +48,8 @@ struct ReviewSessionView: View {
             if let card = session.current, let word = card.word {
                 HStack {
                     Text(card.direction.label).font(.caption).foregroundStyle(.secondary)
+                        .accessibilityIdentifier("review.direction")
+                        .accessibilityValue(card.direction.rawValue)
                     if card.isLeech { Image(systemName: "ant.fill").foregroundStyle(.red).font(.caption) }
                     Spacer()
                     Text("\(session.remaining) left · \(session.reviewedCount) done").font(.caption).foregroundStyle(.secondary)
@@ -67,6 +70,7 @@ struct ReviewSessionView: View {
                 }
                 .contentShape(Rectangle())
                 .onTapGesture { if !revealed { reveal(word) } }
+                .accessibilityIdentifier("review.card")
 
                 bottomBar(word)
                     .sheet(isPresented: $showDetails) {
@@ -78,7 +82,15 @@ struct ReviewSessionView: View {
                     Image(systemName: "hourglass").font(.largeTitle)
                     Text("Next learning card in \(formatInterval(from: now, to: until))")
                     Button("Study it now") { session.continueNow() }.buttonStyle(.bordered)
+                        .accessibilityIdentifier("review.studyNow")
                 }
+                .padding()
+                Spacer()
+            } else if session.startedEmpty {
+                Spacer()
+                ContentUnavailableView("Nothing to study", systemImage: "tray",
+                                       description: Text("No cards are due in this deck and today's new cards are used up."))
+                    .accessibilityIdentifier("review.empty")
                 Spacer()
             } else {
                 Spacer()
@@ -87,6 +99,8 @@ struct ReviewSessionView: View {
                     Text("Session complete").font(.title2.bold())
                     Text("\(session.reviewedCount) reviews").foregroundStyle(.secondary)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("review.complete")
                 Spacer()
             }
         }
@@ -94,7 +108,8 @@ struct ReviewSessionView: View {
             now = t
             if session.current == nil, let u = session.waitingUntil, u <= t { session.advance() }
         }
-        .onChange(of: session.current?.id) { _, _ in
+        .onChange(of: session.serial) { _, _ in
+            // Fires for every shown card, also when the same learning card comes back right away.
             revealed = false
             if let c = session.current, let w = c.word, c.direction == .audioToHanzi { Speech.shared.speak(w.simplified) }
         }
@@ -116,7 +131,8 @@ struct ReviewSessionView: View {
                 HStack(spacing: 8) {
                     ForEach(Rating.allCases) { r in
                         Button {
-                            Speech.shared.stop()
+                            AudioCoordinator.stopAll()
+                            revealed = false
                             session.rate(r)
                         } label: {
                             VStack(spacing: 2) {
@@ -125,15 +141,20 @@ struct ReviewSessionView: View {
                                     Text(formatInterval(from: Date(), to: p.due)).font(.caption2)
                                 }
                             }
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.5)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 6)
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(color(r))
+                        .accessibilityIdentifier("rate.\(r.label.lowercased())")
                     }
                 }
+                .dynamicTypeSize(...DynamicTypeSize.accessibility1)
                 Button("Details, notes & writing") { showDetails = true }
                     .font(.footnote)
+                    .accessibilityIdentifier("review.details")
             } else {
                 Button {
                     reveal(word)
@@ -141,6 +162,7 @@ struct ReviewSessionView: View {
                     Text("Show answer").font(.headline).frame(maxWidth: .infinity).padding(.vertical, 8)
                 }
                 .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("review.show")
             }
         }
         .padding()
