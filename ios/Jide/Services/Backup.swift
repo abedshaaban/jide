@@ -123,16 +123,30 @@ enum SettingValue: Codable, Equatable {
 }
 
 enum BackupService {
+    /// ISO 8601 with milliseconds, so due dates and review times survive a round trip.
     static func encoder() -> JSONEncoder {
         let e = JSONEncoder()
-        e.dateEncodingStrategy = .iso8601
+        e.dateEncodingStrategy = .custom { date, enc in
+            let f = ISO8601DateFormatter()
+            f.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            var c = enc.singleValueContainer()
+            try c.encode(f.string(from: date))
+        }
         e.outputFormatting = [.sortedKeys]
         return e
     }
 
+    /// Accepts dates with or without fractional seconds.
     static func decoder() -> JSONDecoder {
         let d = JSONDecoder()
-        d.dateDecodingStrategy = .iso8601
+        d.dateDecodingStrategy = .custom { dec in
+            let c = try dec.singleValueContainer()
+            let s = try c.decode(String.self)
+            let frac = ISO8601DateFormatter()
+            frac.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            if let date = frac.date(from: s) ?? ISO8601DateFormatter().date(from: s) { return date }
+            throw DecodingError.dataCorruptedError(in: c, debugDescription: "Bad date \(s)")
+        }
         return d
     }
 
@@ -145,7 +159,7 @@ enum BackupService {
 
         var settings: [String: SettingValue] = [:]
         for k in SettingsKey.exported {
-            if let v = UserDefaults.standard.object(forKey: k), let sv = SettingValue(v) { settings[k] = sv }
+            if let v = AppSettings.defaults.object(forKey: k), let sv = SettingValue(v) { settings[k] = sv }
         }
 
         let file = BackupFile(
@@ -187,25 +201,57 @@ enum BackupService {
         }
     }
 
-    enum ImportError: LocalizedError {
-        case notABackup, newerVersion(Int)
+    enum ImportError: LocalizedError, Equatable {
+        case notABackup, unsupportedVersion(Int), corrupt(String)
         var errorDescription: String? {
             switch self {
             case .notABackup: "This file is not a 记得 backup."
-            case .newerVersion(let v): "Backup version \(v) is newer than this app supports."
+            case .unsupportedVersion(let v): "Backup version \(v) is not supported by this app (supports \(BackupFile.currentVersion))."
+            case .corrupt(let why): "The backup file is damaged: \(why)"
             }
+        }
+    }
+
+    /// Validates and decodes without touching the store.
+    static func decode(_ data: Data) throws -> BackupFile {
+        struct Header: Decodable { var format: String?; var version: Int? }
+        guard let header = try? JSONDecoder().decode(Header.self, from: data), header.format == BackupFile.formatName else {
+            throw ImportError.notABackup
+        }
+        let v = header.version ?? 0
+        guard (1...BackupFile.currentVersion).contains(v) else { throw ImportError.unsupportedVersion(v) }
+        do {
+            return try decoder().decode(BackupFile.self, from: data)
+        } catch let e as DecodingError {
+            throw ImportError.corrupt(describe(e))
+        }
+    }
+
+    private static func describe(_ e: DecodingError) -> String {
+        switch e {
+        case .keyNotFound(let k, _): "missing \(k.stringValue)"
+        case .typeMismatch(_, let c), .valueNotFound(_, let c), .dataCorrupted(let c):
+            c.codingPath.map(\.stringValue).joined(separator: ".") + " " + c.debugDescription
+        @unknown default: "\(e)"
         }
     }
 
     /// Merges a backup into the store. Entries in the backup win over local ones with the same ID.
     @MainActor
     static func importBackup(_ data: Data, into context: ModelContext) throws -> ImportSummary {
-        let file = try decoder().decode(BackupFile.self, from: data)
-        guard file.format == BackupFile.formatName else { throw ImportError.notABackup }
-        guard file.version <= BackupFile.currentVersion else { throw ImportError.newerVersion(file.version) }
+        let file = try decode(data)
+        do {
+            return try apply(file, into: context)
+        } catch {
+            context.rollback()
+            throw error
+        }
+    }
+
+    @MainActor
+    private static func apply(_ file: BackupFile, into context: ModelContext) throws -> ImportSummary {
         var sum = ImportSummary()
 
-        Seeder.run(context)
         var words = Dictionary(uniqueKeysWithValues: try context.fetch(FetchDescriptor<Word>()).map { ($0.id, $0) })
         for e in file.words {
             let w: Word
@@ -272,15 +318,16 @@ enum BackupService {
             sum.decks += 1
         }
 
-        for r in file.recordings {
+        try context.save()
+
+        // Files and settings only after the store saved, so a failed import changes nothing.
+        for r in file.recordings where words[r.wordId] != nil {
             try r.data.write(to: RecordingStore.url(for: r.wordId), options: .atomic)
             sum.recordings += 1
         }
-
         for (k, v) in file.settings where SettingsKey.exported.contains(k) {
-            UserDefaults.standard.set(v.any, forKey: k)
+            AppSettings.defaults.set(v.any, forKey: k)
         }
-        try context.save()
         Reminders.refresh()
         return sum
     }

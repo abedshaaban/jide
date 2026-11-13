@@ -1,8 +1,8 @@
 # Backup format (`jide-backup`, version 1)
 
 One UTF-8 JSON file. iOS writes it from Settings › Export backup; Android must read and write the
-same structure. Dates are ISO 8601 strings in UTC without fractional seconds
-(`2026-11-13T08:00:00Z`). Binary data is standard base64.
+same structure. Dates are ISO 8601 strings in UTC with milliseconds
+(`2026-11-13T08:00:00.123Z`); readers must also accept them without fractional seconds. Binary data is standard base64.
 
 ```jsonc
 {
@@ -71,7 +71,9 @@ same structure. Dates are ISO 8601 strings in UTC without fractional seconds
 - Review logs are added only if their `id` is not already present.
 - Words that are neither custom nor in the bundled list are skipped.
 - A recording replaces the local recording for that word.
-- Reject files whose `format` differs or whose `version` is newer than supported.
+- Reject files whose `format` differs, whose `version` is not supported (only 1 exists), or that do not
+  decode. Validate fully before changing anything; a failed import must leave local data untouched.
+- Recordings for words that do not exist after the import are ignored.
 
 ## Scheduler
 
