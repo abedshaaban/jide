@@ -8,3 +8,7 @@ build/
 local.properties
 .idea/
 *.iml
+
+# iOS
+ios/Jide.xcodeproj/
+ios/Local.xcconfig
