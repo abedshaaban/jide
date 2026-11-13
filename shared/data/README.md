@@ -22,7 +22,7 @@ python3 -I shared/data/scripts/build_data.py --cache DIR # reuse a download cach
     "definitions": ["one", "..."], // CC-CEDICT senses
     "hsk": 1,                      // HSK 2.0 level 1-6, or null
     "hsk3": 1,                     // HSK 3.0 level 1-7 (7 = 7-9), or null
-    "sentences": [{ "id": 826049, "zh": "...", "pinyin": "...", "en": "..." }] // Tatoeba, 0-3
+    "sentences": [{ "id": 826049, "zh": "...", "pinyin": "wǒ zài jiā。", "en": "..." }] // Tatoeba, 0-3; pinyin one syllable per token
   }]
 }
 ```

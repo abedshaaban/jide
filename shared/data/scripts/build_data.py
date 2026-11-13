@@ -228,7 +228,7 @@ def build_segmenter(cedict, preferred=None, numbered=False):
                     if numbered:
                         out.extend(reading[chunk].split())
                     else:
-                        out.append("".join(numbered_to_marks(s) for s in reading[chunk].split()))
+                        out.extend(numbered_to_marks(s) for s in reading[chunk].split())
                     i += n
                     break
             else:
