@@ -41,7 +41,7 @@ SOURCES = {
 }
 
 # Bump when the output changes so installed apps refresh dictionary fields.
-DATA_VERSION = 2
+DATA_VERSION = 3
 MAX_SENTENCES = 3
 MAX_SENTENCE_LEN = 18
 
@@ -393,18 +393,11 @@ def main():
         })
 
     mmah, graphics = load_mmah(args.cache)
-    wanted, queue = set(), [c for w in words for c in w["simplified"]]
-    stroke_chars = set(queue)
-    while queue:
-        c = queue.pop()
-        if c in wanted or c not in mmah:
-            continue
-        wanted.add(c)
-        for comp in mmah[c].get("decomposition", ""):
-            if comp in mmah and comp not in wanted:
-                queue.append(comp)
+    # Every character gets pinyin/meaning/decomposition (custom words, component breakdown);
+    # stroke graphics only for characters of the bundled words, to keep the app small.
+    stroke_chars = {c for w in words for c in w["simplified"]}
     characters = {}
-    for c in sorted(wanted):
+    for c in sorted(mmah):
         d = mmah[c]
         entry = {
             "definition": d.get("definition", ""),

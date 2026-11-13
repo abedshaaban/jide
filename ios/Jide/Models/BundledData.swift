@@ -95,30 +95,46 @@ final class Library {
         DispatchQueue.global(qos: .utility).async { _ = self.loadCharacters() }
     }
 
-    /// Best-guess numbered pinyin for arbitrary text, from per-character readings.
+    /// Best-guess numbered pinyin from per-character readings, or "" if any character is unknown
+    /// (a partial guess would silently drop syllables).
     func guessPinyin(_ text: String) -> String {
-        text.compactMap { ch -> String? in
-            guard let p = character(ch)?.pinyin.first else { return nil }
-            return Pinyin.normalizeInput(p)
-        }.joined(separator: " ")
+        var out: [String] = []
+        for ch in text where !ch.isWhitespace {
+            guard let p = character(ch)?.pinyin.first else { return "" }
+            out.append(Pinyin.normalizeInput(p))
+        }
+        return out.joined(separator: " ")
     }
 }
 
 /// Inserts bundled words into SwiftData and keeps dictionary fields current without touching user data.
 enum Seeder {
-    private static let key = "seededDataVersion"
+    static let versionKey = "seededDataVersion"
+
+    enum Outcome: Equatable { case skipped, seeded(inserted: Int, updated: Int) }
 
     @MainActor
-    static func run(_ context: ModelContext) {
-        let lib = Library.shared
-        let existingCount = (try? context.fetchCount(FetchDescriptor<Word>())) ?? 0
-        if existingCount > 0 && UserDefaults.standard.integer(forKey: key) >= lib.dataVersion { return }
+    @discardableResult
+    static func run(_ context: ModelContext) -> Outcome {
+        run(context, words: Library.shared.words, version: Library.shared.dataVersion, defaults: AppSettings.defaults)
+    }
+
+    /// Inserts missing bundled words (with their three cards) and refreshes dictionary fields of existing ones.
+    /// Notes, mnemonics, scheduling and custom words are never touched. Skips when this data version is done.
+    @MainActor
+    @discardableResult
+    static func run(_ context: ModelContext, words bundled: [BundledWord], version: Int, defaults: UserDefaults) -> Outcome {
+        let existingCount = (try? context.fetchCount(FetchDescriptor<Word>(predicate: #Predicate { !$0.isCustom }))) ?? 0
+        if existingCount > 0 && defaults.integer(forKey: versionKey) >= version { return .skipped }
 
         let existing = (try? context.fetch(FetchDescriptor<Word>())) ?? []
-        var byID = Dictionary(uniqueKeysWithValues: existing.map { ($0.id, $0) })
-        for bw in lib.words {
+        var byID: [String: Word] = [:]
+        for w in existing { byID[w.id] = w }
+        var inserted = 0, updated = 0
+        for bw in bundled {
             let id = Word.builtinID(bw.simplified)
             if let w = byID[id] {
+                if w.rank != bw.rank { for c in w.cards { c.rank = bw.rank } }
                 w.rank = bw.rank
                 w.traditional = bw.traditional
                 w.pinyinNumbered = bw.pinyinNumbered
@@ -127,8 +143,8 @@ enum Seeder {
                 w.definitions = bw.definitions
                 w.hsk = bw.hsk
                 w.hsk3 = bw.hsk3
-                for c in w.cards { c.rank = bw.rank }
                 ensureCards(w, context)
+                updated += 1
             } else {
                 let w = Word(id: id, rank: bw.rank, simplified: bw.simplified, traditional: bw.traditional,
                              pinyinNumbered: bw.pinyinNumbered, gloss: bw.gloss, definitions: bw.definitions,
@@ -136,17 +152,32 @@ enum Seeder {
                 context.insert(w)
                 byID[id] = w
                 ensureCards(w, context)
+                inserted += 1
             }
         }
-        try? context.save()
-        UserDefaults.standard.set(lib.dataVersion, forKey: key)
+        do {
+            try context.save()
+            defaults.set(version, forKey: versionKey)
+        } catch {
+            // Leave the version unset so the next launch retries.
+            context.rollback()
+        }
+        return .seeded(inserted: inserted, updated: updated)
     }
 
+    @MainActor
     static func ensureCards(_ word: Word, _ context: ModelContext) {
         for d in Direction.allCases where word.card(d) == nil {
             let c = Card(word: word, direction: d)
             context.insert(c)
             c.word = word
         }
+    }
+
+    /// Housekeeping after launch: recordings whose word was deleted.
+    @MainActor
+    static func pruneRecordings(_ context: ModelContext) {
+        guard let words = try? context.fetch(FetchDescriptor<Word>()) else { return }
+        RecordingStore.pruneOrphans(keeping: Set(words.map(\.id)))
     }
 }
