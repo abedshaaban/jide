@@ -59,6 +59,8 @@ final class JideUITests: XCTestCase {
         tab("Words")
         let field = app.searchFields.firstMatch
         wait(field).tap()
+        // Right after a sheet closes the first tap can be swallowed; retry until the keyboard is up.
+        for _ in 0..<3 where !app.keyboards.firstMatch.waitForExistence(timeout: 2) { field.tap() }
         if let current = field.value as? String, !current.isEmpty, current != field.placeholderValue {
             field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: current.count))
         }
