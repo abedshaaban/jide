@@ -1,5 +1,5 @@
 {
-"version":1,
+"version":2,
 "words":[
 {
 "rank":1,
@@ -83,7 +83,7 @@
 "gloss":"there is, have, possess",
 "definitions":[
 "to have; there is",
-"(bound form) having; with; -ful; -ed; -al (as in 有意[you3 yi4] intentional)"
+"(bound form) having; with; -ful; -ed; -al (as in 有意[yǒuyì] intentional)"
 ],
 "hsk":1,
 "hsk3":1,
@@ -97,7 +97,7 @@
 {
 "id":450959,
 "zh":"有人吗？",
-"pinyin":"yǒu rén má？",
+"pinyin":"yǒu rén ma？",
 "en":"Anybody here?"
 },
 {
@@ -219,7 +219,7 @@
 "definitions":[
 "(pronoun) this; these",
 "(bound form) this; the (followed by a noun)",
-"(bound form) this; these (followed by a classifier) (in this sense, commonly pr. [zhei4], esp. in Beijing)"
+"(bound form) this; these (followed by a classifier) (in this sense, commonly pr. [zhèi], esp. in Beijing)"
 ],
 "hsk":1,
 "hsk3":1,
@@ -253,7 +253,7 @@
 "gloss":"he, them (gender unknown), it, they (referring to inanimate things in object position)",
 "definitions":[
 "(third-person singular) (since the early 20th century, usu. male) he; him; his",
-"(bound form) other; another; some other (as in 他日[ta1 ri4] and 他人[ta1 ren2])"
+"(bound form) other; another; some other (as in 他日[tārì] and 他人[tārén])"
 ],
 "hsk":1,
 "hsk3":1,
@@ -288,7 +288,7 @@
 "definitions":[
 "also; too; as well; (not ...) either",
 "(used after a verbal or nominal expression X to indicate that X is an extreme or unexpected case) even (X)",
-"(literary) particle having functions similar to 啊[a5]"
+"(literary) particle having functions similar to 啊[a]"
 ],
 "hsk":2,
 "hsk3":1,
@@ -323,17 +323,17 @@
 "definitions":[
 "(after a suppositional clause) in that case; then",
 "(after a clause of action) as soon as; immediately after",
-"(same as 就是[jiu4 shi4]) merely; nothing else but; simply; just; precisely; exactly",
+"(same as 就是[jiùshì]) merely; nothing else but; simply; just; precisely; exactly",
 "only; as little as",
 "as much as; as many as",
 "to approach; to move towards",
 "to undertake; to engage in",
-"(often followed by 著|着[zhe5]) taking advantage of",
+"(often followed by 著|着[zhe]) taking advantage of",
 "(of food) to go with",
 "with regard to; concerning",
-"(bound form) to reach; to attain (as in 一蹴而就[yi1 cu4 er2 jiu4])",
-"(pattern: 就[jiu4] ... 也[ye3] ...) even if ... still ...",
-"(pattern: 不[bu4] ... 就[jiu4] ...) if not ... then must be ..."
+"(bound form) to reach; to attain (as in 一蹴而就[yīcùérjiù])",
+"(pattern: 就[jiù] ... 也[yě] ...) even if ... still ...",
+"(pattern: 不[bù] ... 就[jiù] ...) if not ... then must be ..."
 ],
 "hsk":2,
 "hsk3":1,
@@ -544,7 +544,7 @@
 "pinyinNumbered":"ni3",
 "gloss":"you",
 "definitions":[
-"you (informal, as opposed to courteous 您[nin2])"
+"you (informal, as opposed to courteous 您[nín])"
 ],
 "hsk":1,
 "hsk3":1,
@@ -615,7 +615,7 @@
 "to want; to need; to ask for",
 "will; shall; about to",
 "need to; should",
-"if (same as 要是[yao4 shi5])",
+"if (same as 要是[yàoshi])",
 "(bound form) important"
 ],
 "hsk":2,
@@ -654,7 +654,7 @@
 "to meet; to get together",
 "meeting; gathering",
 "(suffix) union; group; association",
-"(bound form) a moment (Taiwan pr. [hui3])"
+"(bound form) a moment (Taiwan pr. [huǐ])"
 ],
 "hsk":1,
 "hsk3":1,
@@ -767,7 +767,12 @@
 "pinyinNumbered":"he2",
 "gloss":"and, with, gentle, peaceful",
 "definitions":[
-"old variant of 和[he2]"
+"(joining two nouns) and; together with; with (Taiwan pr. [hàn])",
+"(math.) sum",
+"to make peace",
+"(sports) to draw; to tie",
+"(bound form) harmonious",
+"(bound form) Japan; Japanese"
 ],
 "hsk":1,
 "hsk3":1,
@@ -801,7 +806,7 @@
 "gloss":"and, together with, to give",
 "definitions":[
 "(formal) and; together with (linking parallel nouns, verbs, or phrases)",
-"(formal) with; from (marking the other participant in an interaction, comparison, or contrast, e.g. 與他握手|与他握手[yu3 ta1 wo4 shou3] \"shake hands with him\", 與去年不同|与去年不同[yu3 qu4 nian2 bu4 tong2] \"different from last year\")",
+"(formal) with; from (marking the other participant in an interaction, comparison, or contrast, e.g. 與他握手|与他握手[yǔtāwòshǒu] \"shake hands with him\", 與去年不同|与去年不同[yǔqùniánbùtóng] \"different from last year\")",
 "(literary) to give; to grant; to bestow"
 ],
 "hsk":4,
@@ -835,7 +840,12 @@
 "pinyinNumbered":"yi3",
 "gloss":"using, taking, from a point on, because of",
 "definitions":[
-"old variant of 以[yi3]"
+"to use",
+"by means of",
+"according to",
+"in order to",
+"because of",
+"at (a certain date or place)"
 ],
 "hsk":4,
 "hsk3":7,
@@ -942,7 +952,7 @@
 "of; ~'s (possessive particle)",
 "(used after an attribute when it modifies a noun)",
 "(used at the end of a declarative sentence for emphasis)",
-"(used after a noun, verb or adjective to form a nominal expression, as in 皮革的[pi2 ge2 de5] \"one made of leather\" or 跑堂兒的|跑堂儿的[pao3 tang2 r5 de5] \"a waiter (literally, one who runs back and forth in a restaurant)\" or 新的[xin1 de5] \"new one\")"
+"(used after a noun, verb or adjective to form a nominal expression, as in 皮革的[pígéde] \"one made of leather\" or 跑堂兒的|跑堂儿的[pǎotángrde] \"a waiter (literally, one who runs back and forth in a restaurant)\" or 新的[xīnde] \"new one\")"
 ],
 "hsk":1,
 "hsk3":1,
@@ -977,7 +987,7 @@
 "definitions":[
 "big; large; great",
 "older (than another person)",
-"eldest (as in 大姐[da4 jie3])",
+"eldest (as in 大姐[dàjiě])",
 "greatly; freely; fully",
 "(dialect) father",
 "(dialect) uncle (father's brother)"
@@ -1048,9 +1058,9 @@
 "traditional":"著",
 "pinyin":"zhe",
 "pinyinNumbered":"zhe5",
-"gloss":"aspect particle indicating action in progress / ongoing state, to use, to apply, to touch, to feel, to be affected by, to catch fire, to fall asleep",
+"gloss":"aspect particle indicating action in progress / ongoing state, to use, to apply, to touch, to feel, to be affected by",
 "definitions":[
-"variant of 著|着[zhe5]"
+"aspect particle indicating action in progress or ongoing state"
 ],
 "hsk":2,
 "hsk3":1,
@@ -1116,7 +1126,7 @@
 "pinyinNumbered":"na4",
 "gloss":"that, there",
 "definitions":[
-"(specifier) that; the; those (colloquial pr. [nei4])",
+"(specifier) that; the; those (colloquial pr. [nèi])",
 "(pronoun) that (referring to persons, things or situations)",
 "then (in that case)"
 ],
@@ -1335,7 +1345,8 @@
 "pinyinNumbered":"zui4",
 "gloss":"most, to the highest degree, much, superlatively",
 "definitions":[
-"variant of 最[zui4]"
+"(before an adjective or verb) to the highest degree; (the) most ...; -est",
+"(after 之[zhī]) best or most extreme example (e.g. 世界之最[shìjièzhīzuì] \"the greatest in the world\")"
 ],
 "hsk":2,
 "hsk3":1,
@@ -1444,13 +1455,13 @@
 "definitions":[
 "to come",
 "(used as a substitute for a more specific verb)",
-"hither (directional complement for motion toward the speaker, as in 回來|回来[hui2 lai5])",
-"ever since (as in 自古以來|自古以来[zi4 gu3 yi3 lai2])",
+"hither (directional complement for motion toward the speaker, as in 回來|回来[huílai])",
+"ever since (as in 自古以來|自古以来[zìgǔyǐlái])",
 "for the past (amount of time)",
-"(prefix) the coming ...; the next ... (as in 來世|来世[lai2 shi4])",
+"(prefix) the coming ...; the next ... (as in 來世|来世[láishì])",
 "(between two verbs) in order to",
 "(after a round number) approximately",
-"(used after 得[de2] to indicate possibility, as in 談得來|谈得来[tan2 de5 lai2], or after 不[bu4] to indicate impossibility, as in 吃不來|吃不来[chi1 bu5 lai2])"
+"(used after 得[dé] to indicate possibility, as in 談得來|谈得来[tándelái], or after 不[bù] to indicate impossibility, as in 吃不來|吃不来[chībulái])"
 ],
 "hsk":1,
 "hsk3":1,
@@ -1557,7 +1568,7 @@
 "both",
 "some",
 "a few",
-"tael, unit of weight equal to 50 grams (modern) or 1⁄16 of a catty 斤[jin1] (old)"
+"tael, unit of weight equal to 50 grams (modern) or 1⁄16 of a catty 斤[jīn] (old)"
 ],
 "hsk":2,
 "hsk3":1,
@@ -1821,7 +1832,7 @@
 "to take",
 "to checkmate",
 "just a short while ago",
-"(introduces object of main verb, used in the same way as 把[ba3])"
+"(introduces object of main verb, used in the same way as 把[bǎ])"
 ],
 "hsk":null,
 "hsk3":5,
@@ -1887,9 +1898,11 @@
 "pinyinNumbered":"yu2",
 "gloss":"in, at, to, from, out of, by",
 "definitions":[
-"to go",
-"to take",
-"sentence-final interrogative particle"
+"(of time or place) in; at; on",
+"(indicating any indirect relation) to; toward; vis-à-vis; with regard to; for",
+"(indicating a source) from; out of",
+"(used in comparison) than",
+"(used in the passive voice) by"
 ],
 "hsk":null,
 "hsk3":6,
@@ -1959,7 +1972,14 @@
 "pinyinNumbered":"cong2",
 "gloss":"from, since, through",
 "definitions":[
-"variant of 從|从[cong2]"
+"from; through; via",
+"(bound form) to follow",
+"(bound form) to obey",
+"(bound form) to engage in (an activity)",
+"(used before a negative) ever",
+"(bound form) (Taiwan pr. [zòng]) retainer; attendant",
+"(bound form) (Taiwan pr. [zòng]) assistant; auxiliary; subordinate",
+"(bound form) (Taiwan pr. [zòng]) related by common paternal grandfather or earlier ancestor"
 ],
 "hsk":2,
 "hsk3":1,
@@ -2010,7 +2030,7 @@
 {
 "id":5670784,
 "zh":"那更好吗？",
-"pinyin":"nà gèng hǎo má？",
+"pinyin":"nà gèng hǎo ma？",
 "en":"Is that better?"
 },
 {
@@ -2145,7 +2165,7 @@
 "(after a noun) person involved in ...",
 "-er",
 "-ist",
-"(used after a number or 後|后[hou4] or 前[qian2] to refer to sth mentioned previously)",
+"(used after a number or 後|后[hòu] or 前[qián] to refer to sth mentioned previously)",
 "(used after a term, to mark a pause before defining the term)",
 "(old) (used at the end of a command)",
 "(old) this"
@@ -2265,7 +2285,7 @@
 "handlebar",
 "classifier: handful, bundle, bunch",
 "classifier for things with handles",
-"(used to put the object before the verb: 把[ba3] + {noun} + {verb})"
+"(used to put the object before the verb: 把[bǎ] + {noun} + {verb})"
 ],
 "hsk":3,
 "hsk3":3,
@@ -2377,7 +2397,7 @@
 {
 "id":5613647,
 "zh":"你有问题吗？",
-"pinyin":"nǐ yǒu wèn tí má？",
+"pinyin":"nǐ yǒu wèn tí ma？",
 "en":"Are you having problems?"
 },
 {
@@ -2400,7 +2420,7 @@
 "traditional":"其",
 "pinyin":"qí",
 "pinyinNumbered":"qi2",
-"gloss":"its, his, her, their, it, this, that",
+"gloss":"its, his, her, their, it, this",
 "definitions":[
 "his",
 "her",
@@ -2446,7 +2466,7 @@
 "to let sb do sth",
 "to have sb do sth",
 "to make sb (feel sad etc)",
-"by (indicates the agent in a passive clause, like 被[bei4])"
+"by (indicates the agent in a passive clause, like 被[bèi])"
 ],
 "hsk":2,
 "hsk3":2,
@@ -2537,7 +2557,7 @@
 {
 "id":6850334,
 "zh":"你做吗?",
-"pinyin":"nǐ zuò má?",
+"pinyin":"nǐ zuò ma?",
 "en":"Have you done it?"
 }
 ]
@@ -2554,8 +2574,8 @@
 "further; beyond this point of time",
 "(before an adjective) more",
 "then (after sth, and not until then)",
-"no matter how ... (followed by an adjective or verb, and then (usually) 也[ye3] or 都[dou1] for emphasis)",
-"(used to introduce additional information, as in 再則|再则[zai4 ze2], 再就是[zai4 jiu4 shi4] etc)",
+"no matter how ... (followed by an adjective or verb, and then (usually) 也[yě] or 都[dōu] for emphasis)",
+"(used to introduce additional information, as in 再則|再则[zàizé], 再就是[zàijiùshì] etc)",
 "(literary) to reappear; to reoccur"
 ],
 "hsk":2,
@@ -2695,7 +2715,7 @@
 "pinyinNumbered":"Tai2 wan1",
 "gloss":"Taiwan",
 "definitions":[
-"variant of 臺灣|台湾[Tai2 wan1]"
+"Taiwan"
 ],
 "hsk":null,
 "hsk3":null,
@@ -2728,7 +2748,15 @@
 "pinyinNumbered":"que4",
 "gloss":"however, but, yet, indeed",
 "definitions":[
-"old variant of 卻|却[que4]"
+"but",
+"yet",
+"however",
+"while",
+"to go back",
+"to decline",
+"to retreat",
+"nevertheless",
+"even though"
 ],
 "hsk":4,
 "hsk3":4,
@@ -2974,7 +3002,7 @@
 {
 "id":352933,
 "zh":"你是学生吗？",
-"pinyin":"nǐ shì xué sheng má？",
+"pinyin":"nǐ shì xué sheng ma？",
 "en":"Are you a student?"
 },
 {
@@ -3162,7 +3190,7 @@
 "traditional":"看",
 "pinyin":"kàn",
 "pinyinNumbered":"kan4",
-"gloss":"see, look at, watch, read, look upon, regard, look after, call on, visit",
+"gloss":"see, look at, watch, read, look upon, regard",
 "definitions":[
 "to see; to look at",
 "to read",
@@ -3440,7 +3468,7 @@
 "traditional":"使",
 "pinyin":"shǐ",
 "pinyinNumbered":"shi3",
-"gloss":"rarefy, piss off, germinate, drench, blow out, leave, cut up, refract, run, dress up, compose, shed, frizz, put off, trot, send, strike, send (as envoy), peal, alienate, pull in, tone up, bring around, astound, sublease, wither, cripple, bed down, address, rehearse, usage, warm, smell out, throw, inflect, get down, skunk, capsize, congeal, bowl over, bring on, unseat, ensure, amalgamate, pro",
+"gloss":"rarefy, piss off, germinate, drench, blow out, leave",
 "definitions":[
 "to make",
 "to cause",
@@ -3555,7 +3583,7 @@
 "traditional":"覺得",
 "pinyin":"jué de",
 "pinyinNumbered":"jue2 de5",
-"gloss":"imagine, guess, believe, reckon, suspect, suppose, think, listen, feel, consider, think of, appear, conceive",
+"gloss":"imagine, guess, believe, reckon, suspect, suppose",
 "definitions":[
 "to think that ...; to feel that ...",
 "to feel (uncomfortable etc)"
@@ -3660,7 +3688,11 @@
 "pinyinNumbered":"li3",
 "gloss":"inside",
 "definitions":[
-"variant of 裡|里[li3]"
+"lining",
+"interior",
+"inside",
+"internal",
+"also written 裏|里[lǐ]"
 ],
 "hsk":1,
 "hsk3":1,
@@ -3765,7 +3797,7 @@
 "traditional":"知道",
 "pinyin":"zhī dào",
 "pinyinNumbered":"zhi1 dao4",
-"gloss":"tell, have, ken, understand, infer, wis, learn, cognize, gather, know, be aware of, wise up, savvy, mind, realize",
+"gloss":"tell, have, ken, understand, infer, wis",
 "definitions":[
 "to know; to become aware of"
 ],
@@ -3832,7 +3864,7 @@
 "traditional":"認為",
 "pinyin":"rèn wéi",
 "pinyinNumbered":"ren4 wei2",
-"gloss":"find, treat, deem, suppose, look on, repute, discount, esteem, accredit, feel, account, calculate, estimate, take to be, reckon, expect, think, hold, trust, recognise, opine, sound off, adjudge, consideration, consider, regard as, look upon, believe in, disbelieve, allow, conceive, regard, call, imagine, view, forecast, believe, suspect, rate, animadvert, look on, listen, speak up, figure, c",
+"gloss":"find, treat, deem, suppose, look on, repute",
 "definitions":[
 "to believe; to think; to consider; to feel"
 ],
@@ -3865,7 +3897,7 @@
 "traditional":"時間",
 "pinyin":"shí jiān",
 "pinyinNumbered":"shi2 jian1",
-"gloss":"moment, day, clock time, fourth dimension, relativity, hour, duration, time, when, while, temporal, economy",
+"gloss":"moment, day, clock time, fourth dimension, relativity, hour",
 "definitions":[
 "(concept of) time",
 "(duration of) time",
@@ -3900,7 +3932,7 @@
 "traditional":"事",
 "pinyin":"shì",
 "pinyinNumbered":"shi4",
-"gloss":"responsibility, trouble, event, thing, worry, accident, case, involvement, work, affair, job, concern, business, toast, matter",
+"gloss":"responsibility, trouble, event, thing, worry, accident",
 "definitions":[
 "matter",
 "thing",
@@ -4093,7 +4125,7 @@
 "traditional":"美國",
 "pinyin":"Měi guó",
 "pinyinNumbered":"Mei3 guo2",
-"gloss":"House of Representatives, the United States of America, US, U.S.A., bench, Columbia, Yankeeland, U.S., United States, Democrat, Yankeedom, USA, America, United States of America",
+"gloss":"House of Representatives, the United States of America, US, U.S.A., bench, Columbia",
 "definitions":[
 "United States; USA; US"
 ],
@@ -4160,7 +4192,7 @@
 "traditional":"系統",
 "pinyin":"xì tǒng",
 "pinyinNumbered":"xi4 tong3",
-"gloss":"lineage, filiation, scheme, pedigree, system, formation, superstructure, programme, organization, succession, tract, system of rules, organisation, program",
+"gloss":"lineage, filiation, scheme, pedigree, system, formation",
 "definitions":[
 "system"
 ],
@@ -4170,7 +4202,7 @@
 {
 "id":784497,
 "zh":"系统是线性的吗？",
-"pinyin":"xì tǒng shì xiàn xìng de má？",
+"pinyin":"xì tǒng shì xiàn xìng de ma？",
 "en":"Is the system linear?"
 },
 {
@@ -4193,7 +4225,7 @@
 "traditional":"政府",
 "pinyin":"zhèng fǔ",
 "pinyinNumbered":"zheng4 fu3",
-"gloss":"sirkar, state, country, nation, governmental, body politic, government, administration, civil order, polity, commonwealth, regime, res publica, land",
+"gloss":"sirkar, state, country, nation, governmental, body politic",
 "definitions":[
 "government"
 ],
@@ -4226,7 +4258,7 @@
 "traditional":"大家",
 "pinyin":"dà jiā",
 "pinyinNumbered":"da4 jia1",
-"gloss":"sundry, great master, rich and influential family, pontiff, all of us, everyone, authority, master, distinguished family",
+"gloss":"sundry, great master, rich and influential family, pontiff, all of us, everyone",
 "definitions":[
 "everyone",
 "influential family",
@@ -4261,7 +4293,7 @@
 "traditional":"國家",
 "pinyin":"guó jiā",
 "pinyinNumbered":"guo2 jia1",
-"gloss":"sirkar, state, country, patria, a people, nationality, nation, republic, soli, body politic, clime, national, civil order, polity, commonwealth, land, res publica",
+"gloss":"sirkar, state, country, patria, a people, nationality",
 "definitions":[
 "country; nation; state"
 ],
@@ -4294,7 +4326,7 @@
 "traditional":"許多",
 "pinyin":"xǔ duō",
 "pinyinNumbered":"xu3 duo1",
-"gloss":"lot, scores, lots, sight, pot, heap, quantity, plenty, slews, ton, battalion, many, scads, tidy sum, power, spate, chunk, pile, crowd, vastness, batch, lashings, whole lot, mint, mound, pocketful, large number, trunkful, ream, mickle, great deal, flock, mass, slew, heaps, a lot of, piles, whole slew, mess, raff, slue, gobs, much, lotta, multitude, volume, wad, store, raft, tons, satiety, rafts, doze",
+"gloss":"lot, scores, lots, sight, pot, heap",
 "definitions":[
 "many",
 "a lot of",
@@ -4509,7 +4541,9 @@
 "pinyinNumbered":"yin1",
 "gloss":"conj.: because, as",
 "definitions":[
-"old variant of 因[yin1]"
+"cause",
+"reason",
+"because"
 ],
 "hsk":null,
 "hsk3":6,
@@ -4622,7 +4656,7 @@
 "shaky; unsteady; loose (tooth etc)",
 "movable; flexible; liquid (capital etc)",
 "(volcanic, seismic, economic etc) activity",
-"(outdoor etc) activity; event; (political) campaign; (military) maneuver (CL:項|项[xiang4])",
+"(outdoor etc) activity; event; (political) campaign; (military) maneuver (CL:項|项[xiàng])",
 "to use personal influence, connections, bribes etc"
 ],
 "hsk":4,
@@ -4631,7 +4665,7 @@
 {
 "id":332432,
 "zh":"你参加社团活动吗？",
-"pinyin":"nǐ cān jiā shè tuán huó dòng má？",
+"pinyin":"nǐ cān jiā shè tuán huó dòng ma？",
 "en":"Do you take part in any community activities?"
 },
 {
@@ -4672,7 +4706,7 @@
 {
 "id":414024,
 "zh":"我该去吗?",
-"pinyin":"wǒ gāi qù má?",
+"pinyin":"wǒ gāi qù ma?",
 "en":"Should I go?"
 },
 {
@@ -4695,7 +4729,7 @@
 "traditional":"世界",
 "pinyin":"shì jiè",
 "pinyinNumbered":"shi4 jie4",
-"gloss":"mundane, creation, world, monde, orb, nature, domain",
+"gloss":"mundane, creation, world, monde, orb, nature",
 "definitions":[
 "world"
 ],
@@ -4833,7 +4867,7 @@
 "traditional":"方式",
 "pinyin":"fāng shì",
 "pinyinNumbered":"fang1 shi4",
-"gloss":"path, plan, pattern, tenor, system, method, manner, style, way, guise, fashion, wise, means, shape, how, embodiment, agency, gate, mode, sort",
+"gloss":"path, plan, pattern, tenor, system, method",
 "definitions":[
 "way; method; manner; mode; pattern (of behavior etc)"
 ],
@@ -5019,7 +5053,7 @@
 "traditional":"環境",
 "pinyin":"huán jìng",
 "pinyinNumbered":"huan2 jing4",
-"gloss":"circumambiency, environmental, circumstances, environment, entourage, surround, atmosphere, setting, surroundings, ambiance, condition, context, circumstance, surrounding, frame, milieu, ambient, consideration, environs, medium, ambience",
+"gloss":"circumambiency, environmental, circumstances, environment, entourage, surround",
 "definitions":[
 "environment",
 "circumstances",
@@ -5121,7 +5155,7 @@
 "traditional":"文化",
 "pinyin":"wén huà",
 "pinyinNumbered":"wen2 hua4",
-"gloss":"civilization, literacy, acculturation, Kultur, vandalism, cultural, education, schooling, culture",
+"gloss":"civilization, literacy, acculturation, Kultur, vandalism, cultural",
 "definitions":[
 "culture",
 "civilization",
@@ -5193,7 +5227,7 @@
 "traditional":"孩子",
 "pinyin":"hái zi",
 "pinyinNumbered":"hai2 zi5",
-"gloss":"kid, issue, chap, daughter, children, sonny, son or daughter, child, spawn, boy, kipper, son",
+"gloss":"kid, issue, chap, daughter, children, sonny",
 "definitions":[
 "child"
 ],
@@ -5432,7 +5466,7 @@
 {
 "id":7768002,
 "zh":"你不同意吗？",
-"pinyin":"nǐ bù tóng yì má？",
+"pinyin":"nǐ bù tóng yì ma？",
 "en":"Don't you agree?"
 }
 ]
@@ -5478,7 +5512,7 @@
 "traditional":"網路",
 "pinyin":"wǎng lù",
 "pinyinNumbered":"wang3 lu4",
-"gloss":"WWW, net, network, Internet, meshwork, web, world wide web, mesh, reticulation",
+"gloss":"WWW, net, network, Internet, meshwork, web",
 "definitions":[
 "(Tw) network",
 "(Tw) Internet"
@@ -5600,7 +5634,7 @@
 "pinyinNumbered":"sui1 ran2",
 "gloss":"conj.: though, although",
 "definitions":[
-"although; even though (often used correlatively with 可是[ke3 shi4] or 但是[dan4 shi4] etc)"
+"although; even though (often used correlatively with 可是[kěshì] or 但是[dànshì] etc)"
 ],
 "hsk":3,
 "hsk3":2,
@@ -5664,7 +5698,7 @@
 "traditional":"地方",
 "pinyin":"dì fāng",
 "pinyinNumbered":"di4 fang1",
-"gloss":"country, soil, terrain, part, clime, way, territory, room, neighbourhood, tinderbox, locality (as distinct from the central administrat, child, tract, province, position, respect, where, region, space, place, local",
+"gloss":"country, soil, terrain, part, clime, way",
 "definitions":[
 "region",
 "regional (away from the central administration)",
@@ -5769,7 +5803,7 @@
 "traditional":"市場",
 "pinyin":"shì chǎng",
 "pinyinNumbered":"shi4 chang3",
-"gloss":"bourse, bazar, marketplace, grocery store, agora, bazaar, securities industry, grocery, piazza, plaza, rialto, mart, pitch, market",
+"gloss":"bourse, bazar, marketplace, grocery store, agora, bazaar",
 "definitions":[
 "marketplace; market; bazaar",
 "(economics) market"
@@ -5873,7 +5907,7 @@
 "traditional":"提供",
 "pinyin":"tí gōng",
 "pinyinNumbered":"ti2 gong1",
-"gloss":"feed, offer, put up, afford, proffer, set up, capitalize, bring forward, sponsor, extend, ply, provision, sustain, equip, supply, cough up, bear, render, furnish, cater, billet, provide",
+"gloss":"feed, offer, put up, afford, proffer, set up",
 "definitions":[
 "to offer",
 "to supply",
@@ -5886,7 +5920,7 @@
 {
 "id":10752765,
 "zh":"您提供住宿吗？",
-"pinyin":"nín tí gōng zhù sù má？",
+"pinyin":"nín tí gōng zhù sù ma？",
 "en":"Do you offer accommodation?"
 },
 {
@@ -5975,7 +6009,7 @@
 "traditional":"指出",
 "pinyin":"zhǐ chū",
 "pinyinNumbered":"zhi3 chu1",
-"gloss":"point, point out, catch out, bespeak, indicate, denote, point out (that), note, show, designate, point out",
+"gloss":"point, point out, catch out, bespeak, indicate, denote",
 "definitions":[
 "to indicate",
 "to point out"
@@ -6080,7 +6114,12 @@
 "pinyinNumbered":"jia1",
 "gloss":"family, household, home, house",
 "definitions":[
-"used in 傢伙|家伙[jia1 huo5] and 傢俱|家俱[jia1 ju4]"
+"home",
+"family",
+"(polite) my (sister, uncle etc)",
+"classifier for families or businesses",
+"refers to the philosophical schools of pre-Han China",
+"noun suffix for a specialist in some activity, such as a musician or revolutionary, corresponding to English -ist, -er, -ary or -ian"
 ],
 "hsk":1,
 "hsk3":1,
@@ -6183,7 +6222,7 @@
 "traditional":"成為",
 "pinyin":"chéng wéi",
 "pinyinNumbered":"cheng2 wei2",
-"gloss":"find, join, comprise, turn to, commemorate, sample, entomb, come up, commence, get hold, learn, add up, necessitate, run, make up, constitute, make, form, come, amount, represent, fall, presage, change, be, turn, turn into, become, line up, come up, shape, portend, foretell, get",
+"gloss":"find, join, comprise, turn to, commemorate, sample",
 "definitions":[
 "to become; to turn into"
 ],
@@ -6216,12 +6255,12 @@
 "traditional":"多",
 "pinyin":"duō",
 "pinyinNumbered":"duo1",
-"gloss":"many, much, more, more than the correct/required number, excessive, too much, much/far more",
+"gloss":"many, much, more, more than the correct/required number, excessive, too much",
 "definitions":[
 "many; much; more; a lot of",
 "too many; in excess",
 "(after a numeral) ... odd",
-"how (to what extent) (Taiwan pr. [duo2])",
+"how (to what extent) (Taiwan pr. [duó])",
 "(bound form) multi-; poly-"
 ],
 "hsk":1,
@@ -6287,7 +6326,7 @@
 "traditional":"便",
 "pinyin":"biàn",
 "pinyinNumbered":"bian4",
-"gloss":"as early as, soon afterwards, little as, as early, and then, and so, so, as early/little as, as little as, then, in that case",
+"gloss":"as early as, soon afterwards, little as, as early, and then, and so",
 "definitions":[
 "plain",
 "informal",
@@ -6295,7 +6334,7 @@
 "convenient",
 "opportune",
 "to urinate or defecate",
-"equivalent to 就[jiu4]: then",
+"equivalent to 就[jiù]: then",
 "in that case",
 "even if",
 "soon afterwards"
@@ -6329,7 +6368,7 @@
 "traditional":"方面",
 "pinyin":"fāng miàn",
 "pinyinNumbered":"fang1 mian4",
-"gloss":"side, aspect, sector, part, light, facet, behalf, way, respect, direction, bearing, field, phase, sphere, angle, hand",
+"gloss":"side, aspect, sector, part, light, facet",
 "definitions":[
 "respect",
 "aspect",
@@ -6398,7 +6437,7 @@
 "traditional":"吃",
 "pinyin":"chī",
 "pinyinNumbered":"chi1",
-"gloss":"feed, have, be subject to, absorb, chow, live on, eat, have one's meals, be a strain, exhaust, fare, take in, live off, annihilate, wipe out, partake, suffer, ingest, consume, graze, lunch, manducate, incur, take, get, use up, make, taste, soak up",
+"gloss":"feed, have, be subject to, absorb, chow, live on",
 "definitions":[
 "to eat; to consume",
 "to eat at (a cafeteria etc)",
@@ -6435,7 +6474,7 @@
 "traditional":"然後",
 "pinyin":"rán hòu",
 "pinyinNumbered":"ran2 hou4",
-"gloss":"therewith, and so, and then, and then, thereupon, after that, so, then, with that",
+"gloss":"therewith, and so, and then, and then, thereupon, after that",
 "definitions":[
 "then; after that; afterwards"
 ],
@@ -6754,7 +6793,7 @@
 "traditional":"企業",
 "pinyin":"qǐ yè",
 "pinyinNumbered":"qi3 ye4",
-"gloss":"proposition, business enterprise, business organization, business concern, concern, commercial enterprise, endeavour, endeavor, industry, business, project, corporation, enterprise",
+"gloss":"proposition, business enterprise, business organization, business concern, concern, commercial enterprise",
 "definitions":[
 "company; firm; enterprise; corporation"
 ],
@@ -6975,11 +7014,11 @@
 "rank":196,
 "simplified":"吗",
 "traditional":"嗎",
-"pinyin":"má",
-"pinyinNumbered":"ma2",
+"pinyin":"ma",
+"pinyinNumbered":"ma5",
 "gloss":"particle: calling for agreement or disagreement",
 "definitions":[
-"(coll.) what?"
+"(question particle for \"yes-no\" questions)"
 ],
 "hsk":1,
 "hsk3":1,
@@ -6987,19 +7026,19 @@
 {
 "id":332870,
 "zh":"严重吗？",
-"pinyin":"yán zhòng má？",
+"pinyin":"yán zhòng ma？",
 "en":"Is it serious?"
 },
 {
 "id":420248,
 "zh":"修面吗？",
-"pinyin":"xiū miàn má？",
+"pinyin":"xiū miàn ma？",
 "en":"Did you shave?"
 },
 {
 "id":450959,
 "zh":"有人吗？",
-"pinyin":"yǒu rén má？",
+"pinyin":"yǒu rén ma？",
 "en":"Anybody here?"
 }
 ]
@@ -7010,7 +7049,7 @@
 "traditional":"空間",
 "pinyin":"kōng jiān",
 "pinyinNumbered":"kong1 jian1",
-"gloss":"elbow room, allowance, margin, roomage, open air/sky/space, road, leeway, way, open air, sheets, room, tolerance, opening, clear, sky, spacial, interspace, vacuity, spatial, dimension, open sky/space, space, place, vacuum",
+"gloss":"elbow room, allowance, margin, roomage, open air/sky/space, road",
 "definitions":[
 "space; room",
 "(fig.) scope; leeway",
@@ -7023,7 +7062,7 @@
 {
 "id":5660517,
 "zh":"你去过外层空间吗？",
-"pinyin":"nǐ qù guò wài céng kōng jiān má？",
+"pinyin":"nǐ qù guò wài céng kōng jiān ma？",
 "en":"Have you ever been to outer space?"
 },
 {
@@ -7040,7 +7079,7 @@
 "traditional":"看到",
 "pinyin":"kàn dào",
 "pinyinNumbered":"kan4 dao4",
-"gloss":"view, receive, ken, observe, lamp, catch, see, take in, watch, chatter away, lay eyes on, boast, brag, shoot the breeze, spy, catch sight of, catch sight of",
+"gloss":"view, receive, ken, observe, lamp, catch",
 "definitions":[
 "to see"
 ],
@@ -7334,8 +7373,22 @@
 "pinyinNumbered":"dang1",
 "gloss":"when, while",
 "definitions":[
-"(onom.) dong",
-"ding dong (bell)"
+"to be",
+"to act as",
+"manage",
+"withstand",
+"when",
+"during",
+"ought",
+"should",
+"match equally",
+"equal",
+"same",
+"obstruct",
+"just at (a time or place)",
+"on the spot",
+"right",
+"just at"
 ],
 "hsk":4,
 "hsk3":2,
@@ -7407,7 +7460,7 @@
 "(followed by a noun and adjective) more {adj.} than {noun}",
 "ratio",
 "to gesture",
-"(Taiwan pr. [bi4] in some compounds derived from Classical Chinese)"
+"(Taiwan pr. [bì] in some compounds derived from Classical Chinese)"
 ],
 "hsk":2,
 "hsk3":1,
@@ -7474,7 +7527,7 @@
 "traditional":"產品",
 "pinyin":"chǎn pǐn",
 "pinyinNumbered":"chan3 pin3",
-"gloss":"baby, brand, output, product, produce, end product, merchandise, fruitage, growth, manufacture, wares, production",
+"gloss":"baby, brand, output, product, produce, end product",
 "definitions":[
 "goods",
 "merchandise",
@@ -7523,7 +7576,7 @@
 "traditional":"資料",
 "pinyin":"zī liào",
 "pinyinNumbered":"zi1 liao4",
-"gloss":"food, source, info, means, data, information, material, datum, data point, matter",
+"gloss":"food, source, info, means, data, information",
 "definitions":[
 "material",
 "resources",
@@ -7586,7 +7639,7 @@
 "traditional":"先生",
 "pinyin":"xiān sheng",
 "pinyinNumbered":"xian1 sheng5",
-"gloss":"doctor of Chinese medicine, Don, mulla, Ms., sir., teacher, gentleman, gospodin, Signor, signor, fortune-teller, babu, baboo, Herr, Mister, bey, mister, bwana, husband, siree, buckra, sirrah, senor, guv, sahib, Mr., rabbi, don, signore, Dan, sir, m'sieur, effendi, Tuan, baas, Monsieur, lording, monsieur, doctor, Mr, milord, Mynheer, signior, esquire, bookkeeper, Senor, rabboni, Senhor, sieur, sen",
+"gloss":"doctor of Chinese medicine, Don, mulla, Ms., sir., teacher",
 "definitions":[
 "teacher",
 "gentleman; sir; mister (Mr.)",
@@ -7622,7 +7675,7 @@
 "traditional":"地",
 "pinyin":"dì",
 "pinyinNumbered":"di4",
-"gloss":"the earth, land, soil, fields, ground, place, position, background, distance",
+"gloss":"the earth, land, soil, fields, ground, place",
 "definitions":[
 "earth",
 "ground",
@@ -7662,7 +7715,7 @@
 "gloss":"except, besides",
 "definitions":[
 "apart from; besides; in addition to (used to exclude, as in 除了他，誰也沒來|除了他，谁也没来[chu2 le5 ta1 , shei2 ye3 mei2 lai2] \"apart from him, nobody came\", or to include, as in 除了英語，他也會法語|除了英语，他也会法语[chu2 le5 Ying1 yu3 , ta1 ye3 hui4 Fa3 yu3] \"in addition to English, he also knows French\")",
-"(used to introduce one of two habitual alternatives in the pattern 除了[chu2 le5] + A + 就是[jiu4 shi4] + B, \"either A or B\")"
+"(used to introduce one of two habitual alternatives in the pattern 除了[chúle] + A + 就是[jiùshì] + B, \"either A or B\")"
 ],
 "hsk":3,
 "hsk3":3,
@@ -7841,9 +7894,11 @@
 "traditional":"歲",
 "pinyin":"suì",
 "pinyinNumbered":"sui4",
-"gloss":"year (for crops), m.[standard], , year of age, year (of age), year, annum, year for crops",
+"gloss":"year (for crops), m.[standard], year of age, year (of age), year, annum",
 "definitions":[
-"years old"
+"classifier for years (of age)",
+"year",
+"year (of crop harvests)"
 ],
 "hsk":1,
 "hsk3":1,
@@ -8115,7 +8170,7 @@
 "traditional":"地區",
 "pinyin":"dì qū",
 "pinyinNumbered":"di4 qu1",
-"gloss":"section, country, area, latitude, zone, terrain, parts, locality, sector, province, prefecture, region, district, faubourg",
+"gloss":"section, country, area, latitude, zone, terrain",
 "definitions":[
 "region; area (informal or geographical term)",
 "prefecture (in China's administrative system)"
@@ -8149,7 +8204,7 @@
 "traditional":"技術",
 "pinyin":"jì shù",
 "pinyinNumbered":"ji4 shu4",
-"gloss":"mechanics, know-how, prowess, science, Minerva, superior skill, art, competence, technology, craft, craftsmanship, skill, education, technique, artistry, engineering, technological, equipment, technical",
+"gloss":"mechanics, know-how, prowess, science, Minerva, superior skill",
 "definitions":[
 "technology; technique; skill"
 ],
@@ -8223,7 +8278,7 @@
 "unusual; special",
 "very; especially; particularly",
 "expressly; for a specific purpose",
-"(often followed by 是[shi4]) in particular"
+"(often followed by 是[shì]) in particular"
 ],
 "hsk":3,
 "hsk3":2,
@@ -8355,7 +8410,7 @@
 "pinyinNumbered":"fa1 sheng1",
 "gloss":"happen, occur, take place",
 "definitions":[
-"to happen; to occur; to take place; to arise (e.g. 發生問題|发生问题[fa1 sheng1 wen4 ti2] \"a problem arises\")"
+"to happen; to occur; to take place; to arise (e.g. 發生問題|发生问题[fāshēngwèntí] \"a problem arises\")"
 ],
 "hsk":4,
 "hsk3":3,
@@ -8408,7 +8463,7 @@
 {
 "id":380601,
 "zh":"我可以参加吗？",
-"pinyin":"wǒ kě yǐ cān jiā má？",
+"pinyin":"wǒ kě yǐ cān jiā ma？",
 "en":"May I join you?"
 }
 ]
@@ -8454,7 +8509,7 @@
 "traditional":"其中",
 "pinyin":"qí zhōng",
 "pinyinNumbered":"qi2 zhong1",
-"gloss":"among, of them, in it, among them, which, them, det.: it, in, in which",
+"gloss":"among, of them, in it, among them, which, them",
 "definitions":[
 "among",
 "in",
@@ -8536,7 +8591,7 @@
 "traditional":"包括",
 "pinyin":"bāo kuò",
 "pinyinNumbered":"bao1 kuo4",
-"gloss":"consist of, consist of, subtend, embrace, comprise, incorporate, embody, involve, count, subsume, take in, comprehend, incorporation, include, comprize, run, cover, package, consist in",
+"gloss":"consist of, consist of, subtend, embrace, comprise, incorporate",
 "definitions":[
 "to comprise",
 "to include",
@@ -8550,7 +8605,7 @@
 {
 "id":5684089,
 "zh":"包括早饭吗？",
-"pinyin":"bāo kuò zǎo fàn má？",
+"pinyin":"bāo kuò zǎo fàn ma？",
 "en":"Is breakfast included?"
 },
 {
@@ -8573,7 +8628,7 @@
 "traditional":"講",
 "pinyin":"jiǎng",
 "pinyinNumbered":"jiang3",
-"gloss":"discourse, utter, talk, negotiation, make clear, negotiate, parley, pay attention to, speak, syllable, discuss, explain, tell, be particular about, explanation, interpretation, interpret, relate, discussion, stress, mouth, say, remark, verbalize",
+"gloss":"discourse, utter, talk, negotiation, make clear, negotiate",
 "definitions":[
 "to speak",
 "to explain",
@@ -8613,7 +8668,7 @@
 "traditional":"造成",
 "pinyin":"zào chéng",
 "pinyinNumbered":"zao4 cheng2",
-"gloss":"make for, give rise to, create, set up, strike, creation, cause, contribute, bring about, procure, give, bring about, cut out, necessitate, shape, present, bring forth, generate, yield, make, breed",
+"gloss":"make for, give rise to, create, set up, strike, creation",
 "definitions":[
 "to bring about; to create; to cause"
 ],
@@ -8830,7 +8885,7 @@
 "traditional":"政治",
 "pinyin":"zhèng zhì",
 "pinyinNumbered":"zheng4 zhi4",
-"gloss":"paternalism, trouble, government, policy, political relation, political science, polity, politics, political affairs, political",
+"gloss":"paternalism, trouble, government, policy, political relation, political science",
 "definitions":[
 "politics",
 "political"
@@ -8864,7 +8919,7 @@
 "traditional":"話",
 "pinyin":"huà",
 "pinyinNumbered":"hua4",
-"gloss":"words, thing, language, tongue, talk, speech, spoken language, conversation, utterance, expression, story, tale, saying, natural language, sayings, word",
+"gloss":"words, thing, language, tongue, talk, speech",
 "definitions":[
 "dialect",
 "language",
@@ -8904,7 +8959,7 @@
 "traditional":"走",
 "pinyin":"zǒu",
 "pinyinNumbered":"zou3",
-"gloss":"scram, travel, foot, go away, evaporate, ankle, waltz, step, bugger off, etc., go through, leave, leak, run, buzz off, leg, pad, fork, visit, go, escape, lose flavor, work, call on, strike, sashay, trace, pursue, gang, lose shape/etc., get along, come along, walk, hoof it, lose flavor/shape/etc., leg it, let out, shape, drive, cover, take, get, hoof, move",
+"gloss":"scram, travel, foot, go away, evaporate, ankle",
 "definitions":[
 "to walk",
 "to go",
@@ -8916,7 +8971,7 @@
 "to die (euph.)",
 "from",
 "through",
-"away (in compound verbs, such as 撤走[che4 zou3])",
+"away (in compound verbs, such as 撤走[chèzǒu])",
 "to change (shape, form, meaning)"
 ],
 "hsk":2,
@@ -8948,7 +9003,7 @@
 "traditional":"單位",
 "pinyin":"dān wèi",
 "pinyinNumbered":"dan1 wei4",
-"gloss":"department, unit, denomination, module, building block, unit of measurement, monad, unit (in measurement or organization)",
+"gloss":"department, unit, denomination, module, building block, unit of measurement",
 "definitions":[
 "unit (of measure)",
 "unit (group of people as a whole)",
@@ -8983,7 +9038,7 @@
 "traditional":"一直",
 "pinyin":"yī zhí",
 "pinyinNumbered":"yi1 zhi2",
-"gloss":"e'er, away, continuously, all the way, right, forever, all along, always, the whole way, all along, straight, slap, through, ever, evermore",
+"gloss":"e'er, away, continuously, all the way, right, forever",
 "definitions":[
 "straight (in a straight line)",
 "continuously; always; all the way through"
@@ -9255,7 +9310,7 @@
 {
 "id":4844599,
 "zh":"你了解它吗",
-"pinyin":"nǐ liǎo jiě tā má",
+"pinyin":"nǐ liǎo jiě tā ma",
 "en":"Do you know it?"
 }
 ]
@@ -9301,7 +9356,7 @@
 "traditional":"機會",
 "pinyin":"jī huì",
 "pinyinNumbered":"ji1 hui4",
-"gloss":"scouth, occasion, good luck, hap, liberty, fortune, opportunity, chance, joss, hazard, happy chance, probability, luck, scope, room, break, turn, opening",
+"gloss":"scouth, occasion, good luck, hap, liberty, fortune",
 "definitions":[
 "opportunity",
 "chance",
@@ -9325,7 +9380,7 @@
 {
 "id":461667,
 "zh":"他有机会成功吗？",
-"pinyin":"tā yǒu jī huì chéng gōng má？",
+"pinyin":"tā yǒu jī huì chéng gōng ma？",
 "en":"Does he have the opportunity to win?"
 }
 ]
@@ -9336,14 +9391,14 @@
 "traditional":"聽",
 "pinyin":"tīng",
 "pinyinNumbered":"ting1",
-"gloss":"hear, list, hearken, obey, obedience, listen, heed, administer, let, allow, hark",
+"gloss":"hear, list, hearken, obey, obedience, listen",
 "definitions":[
 "to listen to; to hear",
 "to heed; to obey",
 "a can (loanword from English \"tin\")",
 "classifier for canned beverages",
-"to let be; to allow (Taiwan pr. [ting4])",
-"(literary) to administer; to deal with (Taiwan pr. [ting4])"
+"to let be; to allow (Taiwan pr. [tìng])",
+"(literary) to administer; to deal with (Taiwan pr. [tìng])"
 ],
 "hsk":1,
 "hsk3":1,
@@ -9441,7 +9496,7 @@
 "traditional":"朋友",
 "pinyin":"péng you",
 "pinyinNumbered":"peng2 you5",
-"gloss":"amigo, connections, kith, friend, boy, crony, ami, boy/girl friend, companion, mate, boy friend or girl friend, compadre, boy friend, Mac, paisano, matey, old boy, sport, folks, pard, hearty, Kamerad, cocker, cobber, girl friend, pardner, company",
+"gloss":"amigo, connections, kith, friend, boy, crony",
 "definitions":[
 "friend"
 ],
@@ -9507,7 +9562,7 @@
 {
 "id":9962875,
 "zh":"它令您快乐吗？",
-"pinyin":"tā lìng nín kuài lè má？",
+"pinyin":"tā lìng nín kuài lè ma？",
 "en":"Does it please you?"
 }
 ]
@@ -9612,7 +9667,7 @@
 {
 "id":794037,
 "zh":"六点您行吗？",
-"pinyin":"liù diǎn nín xíng má？",
+"pinyin":"liù diǎn nín xíng ma？",
 "en":"Is 6 o'clock OK?"
 }
 ]
@@ -9656,7 +9711,7 @@
 "traditional":"情況",
 "pinyin":"qíng kuàng",
 "pinyinNumbered":"qing2 kuang4",
-"gloss":"event, things, state of affairs, circumstantiality, case, circumstances, way, plight, experimental condition, streak, military situation, matter, condition, mood, circumstance, context, occasion, thing, instance, affair, shape, situation, juncture, consideration",
+"gloss":"event, things, state of affairs, circumstantiality, case, circumstances",
 "definitions":[
 "circumstances; state of affairs; situation"
 ],
@@ -9729,7 +9784,7 @@
 "definitions":[
 "coin",
 "money",
-"unit of weight, one tenth of a tael 兩|两[liang3]"
+"unit of weight, one tenth of a tael 兩|两[liǎng]"
 ],
 "hsk":1,
 "hsk3":1,
@@ -9737,7 +9792,7 @@
 {
 "id":686616,
 "zh":"钱够吗？",
-"pinyin":"qián gòu má？",
+"pinyin":"qián gòu ma？",
 "en":"Was there enough money?"
 },
 {
@@ -9760,7 +9815,7 @@
 "traditional":"方法",
 "pinyin":"fāng fǎ",
 "pinyinNumbered":"fang1 fa3",
-"gloss":"know-how, plan, attack, system, stepping-stone, manner, method, gateway, idea, measure, way, guise, key, wise, quomodo, plan of attack, tack, machinery, process, avenue, modus, how, means, channel, gate, approach, agency, gamesmanship, mode, medium, sort",
+"gloss":"know-how, plan, attack, system, stepping-stone, manner",
 "definitions":[
 "method; way; technique; procedure"
 ],
@@ -9896,7 +9951,7 @@
 {
 "id":9462622,
 "zh":"汤姆有经验吗？",
-"pinyin":"tāng mǔ yǒu jīng yàn má？",
+"pinyin":"tāng mǔ yǒu jīng yàn ma？",
 "en":"Does Tom have experience?"
 }
 ]
@@ -9907,7 +9962,7 @@
 "traditional":"藝術",
 "pinyin":"yì shù",
 "pinyinNumbered":"yi4 shu4",
-"gloss":"beaux-arts, aesthetical, artistic production, artistic, ars, art, academy, aesthetic, artistic creation, skill, craft, artistry, esthetic",
+"gloss":"beaux-arts, aesthetical, artistic production, artistic, ars, art",
 "definitions":[
 "art"
 ],
@@ -9923,7 +9978,7 @@
 {
 "id":13889022,
 "zh":"你了解艺术吗？",
-"pinyin":"nǐ liǎo jiě yì shù má？",
+"pinyin":"nǐ liǎo jiě yì shù ma？",
 "en":"Do you know anything about art?"
 },
 {
@@ -10040,7 +10095,7 @@
 "traditional":"媽媽",
 "pinyin":"mā ma",
 "pinyinNumbered":"ma1 ma5",
-"gloss":"mummy, mammy, ma, mother, mamma, mum, mommy, female parent, mom, Mama, mater, mama, momma",
+"gloss":"mummy, mammy, ma, mother, mamma, mum",
 "definitions":[
 "mama",
 "mommy",
@@ -10064,7 +10119,7 @@
 {
 "id":510212,
 "zh":"妈妈骂马吗？",
-"pinyin":"mā ma mà mǎ má？",
+"pinyin":"mā ma mà mǎ ma？",
 "en":"Is Mother scolding the horse?"
 }
 ]
@@ -10135,7 +10190,7 @@
 {
 "id":5574817,
 "zh":"汤姆提出其他建议了吗？",
-"pinyin":"tāng mǔ tí chū qí tā jiàn yì le má？",
+"pinyin":"tāng mǔ tí chū qí tā jiàn yì le ma？",
 "en":"Did Tom give any other suggestions?"
 }
 ]
@@ -10182,7 +10237,7 @@
 "pinyinNumbered":"nin2",
 "gloss":"you",
 "definitions":[
-"you (courteous, as opposed to informal 你[ni3])"
+"you (courteous, as opposed to informal 你[nǐ])"
 ],
 "hsk":2,
 "hsk3":1,
@@ -10196,13 +10251,13 @@
 {
 "id":476256,
 "zh":"您好吗？",
-"pinyin":"nín hǎo má？",
+"pinyin":"nín hǎo ma？",
 "en":"How are you?"
 },
 {
 "id":2881090,
 "zh":"您忙吗？",
-"pinyin":"nín máng má？",
+"pinyin":"nín máng ma？",
 "en":"Are you busy?"
 }
 ]
@@ -10215,7 +10270,11 @@
 "pinyinNumbered":"ji4 hua4",
 "gloss":"plan, project, program",
 "definitions":[
-"variant of 計劃|计划[ji4 hua4]"
+"plan",
+"project",
+"program",
+"to plan",
+"to map out"
 ],
 "hsk":null,
 "hsk3":null,
@@ -10227,7 +10286,7 @@
 "traditional":"作",
 "pinyin":"zuò",
 "pinyinNumbered":"zuo4",
-"gloss":"do, make, rise, write, compose, pretend, affect, feign",
+"gloss":"do, make, rise, write, compose, pretend",
 "definitions":[
 "to do; to engage in",
 "to write; to compose",
@@ -10336,7 +10395,7 @@
 "traditional":"條",
 "pinyin":"tiáo",
 "pinyinNumbered":"tiao2",
-"gloss":"bar, item, short note, a long narrow piece, streak, clause, stripe, sth. long and narrow, filet, m.[general], , article, strip, assize, twig, ingot, slip",
+"gloss":"bar, item, short note, a long narrow piece, streak, clause",
 "definitions":[
 "strip",
 "item",
@@ -10449,7 +10508,7 @@
 "gloss":"among, between",
 "definitions":[
 "(after a noun) between; among; amid",
-"(used after certain bisyllabic words to form expressions indicating a short period of time, e.g. 彈指之間|弹指之间[tan2 zhi3 zhi1 jian1])"
+"(used after certain bisyllabic words to form expressions indicating a short period of time, e.g. 彈指之間|弹指之间[tánzhǐzhījiān])"
 ],
 "hsk":null,
 "hsk3":4,
@@ -10541,7 +10600,7 @@
 "gloss":"decide, resolve, make up one's mind, determine",
 "definitions":[
 "to decide; to determine; to make up one's mind",
-"decision (CL:個|个[ge4],項|项[xiang4])"
+"decision (CL:個|个[gè],項|项[xiàng])"
 ],
 "hsk":3,
 "hsk3":3,
@@ -10582,7 +10641,7 @@
 {
 "id":332662,
 "zh":"您学习吗？",
-"pinyin":"nín xué xí má？",
+"pinyin":"nín xué xí ma？",
 "en":"Are you studying?"
 },
 {
@@ -10638,7 +10697,7 @@
 "traditional":"見",
 "pinyin":"jiàn",
 "pinyinNumbered":"jian4",
-"gloss":"see, be exposed to, become visible, call on, refer to, meet with, appear to be, appear, vide, catch sight of, meet",
+"gloss":"see, be exposed to, become visible, call on, refer to, meet with",
 "definitions":[
 "to see",
 "to meet",
@@ -10712,7 +10771,7 @@
 "traditional":"時代",
 "pinyin":"shí dài",
 "pinyinNumbered":"shi2 dai4",
-"gloss":"day, period, a period in one's life, epoch, present time, historical period, time, chapter, period in one's life, modern times, historic period, contemporary world, times, era, modern world, age",
+"gloss":"day, period, a period in one's life, epoch, present time, historical period",
 "definitions":[
 "age",
 "era",
@@ -10748,7 +10807,7 @@
 "traditional":"完成",
 "pinyin":"wán chéng",
 "pinyinNumbered":"wan2 cheng2",
-"gloss":"fill in, finish out, fulfil, practice, complete, finish, encompass, clear up, top off, cleave, top off, accomplishment, make out, effect, perfective, fulfill, go through, exercise, discharge, fill out, completion, end, run, bring ... to fruition, round out, achieve, execute, round out, make, cap off, accomplish, practise, follow through, come, finalize, fulfilment, dispatch, bring ...",
+"gloss":"fill in, finish out, fulfil, practice, complete, finish",
 "definitions":[
 "to complete; to accomplish"
 ],
@@ -10867,7 +10926,7 @@
 "traditional":"同學",
 "pinyin":"tóng xué",
 "pinyinNumbered":"tong2 xue2",
-"gloss":"class fellow, fellow student, condisciple, classmate, schoolmate, schoolfellow, form of address used in speaking to a student",
+"gloss":"class fellow, fellow student, condisciple, classmate, schoolmate, schoolfellow",
 "definitions":[
 "to study at the same school",
 "fellow student",
@@ -10902,7 +10961,7 @@
 "traditional":"件",
 "pinyin":"jiàn",
 "pinyinNumbered":"jian4",
-"gloss":"correspondence, paper, document, bit, m.[general], , single item, letter, piece",
+"gloss":"correspondence, paper, document, bit, m.[general], single item",
 "definitions":[
 "item",
 "component",
@@ -10937,7 +10996,7 @@
 "traditional":"能力",
 "pinyin":"néng lì",
 "pinyinNumbered":"neng2 li4",
-"gloss":"department, potency, ability, acquisition, acquirement, capacity, performance, oomph, sufficiency, energy, competence, accomplishment, size, might, faculty, hand, coequal, efficiency, inner resources, capability, giftie, attainment, capableness, zip, skill, competency, power",
+"gloss":"department, potency, ability, acquisition, acquirement, capacity",
 "definitions":[
 "capability",
 "ability"
@@ -11004,10 +11063,10 @@
 "traditional":"生命",
 "pinyin":"shēng mìng",
 "pinyinNumbered":"sheng1 ming4",
-"gloss":"breath, god, head, anima, days, organism, blood, life, living thing, skin, longevity, being, vital, life form",
+"gloss":"breath, god, head, anima, days, organism",
 "definitions":[
 "life (as the characteristic of living beings)",
-"living being; creature (CL:條|条[tiao2])"
+"living being; creature (CL:條|条[tiáo])"
 ],
 "hsk":4,
 "hsk3":3,
@@ -11072,7 +11131,7 @@
 "traditional":"會議",
 "pinyin":"huì yì",
 "pinyinNumbered":"hui4 yi4",
-"gloss":"synod, moot, conference, board, convocation, soviet, congress, talks, indaba, negotiation, junta, group discussion, convention, meeting place, session, council, rendezvous, colloquy, coming together, powwow, seance, meeting, forum, consultation, roll-up, get-together, assembly",
+"gloss":"synod, moot, conference, board, convocation, soviet",
 "definitions":[
 "meeting",
 "conference"
@@ -11161,7 +11220,7 @@
 "traditional":"民眾",
 "pinyin":"mín zhòng",
 "pinyinNumbered":"min2 zhong4",
-"gloss":"civil, crowd, masses, populace, rank and file, the masses, the masses of the people, the populace, demos, mob, multitude, plebs, commons, the common people, the people, million, public",
+"gloss":"civil, crowd, masses, populace, rank and file, the masses",
 "definitions":[
 "the populace; the masses; the common people"
 ],
@@ -11175,7 +11234,7 @@
 "traditional":"事情",
 "pinyin":"shì qing",
 "pinyinNumbered":"shi4 qing5",
-"gloss":"proposition, pie, shebang, thing, affair, occasions, undertaking, concern, question, business, schmear, matter",
+"gloss":"proposition, pie, shebang, thing, affair, occasions",
 "definitions":[
 "affair; matter; thing; business"
 ],
@@ -11244,7 +11303,7 @@
 "traditional":"事實",
 "pinyin":"shì shí",
 "pinyinNumbered":"shi4 shi2",
-"gloss":"mood, circumstance, fact, factual, reality, verity, case, deed, sooth, troth, actuality, truth, matter, matter of fact",
+"gloss":"mood, circumstance, fact, factual, reality, verity",
 "definitions":[
 "fact"
 ],
@@ -11491,7 +11550,7 @@
 "traditional":"相關",
 "pinyin":"xiāng guān",
 "pinyinNumbered":"xiang1 guan1",
-"gloss":"cognate, relational, interrelate, associated, be interrelated, relevant, related, be mutually related",
+"gloss":"cognate, relational, interrelate, associated, be interrelated, relevant",
 "definitions":[
 "related",
 "relevant",
@@ -11714,7 +11773,7 @@
 "traditional":"接受",
 "pinyin":"jiē shòu",
 "pinyinNumbered":"jie1 shou4",
-"gloss":"receive (honors, have, receive, acknowledge, sweep up, espouse, etc.), come to grips, adopt, embrace, greet, welcome, hook on, seize on, take up, accede, taken, entertain, latch on, buy, fasten on, swallow, imbibe, accept, receive (honors/etc.), undergo, get to grips, take, adapt, acceptance, thole",
+"gloss":"receive (honors, have, receive, acknowledge, sweep up, espouse",
 "definitions":[
 "to accept (a suggestion, punishment, bribe etc); to acquiesce"
 ],
@@ -11747,7 +11806,7 @@
 "traditional":"知",
 "pinyin":"zhī",
 "pinyinNumbered":"zhi1",
-"gloss":"tell, notify, inform, be expert in, know, sense, be aware of, administration, notification, administer, be in charge of, realize",
+"gloss":"tell, notify, inform, be expert in, know, sense",
 "definitions":[
 "to know",
 "to be aware"
@@ -12024,11 +12083,11 @@
 "traditional":"打",
 "pinyin":"dǎ",
 "pinyinNumbered":"da3",
-"gloss":"generalized verb of doing with specific meaning determined by its object, strike, hit, fight, construct, forge, mix",
+"gloss":"generalized verb of doing with specific meaning determined by its object, strike, hit, fight, construct, forge",
 "definitions":[
 "to hit; to strike",
 "to fight",
-"(in many expressions) a semantically light transitive verb used with various objects to form expressions with a wide range of meanings, e.g. 打傘|打伞[da3 san3] \"to hold an umbrella\", 打電話|打电话[da3 dian4 hua4] \"to make a phone call\", 打針|打针[da3 zhen1] \"to get an injection\"",
+"(in many expressions) a semantically light transitive verb used with various objects to form expressions with a wide range of meanings, e.g. 打傘|打伞[dǎsǎn] \"to hold an umbrella\", 打電話|打电话[dǎdiànhuà] \"to make a phone call\", 打針|打针[dǎzhēn] \"to get an injection\"",
 "(coll.) from; since"
 ],
 "hsk":null,
@@ -12060,11 +12119,11 @@
 "traditional":"水",
 "pinyin":"shuǐ",
 "pinyinNumbered":"shui3",
-"gloss":"water, H2O, liquid, bubble, a general term for rivers, lakes, seas, etc., Shiu, waters, aqueous, Aquarius, river, Surname, blister, drink, eau, aqua",
+"gloss":"water, H2O, liquid, bubble, a general term for rivers, lakes",
 "definitions":[
 "water",
 "(after a name) ... River",
-"to swim (used mostly in 會水|会水[hui4 shui3] and 水性[shui3 xing4])",
+"to swim (used mostly in 會水|会水[huìshuǐ] and 水性[shuǐxìng])",
 "(coll.) lacking in substance; shoddy",
 "(bound form) additional cost; extra income",
 "classifier for washings of a garment"
@@ -12136,7 +12195,7 @@
 "traditional":"小朋友",
 "pinyin":"xiǎo péng yǒu",
 "pinyinNumbered":"xiao3 peng2 you3",
-"gloss":"child (adult address to child), little boy, children, little boy/girl, girl, little girl, little boy or girl, child",
+"gloss":"child (adult address to child), little boy, children, little boy/girl, girl, little girl",
 "definitions":[
 "child; kid (used to refer to a child, or by an adult to address a child, or, in Taiwan, to refer to sb's own child)"
 ],
@@ -12202,7 +12261,7 @@
 "traditional":"難",
 "pinyin":"nán",
 "pinyinNumbered":"nan2",
-"gloss":"make difficulties, take to task, put ... into a difficult position, disagreeable, make difficult, unpleasant, hard, difficult, troublesome, blame",
+"gloss":"make difficulties, take to task, put ... into a difficult position, disagreeable, make difficult, unpleasant",
 "definitions":[
 "difficult (to...)",
 "problem",
@@ -12260,7 +12319,7 @@
 "traditional":"告訴",
 "pinyin":"gào sù",
 "pinyinNumbered":"gao4 su4",
-"gloss":"tell, preach, notify, impart, inform, represent, apprize, send word, share, advise, give notice, apprise, assure, let know",
+"gloss":"tell, preach, notify, impart, inform, represent",
 "definitions":[
 "to press charges; to file a complaint"
 ],
@@ -12293,7 +12352,7 @@
 "traditional":"內容",
 "pinyin":"nèi róng",
 "pinyinNumbered":"nei4 rong2",
-"gloss":"subject matter, content, cognitive content, internal, contents, mental object, meat, substance, matter, lining",
+"gloss":"subject matter, content, cognitive content, internal, contents, mental object",
 "definitions":[
 "content; substance; details"
 ],
@@ -12399,7 +12458,7 @@
 "traditional":"家庭",
 "pinyin":"jiā tíng",
 "pinyinNumbered":"jia1 ting2",
-"gloss":"hearthstone, background, fireside, establishment, household, hearth, domestic, hearthside, menage, home, family unit, family, house",
+"gloss":"hearthstone, background, fireside, establishment, household, hearth",
 "definitions":[
 "family; household"
 ],
@@ -12589,7 +12648,7 @@
 "traditional":"寫",
 "pinyin":"xiě",
 "pinyinNumbered":"xie3",
-"gloss":"description, bewrite, direct, describe, pencil, draw, paint, inscribe, write, depiction, write out, throw off, depict, address, author, screeve, word, compose",
+"gloss":"description, bewrite, direct, describe, pencil, draw",
 "definitions":[
 "to write"
 ],
@@ -12599,7 +12658,7 @@
 {
 "id":6850332,
 "zh":"你写吗?",
-"pinyin":"nǐ xiě má?",
+"pinyin":"nǐ xiě ma?",
 "en":"Do you write?"
 },
 {
@@ -12622,7 +12681,7 @@
 "traditional":"人類",
 "pinyin":"rén lèi",
 "pinyinNumbered":"ren2 lei4",
-"gloss":"man, wight, human being, human, human race, mankind, individual, human species, Homo sapiens, populace, creature, hominid, world, mortality, microcosm, humans, humanitarianism, humanity, humanness, human beings/species, people, species, humankind, human beings, public, mortal",
+"gloss":"man, wight, human being, human, human race, mankind",
 "definitions":[
 "humanity",
 "human race",
@@ -12692,7 +12751,7 @@
 "traditional":"買",
 "pinyin":"mǎi",
 "pinyinNumbered":"mai3",
-"gloss":"pick up, invest, hire, buy, purchase, put down, trade, get",
+"gloss":"pick up, invest, hire, buy, purchase, put down",
 "definitions":[
 "to buy",
 "to purchase"
@@ -12784,7 +12843,7 @@
 "traditional":"進入",
 "pinyin":"jìn rù",
 "pinyinNumbered":"jin4 ru4",
-"gloss":"go into, get in, debouch, get in, go into, move into, come into, pass, step in, lapse, get into, set in, go in, get into, kick in, penetrate, intromission, pierce, come in, come in, enter, entry, sink, impenetrate",
+"gloss":"go into, get in, debouch, get in, go into, move into",
 "definitions":[
 "to enter; to go into"
 ],
@@ -12936,7 +12995,7 @@
 "traditional":"作品",
 "pinyin":"zuò pǐn",
 "pinyinNumbered":"zuo4 pin3",
-"gloss":"writing, musical composition, whole kit and caboodle, works (of literature, artwork, kit and caboodle, product, whole works, creation, full treatment, kit and boodle, whole kit and boodle, works (of literature/art), composition, thing, piece of music, workpiece, output, art), written material, opus, whole shebang, whole caboodle, production, whole kit, piece, workmanship, wo",
+"gloss":"writing, musical composition, whole kit and caboodle, works (of literature, artwork, kit and caboodle",
 "definitions":[
 "work (of art)",
 "opus"
@@ -12970,7 +13029,7 @@
 "traditional":"情形",
 "pinyin":"qíng xing",
 "pinyinNumbered":"qing2 xing5",
-"gloss":"circumstance, trimness, event, trim, instance, state of affairs, case, circumstances, status, situation, condition",
+"gloss":"circumstance, trimness, event, trim, instance, state of affairs",
 "definitions":[
 "circumstances; situation; state of affairs"
 ],
@@ -13018,7 +13077,7 @@
 "traditional":"原因",
 "pinyin":"yuán yīn",
 "pinyinNumbered":"yuan2 yin1",
-"gloss":"origin, causation, reason, wherefore, causal, breeder, spore, cause, causal agent, whence, causal agency, occasion, root, subject, causality, why, starter",
+"gloss":"origin, causation, reason, wherefore, causal, breeder",
 "definitions":[
 "cause",
 "origin",
@@ -13128,7 +13187,7 @@
 "traditional":"觀念",
 "pinyin":"guān niàn",
 "pinyinNumbered":"guan1 nian4",
-"gloss":"conception, intension, theory, philosophy, idolum, connotation, idea, sense, presentation, notion, concept, construct, intellection, presentment, thought, notional, conceit",
+"gloss":"conception, intension, theory, philosophy, idolum, connotation",
 "definitions":[
 "notion",
 "thought",
@@ -13170,7 +13229,7 @@
 "traditional":"品質",
 "pinyin":"pǐn zhì",
 "pinyinNumbered":"pin3 zhi4",
-"gloss":"calibre, appraisal, caliber, character, self, intrinsic, brew, quality, timber, sort",
+"gloss":"calibre, appraisal, caliber, character, self, intrinsic",
 "definitions":[
 "character",
 "intrinsic quality (of a person)",
@@ -13274,7 +13333,7 @@
 "traditional":"嗯",
 "pinyin":"ēn",
 "pinyinNumbered":"en1",
-"gloss":"O.K., How come, Huh, What, Why, Agreed!, well, um",
+"gloss":"O.K., How come, Huh, What, Why, Agreed!",
 "definitions":[
 "(a groaning sound)"
 ],
@@ -13307,7 +13366,7 @@
 "traditional":"精神",
 "pinyin":"jīng shén",
 "pinyinNumbered":"jing1 shen2",
-"gloss":"god, guts, heart, pneuma, consciousness, vigor, life, energy, vim, courage, esprit, moral, get-up-and-go, ginger, vitality, Psyche, psyche, spunk, gumption, juice, sand, mind, mental, mens, mickey, mettle, nature, grit, oomph, genius, vigour, substance, psychic, backbone, nous, nerve, pazazz, essence, pep, spirit, inward, drive, push, soul, gist",
+"gloss":"god, guts, heart, pneuma, consciousness, vigor",
 "definitions":[
 "spirit",
 "mind",
@@ -13386,7 +13445,7 @@
 "pinyinNumbered":"zhi1",
 "gloss":"it, him, her, this",
 "definitions":[
-"(possessive particle, literary equivalent of 的[de5])",
+"(possessive particle, literary equivalent of 的[de])",
 "him",
 "her",
 "it"
@@ -13587,7 +13646,7 @@
 "traditional":"部分",
 "pinyin":"bù fen",
 "pinyinNumbered":"bu4 fen5",
-"gloss":"partial, department, section, partialness, slice, pars, part, det.: part, percent, partage, sphere, component, divvy, segment, portion, fraction, sector, chapter, share, percentage, piece, division, sectional, parcel",
+"gloss":"partial, department, section, partialness, slice, pars",
 "definitions":[
 "part; portion; piece"
 ],
@@ -13789,7 +13848,7 @@
 "traditional":"具有",
 "pinyin":"jù yǒu",
 "pinyinNumbered":"ju4 you3",
-"gloss":"be provided with, have, have got, possess, hold, possession, carry, inhere, bear",
+"gloss":"be provided with, have, have got, possess, hold, possession",
 "definitions":[
 "to have; to possess"
 ],
@@ -13893,7 +13952,7 @@
 "traditional":"行為",
 "pinyin":"xíng wéi",
 "pinyinNumbered":"xing2 wei2",
-"gloss":"fact, demeanor, form, deportment, dealing, behavior, doings, course, act, point, goings-on, demeanour, procedure, lapse, going, bearing, turn, behaviour, activity, ongoing, thing, human action, conduct, commitment, human activity, behavioral, agency, deed, comportment, action",
+"gloss":"fact, demeanor, form, deportment, dealing, behavior",
 "definitions":[
 "action; conduct; behavior; activity"
 ],
@@ -13972,7 +14031,7 @@
 "longitude",
 "menstruation",
 "channel (TCM)",
-"abbr. for economics 經濟|经济[jing1 ji4]"
+"abbr. for economics 經濟|经济[jīngjì]"
 ],
 "hsk":null,
 "hsk3":7,
@@ -14003,7 +14062,7 @@
 "traditional":"目標",
 "pinyin":"mù biāo",
 "pinyinNumbered":"mu4 biao1",
-"gloss":"polestar, objective, goal, bourn, object, meaning, aim, end point, target, cause, landmark, butt, lodestar, bull's eye, mark, tee, cynosure, end, bell ringer, loadstar, quaesitum, destination",
+"gloss":"polestar, objective, goal, bourn, object, meaning",
 "definitions":[
 "target",
 "goal",
@@ -14112,7 +14171,7 @@
 "(bound form) length",
 "(bound form) strong point; forte",
 "(bound form) to be good at",
-"(literary) surplus; spare (Taiwan pr. [zhang4])"
+"(literary) surplus; spare (Taiwan pr. [zhàng])"
 ],
 "hsk":2,
 "hsk3":2,
@@ -14143,7 +14202,7 @@
 "traditional":"意見",
 "pinyin":"yì jiàn",
 "pinyinNumbered":"yi4 jian4",
-"gloss":"latitude, point of view, estimation, sight, conceit, verdict, hypothesis, attitude, estimate, possibility, judgement, appraisal, ground, slant, differing opinion, ruling, complaint, thinking, suggestion, comment, advisement, mind, apprehension, say, vote, impression, deliverance, view, understanding, feeling, idea, notion, sentiment, judgment, advice, current, opinion, advert, theory, v",
+"gloss":"latitude, point of view, estimation, sight, conceit, verdict",
 "definitions":[
 "idea",
 "opinion",
@@ -14180,7 +14239,7 @@
 "traditional":"辦法",
 "pinyin":"bàn fǎ",
 "pinyinNumbered":"ban4 fa3",
-"gloss":"road, expedient, policy, agency, measure, way, method, means",
+"gloss":"road, expedient, policy, agency, measure, way",
 "definitions":[
 "way of handling sth; means; measure; (practical) solution to a problem"
 ],
@@ -14254,7 +14313,7 @@
 "continuously",
 "in succession",
 "including",
-"(used with 也[ye3], 都[dou1] etc) even",
+"(used with 也[yě], 都[dōu] etc) even",
 "company (military)"
 ],
 "hsk":4,
@@ -14327,7 +14386,7 @@
 "traditional":"廠商",
 "pinyin":"chǎng shāng",
 "pinyinNumbered":"chang3 shang1",
-"gloss":"factory owner, factories and stores, firm, maker, business organization, business concern, manufacturing business, concern, manufacturer, business",
+"gloss":"factory owner, factories and stores, firm, maker, business organization, business concern",
 "definitions":[
 "manufacturer",
 "producer"
@@ -14342,7 +14401,7 @@
 "traditional":"受到",
 "pinyin":"shòu dào",
 "pinyinNumbered":"shou4 dao4",
-"gloss":"experience, receive, come in for, suffer, undergo, come in for, be given, come to, be subjected to",
+"gloss":"experience, receive, come in for, suffer, undergo, come in for",
 "definitions":[
 "to receive (praise, an education, punishment etc); to be ...ed (praised, educated, punished etc)"
 ],
@@ -14504,7 +14563,7 @@
 "traditional":"女性",
 "pinyin":"nǚ xìng",
 "pinyinNumbered":"nu:3 xing4",
-"gloss":"lady, female sex, womankind, feminie, female, sex, petticoat, femininity, female person, woman, she, patroness, womanhood, fair, feminine",
+"gloss":"lady, female sex, womankind, feminie, female, sex",
 "definitions":[
 "woman",
 "the female sex"
@@ -14607,7 +14666,7 @@
 "traditional":"獲得",
 "pinyin":"huò dé",
 "pinyinNumbered":"huo4 de2",
-"gloss":"find, cop, acquirement, come into, gain, draw, pick up, pull, achievement, score, procure, come by, get hold, purchase, nab, come upon, derive, latch, incur, achieve, make, bring, receive, arrive, come out, pocket, obtain, luck into, sack, win, enter upon, pick up, garner, harvest, attain, come up, line up, extract, secure, possess, earn, reap, accrue, cover, take, acquire, get, arrive at",
+"gloss":"find, cop, acquirement, come into, gain, draw",
 "definitions":[
 "to obtain; to receive; to get"
 ],
@@ -14652,7 +14711,7 @@
 {
 "id":3377988,
 "zh":"是真的吗？",
-"pinyin":"shì zhēn de má？",
+"pinyin":"shì zhēn de ma？",
 "en":"Is it true?"
 },
 {
@@ -14675,9 +14734,9 @@
 "traditional":"路",
 "pinyin":"lù",
 "pinyinNumbered":"lu4",
-"gloss":"road, path, way, journey, distance, means, sequence, logic, line, region, district, route, sort, grade, class",
+"gloss":"road, path, way, journey, distance, means",
 "definitions":[
-"road (CL:條|条[tiao2])",
+"road (CL:條|条[tiáo])",
 "journey",
 "route",
 "line (bus etc)",
@@ -14761,7 +14820,7 @@
 "gloss":"primary/elementary school, primary school",
 "definitions":[
 "elementary school (Tw)",
-"abbr. for 國民小學|国民小学[guo2 min2 xiao3 xue2]"
+"abbr. for 國民小學|国民小学[guómínxiǎoxué]"
 ],
 "hsk":null,
 "hsk3":null,
@@ -14780,7 +14839,7 @@
 "traditional":"部份",
 "pinyin":"bù fèn",
 "pinyinNumbered":"bu4 fen4",
-"gloss":"composition, segment, section, side, portion, slice, proportion, part, det.: part, share, component, division, phase, place, piece",
+"gloss":"composition, segment, section, side, portion, slice",
 "definitions":[
 "composition, segment, section, side, portion, slice, proportion, part, det.: part, share, component, division, phase, place, piece"
 ],
@@ -14830,7 +14889,7 @@
 "traditional":"女人",
 "pinyin":"nǚ rén",
 "pinyinNumbered":"nu:3 ren2",
-"gloss":"jade, crumpet, female, female person, Gill, bitch, chick, fair, squaw, womenfolk, adult female, doll, momma, wench, skirt, womankind, girl, jill, wife, broad, petticoat, sister, woman, bimbo, bird, jane, she, hen, hairpin, dame, women",
+"gloss":"jade, crumpet, female, female person, Gill, bitch",
 "definitions":[
 "woman"
 ],
@@ -14896,7 +14955,7 @@
 "traditional":"句",
 "pinyin":"jù",
 "pinyinNumbered":"ju4",
-"gloss":"sentence, m.[general],",
+"gloss":"sentence, m.[general]",
 "definitions":[
 "sentence",
 "clause",
@@ -15074,7 +15133,7 @@
 "traditional":"人民",
 "pinyin":"rén mín",
 "pinyinNumbered":"ren2 min2",
-"gloss":"multitude, citizen, quarter, Volk, hoi polloi, subject, people, nationals, masses, the people, mass, demotic",
+"gloss":"multitude, citizen, quarter, Volk, hoi polloi, subject",
 "definitions":[
 "the people"
 ],
@@ -15107,7 +15166,7 @@
 "traditional":"土地",
 "pinyin":"tǔ dì",
 "pinyinNumbered":"tu3 di4",
-"gloss":"country, acre, terra, soil, premise, realm, territory, dirt, local god of the land, farming, earth, ground, kingdom, holding, agrarian, solid ground, benefice, esplees, tract, village god, glebe, terra firma, land, dry land",
+"gloss":"country, acre, terra, soil, premise, realm",
 "definitions":[
 "land",
 "soil",
@@ -15142,7 +15201,7 @@
 "traditional":"面對",
 "pinyin":"miàn duì",
 "pinyinNumbered":"mian4 dui4",
-"gloss":"face up, stand up, face, look out on, confront, front, affront, envisage, accost, breast",
+"gloss":"face up, stand up, face, look out on, confront, front",
 "definitions":[
 "to face; to confront"
 ],
@@ -15210,7 +15269,7 @@
 "pinyinNumbered":"zhe4 li3",
 "gloss":"this place, there, here",
 "definitions":[
-"variant of 這裡|这里[zhe4 li3]"
+"here"
 ],
 "hsk":null,
 "hsk3":1,
@@ -15224,7 +15283,7 @@
 {
 "id":1175767,
 "zh":"在这里吗？",
-"pinyin":"zài zhè lǐ má？",
+"pinyin":"zài zhè lǐ ma？",
 "en":"Is it here?"
 },
 {
@@ -15241,7 +15300,7 @@
 "traditional":"新聞",
 "pinyin":"xīn wén",
 "pinyinNumbered":"xin1 wen2",
-"gloss":"unco, leak, intelligence, newsworthiness, witting, journalistic, information, journalism, courant, news",
+"gloss":"unco, leak, intelligence, newsworthiness, witting, journalistic",
 "definitions":[
 "news"
 ],
@@ -15263,7 +15322,7 @@
 {
 "id":345984,
 "zh":"你听到新闻了吗？",
-"pinyin":"nǐ tīng dào xīn wén le má？",
+"pinyin":"nǐ tīng dào xīn wén le ma？",
 "en":"Did you hear the news?"
 }
 ]
@@ -15274,7 +15333,7 @@
 "traditional":"繼續",
 "pinyin":"jì xù",
 "pinyinNumbered":"ji4 xu4",
-"gloss":"go, resume, keep on, abide, come on, persist in, extend, run on, run on, carry on, stretch, sustain, pursue, keep going, continuance, get along, get on, remain, continue, keep up, go ahead, keep up, come up, continuation, hold, carry, run, go on, maintain, go on, bide, plow ahead, hold on, piece, restart",
+"gloss":"go, resume, keep on, abide, come on, persist in",
 "definitions":[
 "to continue; to proceed with; to go on with"
 ],
@@ -15307,7 +15366,7 @@
 "traditional":"相信",
 "pinyin":"xiāng xìn",
 "pinyinNumbered":"xiang1 xin4",
-"gloss":"deem, believe, credit, esteem, accredit, feel, trow, count, have faith in, guess, lippen, buy, be convinced of, hold, think, trust, accept, know, hone, believe in, favour, believe in, hope",
+"gloss":"deem, believe, credit, esteem, accredit, feel",
 "definitions":[
 "to believe; to be convinced; to accept as true"
 ],
@@ -15373,7 +15432,7 @@
 "traditional":"變成",
 "pinyin":"biàn chéng",
 "pinyinNumbered":"bian4 cheng2",
-"gloss":"grow into, change into, go, form, grow into, change state, develop into, turn to, fall, turn into, be, turn, become, turn into, grow, run, get",
+"gloss":"grow into, change into, go, form, grow into, change state",
 "definitions":[
 "to change into",
 "to turn into",
@@ -15445,7 +15504,7 @@
 "traditional":"強調",
 "pinyin":"qiáng diào",
 "pinyinNumbered":"qiang2 diao4",
-"gloss":"underscore, spotlight, place emphasis on, point up, highlight, point, point up, enforce, emphasise, urge, underline, overstress, give emphasis to, play up, keynote, insist, punctuate, accent, betone, foreground, emphasize, emphatic, stress, set off, overemphasize, accentuate, bring out",
+"gloss":"underscore, spotlight, place emphasis on, point up, highlight, point",
 "definitions":[
 "to emphasize (a statement)",
 "to stress"
@@ -15505,7 +15564,7 @@
 {
 "id":332662,
 "zh":"您学习吗？",
-"pinyin":"nín xué xí má？",
+"pinyin":"nín xué xí ma？",
 "en":"Are you studying?"
 }
 ]
@@ -15629,7 +15688,7 @@
 "traditional":"制度",
 "pinyin":"zhì dù",
 "pinyinNumbered":"zhi4 du4",
-"gloss":"ism, organization, dispensation, regimen, machine, regulations, form, system, regime, organisation, economy, institutional, institution",
+"gloss":"ism, organization, dispensation, regimen, machine, regulations",
 "definitions":[
 "system (e.g. political, adminstrative etc)",
 "institution"
@@ -15663,7 +15722,7 @@
 "traditional":"意義",
 "pinyin":"yì yì",
 "pinyinNumbered":"yi4 yi4",
-"gloss":"importance, significance, denotation, purport, drift, signality, emptiness, meaning, construction, bearing, substance, import, effect, insignificancy, hang, signification, sense",
+"gloss":"importance, significance, denotation, purport, drift, signality",
 "definitions":[
 "sense",
 "meaning",
@@ -15737,7 +15796,7 @@
 "traditional":"課程",
 "pinyin":"kè chéng",
 "pinyinNumbered":"ke4 cheng2",
-"gloss":"course of instruction, lesson, course, course of lectures, course of study, curricular, class, curricula, syllabus, curriculum, program",
+"gloss":"course of instruction, lesson, course, course of lectures, course of study, curricular",
 "definitions":[
 "course; academic program"
 ],
@@ -15770,7 +15829,7 @@
 "traditional":"需求",
 "pinyin":"xū qiú",
 "pinyinNumbered":"xu1 qiu2",
-"gloss":"need, requisition, demand, want, desiderative, requirement, call",
+"gloss":"need, requisition, demand, want, desiderative, requirement",
 "definitions":[
 "requirement",
 "to require",
@@ -15906,7 +15965,7 @@
 "traditional":"爸爸",
 "pinyin":"bà ba",
 "pinyinNumbered":"ba4 ba5",
-"gloss":"old man, father, papa, pappa, daddy, pa, begetter, pop, dada, dad, male parent, pater, pappy, pops, poppa",
+"gloss":"old man, father, papa, pappa, daddy, pa",
 "definitions":[
 "(coll.) father; dad"
 ],
@@ -15969,7 +16028,7 @@
 "traditional":"負責",
 "pinyin":"fù zé",
 "pinyinNumbered":"fu4 ze2",
-"gloss":"preside, be responsible for, see, entail, sponsor, be in charge of, blame, answer, undertake, liable, respond",
+"gloss":"preside, be responsible for, see, entail, sponsor, be in charge of",
 "definitions":[
 "to be responsible for; to be in charge of; to bear responsibility for",
 "conscientious"
@@ -16088,7 +16147,7 @@
 "traditional":"幾乎",
 "pinyin":"jī hū",
 "pinyinNumbered":"ji1 hu1",
-"gloss":"chiefly, anear, about, near, just about, most, well-nigh, almost, closely, practically, intimately, all but, nearly, just about, virtually, much, nigh",
+"gloss":"chiefly, anear, about, near, just about, most",
 "definitions":[
 "almost; nearly; practically"
 ],
@@ -16195,7 +16254,7 @@
 "traditional":"團體",
 "pinyin":"tuán tǐ",
 "pinyinNumbered":"tuan2 ti3",
-"gloss":"fraternity, sect, phalanx, collective, body, group, sodality, element, organisation, corporation, confession, college, establishment, brotherhood, community, organization, squad, union, administration, society, army, commonwealth, consort, company, lineup, combine, governance, clan, combination, fellowship, organizational, bloc, team, party, connection, family, brass, squadron",
+"gloss":"fraternity, sect, phalanx, collective, body, group",
 "definitions":[
 "group",
 "organization",
@@ -16247,7 +16306,7 @@
 {
 "id":10273856,
 "zh":"你知道恐惧的价值吗?",
-"pinyin":"nǐ zhī dào kǒng jù de jià zhí má?",
+"pinyin":"nǐ zhī dào kǒng jù de jià zhí ma?",
 "en":"Do you know the value of fear?"
 }
 ]
@@ -16349,7 +16408,7 @@
 "traditional":"科技",
 "pinyin":"kē jì",
 "pinyinNumbered":"ke1 ji4",
-"gloss":"technology, tech, engineering science, applied science, science and technology, technological, engineering",
+"gloss":"technology, tech, engineering science, applied science, science and technology, technological",
 "definitions":[
 "science and technology"
 ],
@@ -16628,7 +16687,7 @@
 {
 "id":5663598,
 "zh":"有它的应用吗？",
-"pinyin":"yǒu tā de yìng yòng má？",
+"pinyin":"yǒu tā de yìng yòng ma？",
 "en":"Is there an app for that?"
 },
 {
@@ -16674,7 +16733,7 @@
 {
 "id":13901003,
 "zh":"要加点牛奶或者糖吗？",
-"pinyin":"yào jiā diǎn niú nǎi huò zhě táng má？",
+"pinyin":"yào jiā diǎn niú nǎi huò zhě táng ma？",
 "en":"Any milk or sugar?"
 }
 ]
@@ -16685,7 +16744,7 @@
 "traditional":"動物",
 "pinyin":"dòng wù",
 "pinyinNumbered":"dong4 wu4",
-"gloss":"thing, critter, crittur, zoic, anthropomorphism, animal, deer, animate being, beast, creature, burrow, sire, worker, fauna, brute",
+"gloss":"thing, critter, crittur, zoic, anthropomorphism, animal",
 "definitions":[
 "animal"
 ],
@@ -16718,7 +16777,7 @@
 "traditional":"電話",
 "pinyin":"diàn huà",
 "pinyinNumbered":"dian4 hua4",
-"gloss":"blower, phone call, headphone, earpiece, telephone, telephone call, buzz, earphone, horn, telephone set, phone call, telephony, phone",
+"gloss":"blower, phone call, headphone, earpiece, telephone, telephone call",
 "definitions":[
 "telephone",
 "phone call",
@@ -16753,7 +16812,7 @@
 "traditional":"態度",
 "pinyin":"tài du",
 "pinyinNumbered":"tai4 du5",
-"gloss":"stance, treatment, demeanor, dealing, deportment, pose, behavior, manner, demeanour, way, bearing, attitude, air, behaviour, front, mien, conduct, mental attitude, approach, posture, address, position, bedside manner, movement, gesture, comportment, presence, sort",
+"gloss":"stance, treatment, demeanor, dealing, deportment, pose",
 "definitions":[
 "manner",
 "bearing",
@@ -16822,7 +16881,7 @@
 "traditional":"事業",
 "pinyin":"shì yè",
 "pinyinNumbered":"shi4 ye4",
-"gloss":"proposition, task, pidgin, institution, undertaking, deed, facilities, life history, endeavour, endeavor, cause, career, project, action, enterprise",
+"gloss":"proposition, task, pidgin, institution, undertaking, deed",
 "definitions":[
 "undertaking",
 "project",
@@ -16939,7 +16998,7 @@
 "traditional":"常常",
 "pinyin":"cháng cháng",
 "pinyinNumbered":"chang2 chang2",
-"gloss":"oftentimes, ofttimes, commonly, ordinarily, oft, often, a great deal, normally, frequently, unremarkably, much, usually",
+"gloss":"oftentimes, ofttimes, commonly, ordinarily, oft, often",
 "definitions":[
 "frequently; often"
 ],
@@ -16972,7 +17031,7 @@
 "traditional":"字",
 "pinyin":"zì",
 "pinyinNumbered":"zi4",
-"gloss":"graphic symbol, writing, pronunciation (of a word), form of a written character, receipt, printing type, script, name taken at the age of 20, courtesy name, wordage, character, grapheme, contract, scripts, symbolic representation, style of handwriting, word",
+"gloss":"graphic symbol, writing, pronunciation (of a word), form of a written character, receipt, printing type",
 "definitions":[
 "letter",
 "symbol",
@@ -17101,7 +17160,7 @@
 {
 "id":5097670,
 "zh":"你可以简单地做一下自我介绍吗？",
-"pinyin":"nǐ kě yǐ jiǎn dān dì zuò yī xià zì wǒ jiè shào má？",
+"pinyin":"nǐ kě yǐ jiǎn dān dì zuò yī xià zì wǒ jiè shào ma？",
 "en":"Could you give a simple self-introduction?"
 }
 ]
@@ -17191,7 +17250,7 @@
 "traditional":"目的",
 "pinyin":"mù dì",
 "pinyinNumbered":"mu4 di4",
-"gloss":"view, pretence, objective, goal, purport, intention, bourn, object, motive, motivation, meaning, aim, end point, hent, target, scope, sense of purpose, errand, purposefulness, sake, function, end, purpose, quaesitum, intent",
+"gloss":"view, pretence, objective, goal, purport, intention",
 "definitions":[
 "purpose; aim; goal; target; objective"
 ],
@@ -17259,7 +17318,7 @@
 "traditional":"條件",
 "pinyin":"tiáo jiàn",
 "pinyinNumbered":"tiao2 jian4",
-"gloss":"mood, formula, conditional, precondition, prerequisite, requisition, factor, qualification, requirement, stipulation, proviso, circumstances, provision, term, reservation, if, condition",
+"gloss":"mood, formula, conditional, precondition, prerequisite, requisition",
 "definitions":[
 "condition; circumstance; term; factor",
 "requirement; prerequisite; qualification",
@@ -17400,7 +17459,7 @@
 "traditional":"放",
 "pinyin":"fàng",
 "pinyinNumbered":"fang4",
-"gloss":"loose, bloom, make longer, set ... free, let sb. have his own way, show, readjust, free, make larger, put in, fly, etc., release, discharge, leave alone, bung, lay aside, put, expansion, make longer/larger/etc., fling, localize, lend (money) at interest, let go, set, pasture, pose, set free, blossom, lay, let off, put out to pasture, send away, play, expand, make larger/etc., readjus",
+"gloss":"loose, bloom, make longer, set ... free, let sb. have his own way, show",
 "definitions":[
 "to put",
 "to place",
@@ -17439,7 +17498,7 @@
 "traditional":"電影",
 "pinyin":"diàn yǐng",
 "pinyinNumbered":"dian4 ying3",
-"gloss":"cinematography, moving picture, pix, kinema, picture, film, movie, moving picture, flick, cinema, motion picture, cinematic, celluloid, picture show, motion picture, flicker",
+"gloss":"cinematography, moving picture, pix, kinema, picture, film",
 "definitions":[
 "movie; film"
 ],
@@ -17455,7 +17514,7 @@
 {
 "id":11845629,
 "zh":"你看电影吗？",
-"pinyin":"nǐ kàn diàn yǐng má？",
+"pinyin":"nǐ kàn diàn yǐng ma？",
 "en":"Do you watch movies?"
 },
 {
@@ -17527,7 +17586,7 @@
 {
 "id":818323,
 "zh":"你执行你的计划了吗？",
-"pinyin":"nǐ zhí xíng nǐ de jì huà le má？",
+"pinyin":"nǐ zhí xíng nǐ de jì huà le ma？",
 "en":"Did you carry out your plan?"
 },
 {
@@ -17582,7 +17641,7 @@
 "traditional":"委員會",
 "pinyin":"wěi yuán huì",
 "pinyinNumbered":"wei3 yuan2 hui4",
-"gloss":"board, soviet, commission, committee, court, citizens committee, mission, delegacy, deputation, delegation, council",
+"gloss":"board, soviet, commission, committee, court, citizens committee",
 "definitions":[
 "committee; commission"
 ],
@@ -17630,7 +17689,7 @@
 "traditional":"開",
 "pinyin":"kāi",
 "pinyinNumbered":"kai1",
-"gloss":"open, open up, reclaim (land), open out, come loose, start, begin, operate, turn on (light), run (business), hold (meeting/etc.), divide into, reveal",
+"gloss":"open, open up, reclaim (land), open out, come loose, start",
 "definitions":[
 "to open (transitive or intransitive)",
 "(of ships, vehicles, troops etc) to start",
@@ -17639,8 +17698,8 @@
 "to write out (a prescription, check, invoice etc)",
 "(directional complement) away; off",
 "carat (gold)",
-"abbr. for Kelvin, 開爾文|开尔文[Kai1 er3 wen2]",
-"abbr. for 開本|开本[kai1 ben3], book format"
+"abbr. for Kelvin, 開爾文|开尔文[Kāiěrwén]",
+"abbr. for 開本|开本[kāiběn], book format"
 ],
 "hsk":1,
 "hsk3":1,
@@ -17671,7 +17730,7 @@
 "traditional":"一起",
 "pinyin":"yī qǐ",
 "pinyinNumbered":"yi1 qi3",
-"gloss":"in chorus, together, in all, in the same place, holus-bolus, altogether, in company",
+"gloss":"in chorus, together, in all, in the same place, holus-bolus, altogether",
 "definitions":[
 "(in) the same place",
 "together; in company (with)",
@@ -17696,7 +17755,7 @@
 {
 "id":480305,
 "zh":"你想一起去吗？",
-"pinyin":"nǐ xiǎng yī qǐ qù má？",
+"pinyin":"nǐ xiǎng yī qǐ qù ma？",
 "en":"Do you want to come along?"
 }
 ]
@@ -17787,7 +17846,7 @@
 {
 "id":389065,
 "zh":"他们不是公司员工吗？",
-"pinyin":"tā men bù shì gōng sī yuán gōng má？",
+"pinyin":"tā men bù shì gōng sī yuán gōng ma？",
 "en":"Are they not company employees?"
 }
 ]
@@ -17798,7 +17857,7 @@
 "traditional":"引起",
 "pinyin":"yǐn qǐ",
 "pinyinNumbered":"yin3 qi3",
-"gloss":"elicit, beget, causation, give rise to, incite, pique, engender, bring on, trigger, fire, compel, kick up, superindividual, draw, spawn, invite, touch off, occasion, lead, bring about, procure, touch off, raise, enkindle, give, poke, produce, capture, generate, stir, arouse, excite, put forward, provoke, breed, bring, conjure up, grip, create, kindle, tempt, set up, interest, give rise, enga",
+"gloss":"elicit, beget, causation, give rise to, incite, pique",
 "definitions":[
 "to give rise to; to lead to; to cause; to arouse"
 ],
@@ -17960,7 +18019,7 @@
 "traditional":"擁有",
 "pinyin":"yōng yǒu",
 "pinyinNumbered":"yong1 you3",
-"gloss":"occupy, have, receive, aught, hold back, keep, keep back, owe, retain, own, possess, possession, hold, seize, take, acquire, corral, hold on",
+"gloss":"occupy, have, receive, aught, hold back, keep",
 "definitions":[
 "to have; to possess; to own"
 ],
@@ -17982,7 +18041,7 @@
 {
 "id":1783792,
 "zh":"你拥有枪支吗？",
-"pinyin":"nǐ yōng yǒu qiāng zhī má？",
+"pinyin":"nǐ yōng yǒu qiāng zhī ma？",
 "en":"Do you own a gun?"
 }
 ]
@@ -18026,7 +18085,7 @@
 "traditional":"事件",
 "pinyin":"shì jiàn",
 "pinyinNumbered":"shi4 jian4",
-"gloss":"fact, event, page, incidental, go, case, job, natural event, timing, proceedings, social occasion, happening, occurrence, matter, occasion, incident, shebang, affair, chapter, concernment",
+"gloss":"fact, event, page, incidental, go, case",
 "definitions":[
 "incident; event"
 ],
@@ -18075,7 +18134,7 @@
 "traditional":"語言",
 "pinyin":"yǔ yán",
 "pinyinNumbered":"yu3 yan2",
-"gloss":"linguistic communication, lingual, language, idiom, tongue, oral communication, speech, perspicuity, lingo, contumely, Fortran, parole, natural language, spoken language, linguistic process",
+"gloss":"linguistic communication, lingual, language, idiom, tongue, oral communication",
 "definitions":[
 "language"
 ],
@@ -18141,7 +18200,7 @@
 "traditional":"故事",
 "pinyin":"gù shì",
 "pinyinNumbered":"gu4 shi4",
-"gloss":"spiel, recital, relation, scam, rede, plot, yarn, narration, story, fiction, tale, history, legend, narrative",
+"gloss":"spiel, recital, relation, scam, rede, plot",
 "definitions":[
 "old practice"
 ],
@@ -18217,7 +18276,7 @@
 "one-sided",
 "classifier for slices, tablets, tract of land, area of water",
 "classifier for CDs, movies, DVDs etc",
-"used with numeral 一[yi1]: classifier for scenario, scene, feeling, atmosphere, sound etc",
+"used with numeral 一[yī]: classifier for scenario, scene, feeling, atmosphere, sound etc",
 "Kangxi radical 91"
 ],
 "hsk":5,
@@ -18249,7 +18308,7 @@
 "traditional":"設備",
 "pinyin":"shè bèi",
 "pinyinNumbered":"she4 bei4",
-"gloss":"installation, set, device, appointment, plant, fixing, system, appliance, fixture, fitting, accommodation, fitment, finishing, unit, furnishings, materiel, contrivance, paraphernalia, facilities, rig, equipage, setout, facility, fixings, equipment",
+"gloss":"installation, set, device, appointment, plant, fixing",
 "definitions":[
 "equipment; facilities; installations"
 ],
@@ -18372,7 +18431,7 @@
 {
 "id":6563555,
 "zh":"你不懂基本逻辑吗？",
-"pinyin":"nǐ bù dǒng jī běn luó ji má？",
+"pinyin":"nǐ bù dǒng jī běn luó ji ma？",
 "en":"Do you not understand basic logic?"
 }
 ]
@@ -18493,7 +18552,7 @@
 {
 "id":333915,
 "zh":"你有避孕套吗？",
-"pinyin":"nǐ yǒu bì yùn tào má？",
+"pinyin":"nǐ yǒu bì yùn tào ma？",
 "en":"Do you have a condom?"
 }
 ]
@@ -18504,7 +18563,7 @@
 "traditional":"達到",
 "pinyin":"dá dào",
 "pinyinNumbered":"da2 dao4",
-"gloss":"extend to, find, fulfil, compass, encompass, extend, gain, answer, achievement, succeed, fulfill, live up to, attainment, strain, bring up, achieve, get to, touch, strive, make, accomplish, progress to, come, hit, come out, obtain, reach, attain, clock up, suffice, do, get, arrive at",
+"gloss":"extend to, find, fulfil, compass, encompass, extend",
 "definitions":[
 "to reach; to achieve; to attain"
 ],
@@ -18609,7 +18668,7 @@
 "traditional":"結構",
 "pinyin":"jié gòu",
 "pinyinNumbered":"jie2 gou4",
-"gloss":"constitution, configuration, framing, structural, design, underframe, framework, construction, structure, schematism, economy, fabric, mechanics, composition, machinery, contexture, texture, constellation, fable, ordonnance, skeleton, organization, frame, architecture, chemistry, make",
+"gloss":"constitution, configuration, framing, structural, design, underframe",
 "definitions":[
 "structure",
 "composition",
@@ -18639,7 +18698,7 @@
 "traditional":"住",
 "pinyin":"zhù",
 "pinyinNumbered":"zhu4",
-"gloss":"inhabit, cease, stay, visit, shack, dwell, stop, people, live, reside, populate, dig",
+"gloss":"inhabit, cease, stay, visit, shack, dwell",
 "definitions":[
 "to live; to reside; to stay",
 "to stop; to cease",
@@ -18746,7 +18805,12 @@
 "pinyinNumbered":"na2",
 "gloss":"take, hold, seize, capture",
 "definitions":[
-"old variant of 拿[na2]"
+"to hold",
+"to seize",
+"to catch",
+"to apprehend",
+"to take",
+"(used in the same way as 把[bǎ]: to mark the following noun as a direct object)"
 ],
 "hsk":3,
 "hsk3":1,
@@ -18760,7 +18824,7 @@
 {
 "id":6850327,
 "zh":"你拿吗?",
-"pinyin":"nǐ ná má?",
+"pinyin":"nǐ ná ma?",
 "en":"Did you take it?"
 },
 {
@@ -18836,12 +18900,12 @@
 "traditional":"座",
 "pinyin":"zuò",
 "pinyinNumbered":"zuo4",
-"gloss":"fare, stand, base, constellation, footstall, pedestal, m.[general], , customer, Aquarius, seating, plinth, place, seat",
+"gloss":"fare, stand, base, constellation, footstall, pedestal",
 "definitions":[
 "seat",
 "base; stand",
 "(bound form) constellation",
-"(archaic) suffix used in a respectful form of address (e.g. 師座|师座[shi1 zuo4])",
+"(archaic) suffix used in a respectful form of address (e.g. 師座|师座[shīzuò])",
 "classifier for large immovable objects such as buildings, mountains, bridges etc"
 ],
 "hsk":4,
@@ -18941,7 +19005,7 @@
 "traditional":"僅",
 "pinyin":"jǐn",
 "pinyinNumbered":"jin3",
-"gloss":"scantily, simply, alone, merely, barely, only, but, just",
+"gloss":"scantily, simply, alone, merely, barely, only",
 "definitions":[
 "barely",
 "only",
@@ -18976,7 +19040,7 @@
 "traditional":"值得",
 "pinyin":"zhí de",
 "pinyinNumbered":"zhi2 de5",
-"gloss":"be worth, merit, pay, rate, behove, worthwhile, worth, worthy, deserve, call for, command",
+"gloss":"be worth, merit, pay, rate, behove, worthwhile",
 "definitions":[
 "worth the money",
 "to merit; to deserve; to be worth (doing sth)"
@@ -19010,7 +19074,7 @@
 "traditional":"學者",
 "pinyin":"xué zhě",
 "pinyinNumbered":"xue2 zhe3",
-"gloss":"academic, literate, pandit, letters, litterateur, learned person, literati, philomath, pundit, academician, faculty member, scholar, bookman, clerk, student, scholarly person, man of letters, man of learning, speleologist, doctor, clerisy, initiate, swami, punditry, savant, learned man, sophist",
+"gloss":"academic, literate, pandit, letters, litterateur, learned person",
 "definitions":[
 "scholar"
 ],
@@ -19076,7 +19140,7 @@
 "traditional":"交通",
 "pinyin":"jiāo tōng",
 "pinyinNumbered":"jiao1 tong1",
-"gloss":"intercourse, commutation, transportation, communication, commuting, traffic, traffic light, liaison man, communications, dealings, liaison",
+"gloss":"intercourse, commutation, transportation, communication, commuting, traffic",
 "definitions":[
 "to be connected",
 "traffic",
@@ -19113,7 +19177,7 @@
 "traditional":"階段",
 "pinyin":"jiē duàn",
 "pinyinNumbered":"jie1 duan4",
-"gloss":"staged, period, phase angle, stage, gradation, level, peg, grade, remove, phase, leg, step",
+"gloss":"staged, period, phase angle, stage, gradation, level",
 "definitions":[
 "stage",
 "section",
@@ -19134,7 +19198,7 @@
 "definitions":[
 "exactly; precisely",
 "only; simply; just",
-"(used correlatively with 也[ye3]) even; even if"
+"(used correlatively with 也[yě]) even; even if"
 ],
 "hsk":null,
 "hsk3":3,
@@ -19168,7 +19232,7 @@
 "gloss":"apply for",
 "definitions":[
 "to apply for sth",
-"application form (CL:份[fen4])"
+"application form (CL:份[fèn])"
 ],
 "hsk":4,
 "hsk3":4,
@@ -19188,7 +19252,7 @@
 {
 "id":8709405,
 "zh":"没有合格的申请人吗？",
-"pinyin":"méi yǒu hé gé de shēn qǐng rén má？",
+"pinyin":"méi yǒu hé gé de shēn qǐng rén ma？",
 "en":"Aren't there any qualified applicants?"
 }
 ]
@@ -19296,7 +19360,7 @@
 {
 "id":6608382,
 "zh":"你感觉好吗？",
-"pinyin":"nǐ gǎn jué hǎo má？",
+"pinyin":"nǐ gǎn jué hǎo ma？",
 "en":"Are you feeling okay?"
 }
 ]
@@ -19307,7 +19371,7 @@
 "traditional":"電視",
 "pinyin":"diàn shì",
 "pinyinNumbered":"dian4 shi4",
-"gloss":"TV, box, iconoscope, video, television set, teevee, orthicon, huckster, TV set, radiovision, television, telecasting, airwave, telly",
+"gloss":"TV, box, iconoscope, video, television set, teevee",
 "definitions":[
 "television; TV"
 ],
@@ -19340,7 +19404,7 @@
 "traditional":"母親",
 "pinyin":"mǔ qīn",
 "pinyinNumbered":"mu3 qin1",
-"gloss":"venter, materfamilias, mother, mither, sultana, maternal, female parent, mater",
+"gloss":"venter, materfamilias, mother, mither, sultana, maternal",
 "definitions":[
 "mother"
 ],
@@ -19375,7 +19439,7 @@
 "pinyinNumbered":"ma2",
 "gloss":"particle: used to persuade someone to do something; used to emphasize the obvious",
 "definitions":[
-"used in 唵嘛呢叭咪吽[an3 ma2 ni2 ba1 mi1 hong1]",
+"used in 唵嘛呢叭咪吽[ǎnmáníbāmīhōng]",
 "(Tw) (coll.) what?"
 ],
 "hsk":6,
@@ -19409,7 +19473,7 @@
 "pinyinNumbered":"xiang1 gang3",
 "gloss":"Hong Kong",
 "definitions":[
-"Hong Kong, special administrative region (SAR) of the PRC (short name 港[Gang3])"
+"Hong Kong, special administrative region (SAR) of the PRC (short name 港[Gǎng])"
 ],
 "hsk":null,
 "hsk3":null,
@@ -19440,7 +19504,7 @@
 "traditional":"記者",
 "pinyin":"jì zhě",
 "pinyinNumbered":"ji4 zhe3",
-"gloss":"journalist, writer, correspondent, newspaperwoman, newspaperman, gazetteer, newswriter, reporter, pressman, newshound, newsman, newsperson",
+"gloss":"journalist, writer, correspondent, newspaperwoman, newspaperman, gazetteer",
 "definitions":[
 "reporter; journalist"
 ],
@@ -19462,7 +19526,7 @@
 {
 "id":3378204,
 "zh":"你是记者吗？",
-"pinyin":"nǐ shì jì zhě má？",
+"pinyin":"nǐ shì jì zhě ma？",
 "en":"Are you a reporter?"
 }
 ]
@@ -19473,7 +19537,7 @@
 "traditional":"壓力",
 "pinyin":"yā lì",
 "pinyinNumbered":"ya1 li4",
-"gloss":"force per unit area, P, strain, overwhelming force, pressure sensation, burdensomeness, oppressiveness, pressure, onerousness, stress, compulsion, constraint, muscle, lading",
+"gloss":"force per unit area, P, strain, overwhelming force, pressure sensation, burdensomeness",
 "definitions":[
 "pressure"
 ],
@@ -19572,7 +19636,7 @@
 "traditional":"敢",
 "pinyin":"gǎn",
 "pinyinNumbered":"gan3",
-"gloss":"dare, make bold, have courage to, be sure, have confidence to, venture, have the confidence to, be certain",
+"gloss":"dare, make bold, have courage to, be sure, have confidence to, venture",
 "definitions":[
 "to dare",
 "daring",
@@ -19607,7 +19671,7 @@
 "traditional":"院",
 "pinyin":"yuàn",
 "pinyinNumbered":"yuan4",
-"gloss":"public facility, college, courtyard, designation for certain government offices and pub, hospital, clinic, branch of government, university, institutes, compound, abbey, academy, institute, yard, educational institution, faculty",
+"gloss":"public facility, college, courtyard, designation for certain government offices and pub, hospital, clinic",
 "definitions":[
 "courtyard",
 "institution"
@@ -19641,7 +19705,7 @@
 "traditional":"也許",
 "pinyin":"yě xǔ",
 "pinyinNumbered":"ye3 xu3",
-"gloss":"possibly, peradventure, conceivably, assumedly, mayhap, doubtless, ablings, perhaps, perchance, potentially, probably, maybe, presumably, ablins, just",
+"gloss":"possibly, peradventure, conceivably, assumedly, mayhap, doubtless",
 "definitions":[
 "perhaps; maybe"
 ],
@@ -19674,7 +19738,7 @@
 "traditional":"人們",
 "pinyin":"rén men",
 "pinyinNumbered":"ren2 men5",
-"gloss":"workforce, hands, work force, folk, people, they, the people, men, manpower, common people",
+"gloss":"workforce, hands, work force, folk, people, they",
 "definitions":[
 "people"
 ],
@@ -19815,7 +19879,7 @@
 "traditional":"身體",
 "pinyin":"shēn tǐ",
 "pinyinNumbered":"shen1 ti3",
-"gloss":"soma, system, physical structure, body, health, carcase, corpus, frame, person, somatic, organic structure, personage",
+"gloss":"soma, system, physical structure, body, health, carcase",
 "definitions":[
 "the body",
 "one's health"
@@ -19883,7 +19947,7 @@
 "traditional":"程度",
 "pinyin":"chéng dù",
 "pinyinNumbered":"cheng2 du4",
-"gloss":"latitude, rate, degree, point, measure, way, grade, gree, pitch, cut, length, plane, stage, level, extent, scale, notch",
+"gloss":"latitude, rate, degree, point, measure, way",
 "definitions":[
 "degree; level; extent"
 ],
@@ -19953,7 +20017,7 @@
 "traditional":"知識",
 "pinyin":"zhī shi",
 "pinyinNumbered":"zhi1 shi5",
-"gloss":"lear, know-how, understanding, ken, instruction, science, sophistication, consciousness, light, awareness, cognizance, knowledge, lore, mastery, know, cognition, acquaintanceship, mind, intellect, knowingness, equipment",
+"gloss":"lear, know-how, understanding, ken, instruction, science",
 "definitions":[
 "knowledge",
 "intellectual"
@@ -20030,7 +20094,7 @@
 "traditional":"機構",
 "pinyin":"jī gòu",
 "pinyinNumbered":"ji1 gou4",
-"gloss":"internal structure of an organization, motion, gadget, instrumentality, institute, organ, mechanism, gear, representation, mechanics, machinery, apparatus, establishment, institution, means, organization, agency, setup, delegacy, outfit",
+"gloss":"internal structure of an organization, motion, gadget, instrumentality, institute, organ",
 "definitions":[
 "mechanism",
 "structure",
@@ -20114,7 +20178,7 @@
 "traditional":"角色",
 "pinyin":"jué sè",
 "pinyinNumbered":"jue2 se4",
-"gloss":"theatrical role, character, persona, part, function, office, fictional character, actor, fictitious character, personage, role",
+"gloss":"theatrical role, character, persona, part, function, office",
 "definitions":[
 "role; part (in a play or movie etc)"
 ],
@@ -20147,7 +20211,7 @@
 "traditional":"狀況",
 "pinyin":"zhuàng kuàng",
 "pinyinNumbered":"zhuang4 kuang4",
-"gloss":"repair, background, picture, state (of affairs), state of affairs, status, gear, scene, setting, scope, condition, state, circumstance, trimness, context, showing, trim, factor, condition/state (of affairs), situation, shoes, consideration, place",
+"gloss":"repair, background, picture, state (of affairs), state of affairs, status",
 "definitions":[
 "condition; state; situation"
 ],
@@ -20169,7 +20233,7 @@
 {
 "id":4313856,
 "zh":"能告诉我你的婚姻状况吗？",
-"pinyin":"néng gào sù wǒ nǐ de hūn yīn zhuàng kuàng má？",
+"pinyin":"néng gào sù wǒ nǐ de hūn yīn zhuàng kuàng ma？",
 "en":"Can you tell me about your marital status?"
 }
 ]
@@ -20180,7 +20244,7 @@
 "traditional":"專家",
 "pinyin":"zhuān jiā",
 "pinyinNumbered":"zhuan1 jia1",
-"gloss":"guru, pundit, adept, expertise, professional person, specializer, specialist, proficient, whiz, oner, expert, swami, savant, dab, professional, authority, stunner, technician",
+"gloss":"guru, pundit, adept, expertise, professional person, specializer",
 "definitions":[
 "expert; specialist"
 ],
@@ -20215,7 +20279,11 @@
 "pinyinNumbered":"ju4",
 "gloss":"according to, on the grounds of",
 "definitions":[
-"variant of 據|据[ju4]"
+"according to",
+"to act in accordance with",
+"to depend on",
+"to seize",
+"to occupy"
 ],
 "hsk":null,
 "hsk3":6,
@@ -20351,14 +20419,14 @@
 "traditional":"玩",
 "pinyin":"wán",
 "pinyinNumbered":"wan2",
-"gloss":"amuse oneself, treat lightly, have fun, resort to, enjoy, appreciate, play, toy, trifle with, employ, disport, shoot, amuse onself",
+"gloss":"amuse oneself, treat lightly, have fun, resort to, enjoy, appreciate",
 "definitions":[
 "to play",
 "to have fun",
 "to trifle with",
 "toy",
 "sth used for amusement",
-"curio or antique (Taiwan pr. [wan4])",
+"curio or antique (Taiwan pr. [wàn])",
 "to keep sth for entertainment"
 ],
 "hsk":2,
@@ -20390,7 +20458,7 @@
 "traditional":"效果",
 "pinyin":"xiào guǒ",
 "pinyinNumbered":"xiao4 guo3",
-"gloss":"operation, execution, result, effect, background, sound effects, purpose, point, background signal, fruitage, outcome, force, punch",
+"gloss":"operation, execution, result, effect, background, sound effects",
 "definitions":[
 "result",
 "effect",
@@ -20506,7 +20574,7 @@
 "together",
 "total",
 "altogether",
-"abbr. for 共產黨|共产党[Gong4 chan3 dang3], Communist party"
+"abbr. for 共產黨|共产党[Gòngchǎndǎng], Communist party"
 ],
 "hsk":null,
 "hsk3":4,
@@ -20610,7 +20678,7 @@
 "traditional":"父親",
 "pinyin":"fù qīn",
 "pinyinNumbered":"fu4 qin1",
-"gloss":"parent, father, pere, Pa, begetter, governor, abba, male parent, pater, guv",
+"gloss":"parent, father, pere, Pa, begetter, governor",
 "definitions":[
 "father"
 ],
@@ -20657,7 +20725,7 @@
 {
 "id":5975077,
 "zh":"你选好专业了吗",
-"pinyin":"nǐ xuǎn hǎo zhuān yè le má",
+"pinyin":"nǐ xuǎn hǎo zhuān yè le ma",
 "en":"Have you chosen a major yet?"
 },
 {
@@ -20680,7 +20748,7 @@
 "traditional":"經費",
 "pinyin":"jīng fèi",
 "pinyinNumbered":"jing1 fei4",
-"gloss":"finances, monetary resource, expenses, expense, expenditure, pecuniary resource, fund, outlay, funds, outgo, cash in hand",
+"gloss":"finances, monetary resource, expenses, expense, expenditure, pecuniary resource",
 "definitions":[
 "funds",
 "expenditure"
@@ -20695,7 +20763,7 @@
 "traditional":"曾經",
 "pinyin":"céng jīng",
 "pinyinNumbered":"ceng2 jing1",
-"gloss":"in one case, , one time, formerly, syne, at one time, of all time, once, ever",
+"gloss":"in one case, one time, formerly, syne, at one time, of all time",
 "definitions":[
 "once",
 "already",
@@ -20746,7 +20814,7 @@
 {
 "id":1776642,
 "zh":"你愿意来吗？",
-"pinyin":"nǐ yuàn yì lái má？",
+"pinyin":"nǐ yuàn yì lái ma？",
 "en":"Would you like to come?"
 },
 {
@@ -20866,7 +20934,7 @@
 "traditional":"歡迎",
 "pinyin":"huān yíng",
 "pinyinNumbered":"huan1 ying2",
-"gloss":"invite, greet, take in, receive, welcome, gratulate, embrace, salute",
+"gloss":"invite, greet, take in, receive, welcome, gratulate",
 "definitions":[
 "to welcome",
 "welcome"
@@ -20900,7 +20968,7 @@
 "traditional":"小孩",
 "pinyin":"xiǎo hái",
 "pinyinNumbered":"xiao3 hai2",
-"gloss":"kid, tyke, encumbrance, kinchin, youngster, wean, small fry, chick, juvenile, imp, urchin, minor, nestling, prattler, tike, kiddie, tot, fry, bud, mammet, pinafore, nipper, enfant, mite, bairn, chicken, shaver, child, chit, kiddy, infant, tiddler, sprig",
+"gloss":"kid, tyke, encumbrance, kinchin, youngster, wean",
 "definitions":[
 "child"
 ],
@@ -20982,7 +21050,7 @@
 {
 "id":3378212,
 "zh":"你是中国人吗？",
-"pinyin":"nǐ shì zhōng guó rén má？",
+"pinyin":"nǐ shì zhōng guó rén ma？",
 "en":"Are you Chinese?"
 },
 {
@@ -20999,7 +21067,7 @@
 "traditional":"顯示",
 "pinyin":"xiǎn shì",
 "pinyinNumbered":"xian3 shi4",
-"gloss":"demonstrate, argue, exhibit, prove, display, show, illustrate, manifest, demonstration, announce, stamp, unroll, witness, write, give, evince, dangle, betray, bespeak, say, profess, develop, indicate, signal, flaunt, read, register, manifestation, speak, reveal, evidence, tell, shew, proclaim, discover, stage, bear, establish, record, prognosticate, betoken, note, signalize",
+"gloss":"demonstrate, argue, exhibit, prove, display, show",
 "definitions":[
 "to show; to display; to demonstrate"
 ],
@@ -21034,7 +21102,7 @@
 "pinyinNumbered":"zhong1 gong4",
 "gloss":"Chinese Communist Party",
 "definitions":[
-"abbr. for 中國共產黨|中国共产党[Zhong1 guo2 Gong4 chan3 dang3], Chinese Communist Party"
+"abbr. for 中國共產黨|中国共产党[ZhōngguóGòngchǎndǎng], Chinese Communist Party"
 ],
 "hsk":null,
 "hsk3":null,
@@ -21084,7 +21152,7 @@
 "traditional":"男人",
 "pinyin":"nán rén",
 "pinyinNumbered":"nan2 ren2",
-"gloss":"male, man, chap, mankind, buck, bastard, gentleman, jack, gent, men, blighter, cuss, hombre, lad, adult male, groom, husband, bimbo, dog, fellow, mon, menfolk, fella",
+"gloss":"male, man, chap, mankind, buck, bastard",
 "definitions":[
 "a man",
 "a male",
@@ -21119,7 +21187,7 @@
 "traditional":"避免",
 "pinyin":"bì miǎn",
 "pinyinNumbered":"bi4 mian3",
-"gloss":"forbear, preclude, refrain from, forebear, escape, help, elude, leapfrog, refrain from, stave off, evite, shun, obviate, avoid, evade, waive, help oneself, ward off, ward, miss, avert, ward off, balk, refrain",
+"gloss":"forbear, preclude, refrain from, forebear, escape, help",
 "definitions":[
 "to avert",
 "to prevent",
@@ -21155,7 +21223,7 @@
 "traditional":"屬於",
 "pinyin":"shǔ yú",
 "pinyinNumbered":"shu3 yu2",
-"gloss":"fall under, be part of, pertain, appertain, belong, relegate, fall into, belong to, fall under, reside, belong to, attach",
+"gloss":"fall under, be part of, pertain, appertain, belong, relegate",
 "definitions":[
 "to belong to; to fall under (a category)"
 ],
@@ -21216,7 +21284,7 @@
 "traditional":"聲音",
 "pinyin":"shēng yīn",
 "pinyinNumbered":"sheng1 yin1",
-"gloss":"voice, vocal, language, huskiness, vox, vocalization, audio, noise, sonic, tone, sound, phone, audio frequency",
+"gloss":"voice, vocal, language, huskiness, vox, vocalization",
 "definitions":[
 "sound; voice"
 ],
@@ -21249,7 +21317,7 @@
 "traditional":"主義",
 "pinyin":"zhǔ yì",
 "pinyinNumbered":"zhu3 yi4",
-"gloss":"tenet, principle, hang, system, ticket, creed, philosophy, school of thought, evangel, ism, gospel, masonry, maxim, doctrine, -ism",
+"gloss":"tenet, principle, hang, system, ticket, creed",
 "definitions":[
 "-ism",
 "ideology"
@@ -21355,9 +21423,9 @@
 "gloss":"can only, have no choice but, to be forced to",
 "definitions":[
 "only have ...; there is only ...",
-"(used in combination with 才[cai2]) it is only if ... (that one can ...) (as in 只有通過治療才能痊愈|只有通过治疗才能痊愈[zhi3 you3 tong1 guo4 zhi4 liao2 cai2 neng2 quan2 yu4] \"the only way to cure it is with therapy\")",
-"it is only (someone) who ... (as in 只有男性才有此需要[zhi3 you3 nan2 xing4 cai2 you3 ci3 xu1 yao4] \"only men would have such a requirement\")",
-"(used to express lack of alternatives) can only; have no choice but to (as in 只有屈服[zhi3 you3 qu1 fu2] \"the only thing you can do is give in\")"
+"(used in combination with 才[cái]) it is only if ... (that one can ...) (as in 只有通過治療才能痊愈|只有通过治疗才能痊愈[zhǐyǒutōngguòzhìliáocáinéngquányù] \"the only way to cure it is with therapy\")",
+"it is only (someone) who ... (as in 只有男性才有此需要[zhǐyǒunánxìngcáiyǒucǐxūyào] \"only men would have such a requirement\")",
+"(used to express lack of alternatives) can only; have no choice but to (as in 只有屈服[zhǐyǒuqūfú] \"the only thing you can do is give in\")"
 ],
 "hsk":null,
 "hsk3":3,
@@ -21402,7 +21470,7 @@
 "traditional":"興趣",
 "pinyin":"xìng qù",
 "pinyinNumbered":"xing4 qu4",
-"gloss":"relish, appetite, zestfulness, dish, cup of tea, pastime, hobby, interest, gusto, bag, avocation, zest",
+"gloss":"relish, appetite, zestfulness, dish, cup of tea, pastime",
 "definitions":[
 "interest (desire to know about sth)",
 "interest (thing in which one is interested); hobby"
@@ -21425,7 +21493,7 @@
 {
 "id":5846069,
 "zh":"汤姆感兴趣吗？",
-"pinyin":"tāng mǔ gǎn xìng qù má？",
+"pinyin":"tāng mǔ gǎn xìng qù ma？",
 "en":"Did Tom show an interest?"
 }
 ]
@@ -21436,9 +21504,9 @@
 "traditional":"山",
 "pinyin":"shān",
 "pinyinNumbered":"shan1",
-"gloss":"Shan, jebel, pike, mountain, whitethorn, hump, anything resembling a mountain, gable, kop, chimney, hill, Surname, mount",
+"gloss":"Shan, jebel, pike, mountain, whitethorn, hump",
 "definitions":[
-"mountain; hill (CL:座[zuo4])",
+"mountain; hill (CL:座[zuò])",
 "(coll.) small bundle of straw for silkworms to spin cocoons on"
 ],
 "hsk":null,
@@ -21512,7 +21580,7 @@
 "traditional":"回來",
 "pinyin":"huí lai",
 "pinyinNumbered":"hui2 lai5",
-"gloss":"come back, get back, recur, revisit, come, return, be back, come back",
+"gloss":"come back, get back, recur, revisit, come, return",
 "definitions":[
 "to return; to come back"
 ],
@@ -21545,7 +21613,7 @@
 "traditional":"主任",
 "pinyin":"zhǔ rèn",
 "pinyinNumbered":"zhu3 ren4",
-"gloss":"head, principal, captain, chair, director, head teacher, chief, chairman, school principal",
+"gloss":"head, principal, captain, chair, director, head teacher",
 "definitions":[
 "director",
 "head"
@@ -21581,7 +21649,8 @@
 "pinyinNumbered":"li3 mian4",
 "gloss":"inside, interior",
 "definitions":[
-"variant of 裡面|里面[li3 mian4]"
+"inside",
+"interior"
 ],
 "hsk":null,
 "hsk3":3,
@@ -21612,7 +21681,7 @@
 "traditional":"經常",
 "pinyin":"jīng cháng",
 "pinyinNumbered":"jing1 chang2",
-"gloss":"everyday, daily, alway, often, a great deal, frequently, sempre, much, regularly, constantly, evermore, day-to-day",
+"gloss":"everyday, daily, alway, often, a great deal, frequently",
 "definitions":[
 "frequently; constantly; regularly; often",
 "day-to-day; everyday; daily"
@@ -21629,7 +21698,7 @@
 {
 "id":785919,
 "zh":"您经常去吗？",
-"pinyin":"nín jīng cháng qù má？",
+"pinyin":"nín jīng cháng qù ma？",
 "en":"Do you go often?"
 },
 {
@@ -21713,7 +21782,7 @@
 "traditional":"思想",
 "pinyin":"sī xiǎng",
 "pinyinNumbered":"si1 xiang3",
-"gloss":"cogitation, mentation, imagery, imaging, lunatic fringe, mental imagery, idea, thinking, imagination, ideology, thought, pensee, ideological",
+"gloss":"cogitation, mentation, imagery, imaging, lunatic fringe, mental imagery",
 "definitions":[
 "thought",
 "thinking",
@@ -21795,7 +21864,7 @@
 "traditional":"終於",
 "pinyin":"zhōng yú",
 "pinyinNumbered":"zhong1 yu2",
-"gloss":"in the last analysis, at long last, at last, lastly, ultimately, all things considered, out, on the whole, at last, eventually, in the final analysis, finally",
+"gloss":"in the last analysis, at long last, at last, lastly, ultimately, all things considered",
 "definitions":[
 "at last",
 "in the end",
@@ -22141,7 +22210,7 @@
 "traditional":"因素",
 "pinyin":"yīn sù",
 "pinyinNumbered":"yin1 su4",
-"gloss":"consideration, ingredient, constituent, factor, strand, component, element",
+"gloss":"consideration, ingredient, constituent, factor, strand, component",
 "definitions":[
 "element",
 "factor"
@@ -22285,7 +22354,7 @@
 "traditional":"方向",
 "pinyin":"fāng xiàng",
 "pinyinNumbered":"fang1 xiang4",
-"gloss":"path, set, directional, aspect, tenor, course, lay, exposure, way, range, aim, trend, direction, bearing, orientation, hand, tack, way of life, quarter, channel, line, heading",
+"gloss":"path, set, directional, aspect, tenor, course",
 "definitions":[
 "direction; orientation"
 ],
@@ -22318,7 +22387,7 @@
 "traditional":"責任",
 "pinyin":"zé rèn",
 "pinyinNumbered":"ze2 ren4",
-"gloss":"need, care, encumbrance, buck, accountability, blame, obligation, turn, load, responsibleness, incumbrance, responsibility, onus, commission, burden, commitment, loading, trust, pigeon, charge, business, fault, place, liability, duty, guardianship",
+"gloss":"need, care, encumbrance, buck, accountability, blame",
 "definitions":[
 "responsibility; duty; liability"
 ],
@@ -22523,7 +22592,7 @@
 "(after an adjective, used to form the comparative) a bit more, -er",
 "a point (in a discussion etc)",
 "(calligraphy) dot stroke (、)",
-"one o'clock (abbr. for 一點鍾|一点钟[yi1 dian3 zhong1])"
+"one o'clock (abbr. for 一點鍾|一点钟[yīdiǎnzhōng])"
 ],
 "hsk":null,
 "hsk3":null,
@@ -22565,7 +22634,7 @@
 {
 "id":10752765,
 "zh":"您提供住宿吗？",
-"pinyin":"nín tí gōng zhù sù má？",
+"pinyin":"nín tí gōng zhù sù ma？",
 "en":"Do you offer accommodation?"
 },
 {
@@ -22623,7 +22692,7 @@
 "traditional":"簡單",
 "pinyin":"jiǎn dān",
 "pinyinNumbered":"jian3 dan1",
-"gloss":"terse, casual, commonplace, simple, oversimplified, ordinary, uncomplicated",
+"gloss":"terse, casual, commonplace, simple, oversimplified, ordinary",
 "definitions":[
 "simple; not complicated"
 ],
@@ -22704,7 +22773,7 @@
 "traditional":"往往",
 "pinyin":"wǎng wǎng",
 "pinyinNumbered":"wang3 wang3",
-"gloss":"oftentimes, ofttimes, always, more often than not, frequently, oft, often",
+"gloss":"oftentimes, ofttimes, always, more often than not, frequently, oft",
 "definitions":[
 "usually; in many cases; more often than not"
 ],
@@ -22825,7 +22894,7 @@
 "traditional":"業務",
 "pinyin":"yè wù",
 "pinyinNumbered":"ye4 wu4",
-"gloss":"service, practice, vocational work, line of work, affair, line, occupation, professional work, business, transaction",
+"gloss":"service, practice, vocational work, line of work, affair, line",
 "definitions":[
 "business",
 "professional work",
@@ -22854,7 +22923,7 @@
 "traditional":"報導",
 "pinyin":"bào dǎo",
 "pinyinNumbered":"bao4 dao3",
-"gloss":"report,",
+"gloss":"report",
 "definitions":[
 "to report (in the media)",
 "(news) report"
@@ -22942,7 +23011,7 @@
 "traditional":"領域",
 "pinyin":"lǐng yù",
 "pinyinNumbered":"ling3 yu4",
-"gloss":"demesne, line of business, field of operation, country, background, terrain, realm, part, arena, sphere of influence, setting, territory, precinct, radius, scope, domain, sphere, frontier, orbit, preserve, area, world, kingdom, ambit, signory, province, region, field, universe, hemisphere",
+"gloss":"demesne, line of business, field of operation, country, background, terrain",
 "definitions":[
 "domain; sphere; field; territory; area"
 ],
@@ -22958,7 +23027,7 @@
 {
 "id":4757665,
 "zh":"你熟悉这个领域吗？",
-"pinyin":"nǐ shú xī zhè ge lǐng yù má？",
+"pinyin":"nǐ shú xī zhè ge lǐng yù ma？",
 "en":"Is that an area you are familiar with?"
 },
 {
@@ -22975,7 +23044,7 @@
 "traditional":"有效",
 "pinyin":"yǒu xiào",
 "pinyinNumbered":"you3 xiao4",
-"gloss":"run, stand, valid, effective, efficacious, avail, make, hold",
+"gloss":"run, stand, valid, effective, efficacious, avail",
 "definitions":[
 "effective",
 "in effect",
@@ -23010,7 +23079,7 @@
 "traditional":"女",
 "pinyin":"nǚ",
 "pinyinNumbered":"nu:3",
-"gloss":"girl, female, woman, neodymium, hen, daughter, beaver, creature",
+"gloss":"girl, female, woman, neodymium, hen, daughter",
 "definitions":[
 "female",
 "woman",
@@ -23045,7 +23114,7 @@
 "traditional":"從事",
 "pinyin":"cóng shì",
 "pinyinNumbered":"cong2 shi4",
-"gloss":"engross, have, join, treat, plow, handle, follow, embark, undertake, attend to, attack, occupy, absorb, go into, work, engage, prosecute, go about, go in for, pursue, be, meddle, embark on, perform, enter, cover, deal, address, be engaged in, deal with, place, wage",
+"gloss":"engross, have, join, treat, plow, handle",
 "definitions":[
 "to go for",
 "to engage in",
@@ -23371,7 +23440,7 @@
 "traditional":"力量",
 "pinyin":"lì liang",
 "pinyinNumbered":"li4 liang5",
-"gloss":"fibre, strength, potency, ability, guts, kick, cogency, point, dint, energy, mightiness, physical strength, demon, force, punch, whiz, tooth, might, forcefulness, exercise, fiber, powerfulness, lift, pith, leverage, agency, push, muscle, power",
+"gloss":"fibre, strength, potency, ability, guts, kick",
 "definitions":[
 "power; force; strength"
 ],
@@ -23443,7 +23512,7 @@
 {
 "id":349299,
 "zh":"他很快就能痊愈吗？",
-"pinyin":"tā hěn kuài jiù néng quán yù má？",
+"pinyin":"tā hěn kuài jiù néng quán yù ma？",
 "en":"Will he get well soon?"
 }
 ]
@@ -23454,7 +23523,7 @@
 "traditional":"超過",
 "pinyin":"chāo guò",
 "pinyinNumbered":"chao1 guo4",
-"gloss":"overpass, overreach, outwalk, outstrip, overstep, outmarch, distance, pass, overstride, outpace, overtop, surpass, crown, exceed, overtake, preponderate, overrun, top, outrun, go over, transcend, outrange, transgress, go past, break, excess, overhaul, overshine",
+"gloss":"overpass, overreach, outwalk, outstrip, overstep, outmarch",
 "definitions":[
 "to surpass",
 "to exceed",
@@ -23516,7 +23585,7 @@
 "traditional":"家長",
 "pinyin":"jiā zhǎng",
 "pinyinNumbered":"jia1 zhang3",
-"gloss":"masterman, housemaster, graybeard, patriarch, parent of schoolchildren, patriarchal, goodman, patriarchate, paterfamilias, the head of a family, genearch, patriarchy, householder, head of household, the parent or guadian of a child",
+"gloss":"masterman, housemaster, graybeard, patriarch, parent of schoolchildren, patriarchal",
 "definitions":[
 "head of a household",
 "family head",
@@ -23535,7 +23604,7 @@
 {
 "id":10552177,
 "zh":"这些孩子有家长吗？",
-"pinyin":"zhè xiē hái zi yǒu jiā zhǎng má？",
+"pinyin":"zhè xiē hái zi yǒu jiā zhǎng ma？",
 "en":"Do these children have any parents?"
 },
 {
@@ -23569,7 +23638,7 @@
 "traditional":"校長",
 "pinyin":"xiào zhǎng",
 "pinyinNumbered":"xiao4 zhang3",
-"gloss":"prexy, head, principal, headteacher, schoolmaster, master, warden, president, beak, rector, superintendent, director, head teacher, preceptor, headmaster, chancellor, school principal",
+"gloss":"prexy, head, principal, headteacher, schoolmaster, master",
 "definitions":[
 "(college, university) president",
 "headmaster"
@@ -23603,7 +23672,7 @@
 "traditional":"通常",
 "pinyin":"tōng cháng",
 "pinyinNumbered":"tong1 chang2",
-"gloss":"normal, commonly, customarily, more often than not, general, usual, on average, as a rule, ordinarily, mostly, as usual, typically, generally, normally, by and large, unremarkably, on the average, usually",
+"gloss":"normal, commonly, customarily, more often than not, general, usual",
 "definitions":[
 "regular; usual; normal",
 "usually; normally"
@@ -23670,7 +23739,7 @@
 "traditional":"委員",
 "pinyin":"wěi yuán",
 "pinyinNumbered":"wei3 yuan2",
-"gloss":"commissar, committee man, committee, committee member, commissioner, committeeman, delegate, board member, commissary",
+"gloss":"commissar, committee man, committee, committee member, commissioner, committeeman",
 "definitions":[
 "committee member"
 ],
@@ -23703,7 +23772,7 @@
 "traditional":"特色",
 "pinyin":"tè sè",
 "pinyinNumbered":"te4 se4",
-"gloss":"motif, a character, a characteristic, manner, trait, differentiation, flavor, colour, singularity, distinction, characteristic, hue, stripe, physiognomy, a distinguishing feature, idiom, specialty, character, difference, particular, distinguishing feature, distinguishing feature/quality, salience, coloration, distinguishing quality, specific, feature, peculiarity, artistic st",
+"gloss":"motif, a character, a characteristic, manner, trait, differentiation",
 "definitions":[
 "a characteristic; a distinctive feature or quality"
 ],
@@ -23746,7 +23815,7 @@
 {
 "id":5763020,
 "zh":"有时间表吗？",
-"pinyin":"yǒu shí jiān biǎo má？",
+"pinyin":"yǒu shí jiān biǎo ma？",
 "en":"Is there a timetable?"
 },
 {
@@ -23763,7 +23832,7 @@
 "traditional":"教師",
 "pinyin":"jiào shī",
 "pinyinNumbered":"jiao4 shi1",
-"gloss":"beak, don, school teacher, schoolman, teacher, schoolmaster, preceptor, professor, pedagogue, schoolteacher, coach, master, instructor, educator, preceptorship",
+"gloss":"beak, don, school teacher, schoolman, teacher, schoolmaster",
 "definitions":[
 "teacher"
 ],
@@ -23936,9 +24005,15 @@
 "traditional":"法",
 "pinyin":"fǎ",
 "pinyinNumbered":"fa3",
-"gloss":"law, method, way, mode, standard, model, legalists, Legalist School, Buddhist doctrine, dharma, magic arts",
+"gloss":"law, method, way, mode, standard, model",
 "definitions":[
-"variant of 法[fa3]"
+"law",
+"method",
+"way",
+"to emulate",
+"(Buddhism) dharma",
+"(abbr. for 法家[Fǎjiā]) the Legalists",
+"(physics) farad (abbr. for 法拉[fǎlā])"
 ],
 "hsk":null,
 "hsk3":4,
@@ -24007,7 +24082,7 @@
 "traditional":"原則",
 "pinyin":"yuán zé",
 "pinyinNumbered":"yuan2 ze2",
-"gloss":"god, rule, formula, regulation, principle, fundamental, axiom, basis, linguistic rule, faith, principium",
+"gloss":"god, rule, formula, regulation, principle, fundamental",
 "definitions":[
 "principle",
 "doctrine"
@@ -24041,7 +24116,7 @@
 "traditional":"臉",
 "pinyin":"liǎn",
 "pinyinNumbered":"lian3",
-"gloss":"map, mug, kisser, puss, visage, snoot, frontispiece, pan, smiler, mazzard, mush, facial, countenance, phiz, figurehead, face, physiognomy, front, human face",
+"gloss":"map, mug, kisser, puss, visage, snoot",
 "definitions":[
 "face"
 ],
@@ -24051,7 +24126,7 @@
 {
 "id":601394,
 "zh":"刮脸吗？",
-"pinyin":"guā liǎn má？",
+"pinyin":"guā liǎn ma？",
 "en":"Did you shave?"
 },
 {
@@ -24093,7 +24168,7 @@
 {
 "id":791442,
 "zh":"他考试通过了吗？",
-"pinyin":"tā kǎo shì tōng guò le má？",
+"pinyin":"tā kǎo shì tōng guò le ma？",
 "en":"Did he succeed in the examination?"
 },
 {
@@ -24113,7 +24188,7 @@
 "gloss":"propose, suggest, recommend",
 "definitions":[
 "to propose; to suggest; to recommend",
-"proposal; suggestion; recommendation (CL:點|点[dian3])"
+"proposal; suggestion; recommendation (CL:點|点[diǎn])"
 ],
 "hsk":5,
 "hsk3":3,
@@ -24144,7 +24219,7 @@
 "traditional":"工具",
 "pinyin":"gōng jù",
 "pinyinNumbered":"gong1 ju4",
-"gloss":"stock-in-trade, instrumentality, instrument, ministry, hand tool, escalator, creature, utensil, material, gear, pawn, lobster-joint, cat's-paw, kit, apparatus, tool, appurtenances, paraphernalia, means, wood, tackle, implement, medium, lever, outfit",
+"gloss":"stock-in-trade, instrumentality, instrument, ministry, hand tool, escalator",
 "definitions":[
 "tool",
 "instrument",
@@ -24218,7 +24293,7 @@
 "traditional":"達",
 "pinyin":"dá",
 "pinyinNumbered":"da2",
-"gloss":"lead, attain, extend, amount to, ryke, express, attainment, inform, reach",
+"gloss":"lead, attain, extend, amount to, ryke, express",
 "definitions":[
 "to attain",
 "to reach",
@@ -24255,7 +24330,7 @@
 "traditional":"節目",
 "pinyin":"jié mù",
 "pinyinNumbered":"jie2 mu4",
-"gloss":"item, item (on program), programme, act, telecast, number, program",
+"gloss":"item, item (on program), programme, act, telecast, number",
 "definitions":[
 "(TV or radio) program; show",
 "item; act; segment; number (on the program of a concert, variety show or cultural event)",
@@ -24290,7 +24365,7 @@
 "traditional":"智慧",
 "pinyin":"zhì huì",
 "pinyinNumbered":"zhi4 hui4",
-"gloss":"lore, sapiency, sconce, wit, intelligence, gumption, savvy, wiseness, soundness, wisdom, grey matter, sapience",
+"gloss":"lore, sapiency, sconce, wit, intelligence, gumption",
 "definitions":[
 "wisdom; intelligence"
 ],
@@ -24323,7 +24398,7 @@
 "traditional":"來自",
 "pinyin":"lái zì",
 "pinyinNumbered":"lai2 zi4",
-"gloss":"come from, originate from, come, stem/originate from, attach to, stem, come/stem/originate from, hail",
+"gloss":"come from, originate from, come, stem/originate from, attach to, stem",
 "definitions":[
 "to come from (a place)",
 "From: (in email header)"
@@ -24425,7 +24500,7 @@
 "traditional":"形式",
 "pinyin":"xíng shì",
 "pinyinNumbered":"xing2 shi4",
-"gloss":"circumstance, form, kind, modality, reading, interpretation, variety, shape, embodiment, species, mode, version, sort",
+"gloss":"circumstance, form, kind, modality, reading, interpretation",
 "definitions":[
 "outer appearance",
 "form",
@@ -24499,7 +24574,7 @@
 "traditional":"以為",
 "pinyin":"yǐ wéi",
 "pinyinNumbered":"yi3 wei2",
-"gloss":"imagine, think/believe/consider erroneously, treat, deem, believe, suspect, suppose, consider erroneously, repute, animadvert, esteem, trow, speak up, feel, count, believe/consider erroneously, calculate, view as, guess, ween, look, expect, think erroneously, think, hold, opine, interpret, sound off, take for, consider, take for",
+"gloss":"imagine, think/believe/consider erroneously, treat, deem, believe, suspect",
 "definitions":[
 "to think; to believe (often with the implication that the belief is mistaken – unless referring to one's own current belief)"
 ],
@@ -24566,7 +24641,7 @@
 "traditional":"擔任",
 "pinyin":"dān rèn",
 "pinyinNumbered":"dan1 ren4",
-"gloss":"hold the post of, take charge of, assume, take charge, fill, shoulder, adopt, skipper, assume the office of, assume office of, act as, take, act as, play, undertake, take over, take on",
+"gloss":"hold the post of, take charge of, assume, take charge, fill, shoulder",
 "definitions":[
 "to hold a governmental office or post",
 "to assume office of",
@@ -24685,7 +24760,7 @@
 {
 "id":13880619,
 "zh":"你有什么特殊的天赋吗？",
-"pinyin":"nǐ yǒu shén me tè shū de tiān fù má？",
+"pinyin":"nǐ yǒu shén me tè shū de tiān fù ma？",
 "en":"Do you have any special talents?"
 },
 {
@@ -24739,7 +24814,7 @@
 "pinyinNumbered":"dao4",
 "gloss":"say, speak, talk, think, suppose",
 "definitions":[
-"road; path (CL:條|条[tiao2],股[gu3])",
+"road; path (CL:條|条[tiáo],股[gǔ])",
 "(bound form) way; reason; principle",
 "(bound form) a skill; an art; a specialization",
 "(Daoism) the Way; the Dao",
@@ -24777,7 +24852,7 @@
 "traditional":"傳統",
 "pinyin":"chuán tǒng",
 "pinyinNumbered":"chuan2 tong3",
-"gloss":"rule, patrimony, legacy, custom, heritage, convention, conventionality, routine, normal practice, common practice, tradition",
+"gloss":"rule, patrimony, legacy, custom, heritage, convention",
 "definitions":[
 "tradition; traditional"
 ],
@@ -24843,7 +24918,7 @@
 "traditional":"前往",
 "pinyin":"qián wǎng",
 "pinyinNumbered":"qian2 wang3",
-"gloss":"depart, cruise, go to, go, leave, go to, proceed to, pay, seek, leave for",
+"gloss":"depart, cruise, go to, go, leave, go to",
 "definitions":[
 "to leave for; to proceed towards; to go to"
 ],
@@ -24960,7 +25035,7 @@
 "traditional":"對象",
 "pinyin":"duì xiàng",
 "pinyinNumbered":"dui4 xiang4",
-"gloss":"boy/girl friend, mate, fair game, boy friend, prey, boy, object, quarry, target, girl friend, catch, match",
+"gloss":"boy/girl friend, mate, fair game, boy friend, prey, boy",
 "definitions":[
 "target; object",
 "partner; boyfriend; girlfriend"
@@ -25139,7 +25214,7 @@
 "traditional":"出來",
 "pinyin":"chū lái",
 "pinyinNumbered":"chu1 lai2",
-"gloss":"come forward, issue, come up, step up, step to the fore, out (toward one), come out, pop out, come out, rise, come to the fore, step forward, emergence, come forth, emerge",
+"gloss":"come forward, issue, come up, step up, step to the fore, out (toward one)",
 "definitions":[
 "to come out",
 "to appear",
@@ -25281,7 +25356,7 @@
 "traditional":"兒童",
 "pinyin":"ér tóng",
 "pinyinNumbered":"er2 tong2",
-"gloss":"kid, nipper, enfant, tyke, youngster, small fry, minor, shaver, nestling, tike, child, chit, fry, children, infant, tiddler, small-fry",
+"gloss":"kid, nipper, enfant, tyke, youngster, small fry",
 "definitions":[
 "child"
 ],
@@ -25317,7 +25392,7 @@
 "gloss":"middle school, junior high school",
 "definitions":[
 "junior high school (Tw)",
-"abbr. for 國民中學|国民中学[guo2 min2 zhong1 xue2]"
+"abbr. for 國民中學|国民中学[guómínzhōngxué]"
 ],
 "hsk":null,
 "hsk3":null,
@@ -25329,7 +25404,7 @@
 "traditional":"範圍",
 "pinyin":"fàn wéi",
 "pinyinNumbered":"fan4 wei2",
-"gloss":"demesne, latitude, shot, compass, extensity, panorama, parameter, boundary, arena, stretch, territory, radius, spectrum, scope, extension, sphere, orbit, circumscription, limits, purview, grasp, extent, region, space, limit, hemisphere, horizon, envelope, bounds, realm, terrain, tether, sphere of influence, range, circuit, domain, precinct, reach, area, length, spread, bailiwick, ambit, con",
+"gloss":"demesne, latitude, shot, compass, extensity, panorama",
 "definitions":[
 "range",
 "scope",
@@ -25359,7 +25434,7 @@
 "traditional":"老人",
 "pinyin":"lǎo rén",
 "pinyinNumbered":"lao3 ren2",
-"gloss":"oldster, ancient, old woman, crock, one's aged parents or grandparents, old man/woman, one's aged parents/grandparents, Sir, old person, gaffer, pop, one's aged parents, the aged/old, old man, senior citizen, oldie, greybeard, old man, graybeard, old, grandparents, the old, the aged, senior citizen, old boy, old boy, woman, old-timer, old man or woman, one's aged grandparents",
+"gloss":"oldster, ancient, old woman, crock, one's aged parents or grandparents, old man/woman",
 "definitions":[
 "old man or woman",
 "the elderly",
@@ -25431,7 +25506,7 @@
 "pinyinNumbered":"bei3 jing1",
 "gloss":"capital of Red China, Beijing, Peking, Beijing (Peking), Peiping",
 "definitions":[
-"Beijing municipality, capital of the People's Republic of China (short name 京[Jing1])"
+"Beijing municipality, capital of the People's Republic of China (short name 京[Jīng])"
 ],
 "hsk":1,
 "hsk3":1,
@@ -25561,7 +25636,7 @@
 "traditional":"程式",
 "pinyin":"chéng shì",
 "pinyinNumbered":"cheng2 shi4",
-"gloss":"formula, instruction, computer programme, pattern, form, modality, subprogram, routine, programme, course, function, subroutine, procedure, mode, order, sequence, computer program, program",
+"gloss":"formula, instruction, computer programme, pattern, form, modality",
 "definitions":[
 "form",
 "pattern",
@@ -25578,7 +25653,7 @@
 "traditional":"婦女",
 "pinyin":"fù nǚ",
 "pinyinNumbered":"fu4 nu:3",
-"gloss":"feme, womankind, female, femininity, cummer, woman, femme, quean, bevy, matron, toots, womanhood, feminine, womenfolk, women",
+"gloss":"feme, womankind, female, femininity, cummer, woman",
 "definitions":[
 "woman"
 ],
@@ -25611,7 +25686,7 @@
 "traditional":"找到",
 "pinyin":"zhǎo dào",
 "pinyinNumbered":"zhao3 dao4",
-"gloss":"light upon, find, discover, run down, founded, regain, strike, come upon, come across, run down, trace, turn up, happen upon, get, chance on, chance upon",
+"gloss":"light upon, find, discover, run down, founded, regain",
 "definitions":[
 "to find"
 ],
@@ -25654,7 +25729,7 @@
 {
 "id":6799648,
 "zh":"你们不爱彼此吗？",
-"pinyin":"nǐ men bù ài bǐ cǐ má？",
+"pinyin":"nǐ men bù ài bǐ cǐ ma？",
 "en":"Don't you love each other?"
 },
 {
@@ -25738,7 +25813,7 @@
 "traditional":"回到",
 "pinyin":"huí dào",
 "pinyinNumbered":"hui2 dao4",
-"gloss":"remount, retour, recur, turn back, regress, regain, revert, go back, return to, return, go back to",
+"gloss":"remount, retour, recur, turn back, regress, regain",
 "definitions":[
 "to return to"
 ],
@@ -25917,7 +25992,7 @@
 "traditional":"期間",
 "pinyin":"qī jiān",
 "pinyinNumbered":"qi1 jian1",
-"gloss":"length, period, time period, amount of time, duration, course, interim, period of time, time, standing, chapter, tract, space, term, streak, efflux",
+"gloss":"length, period, time period, amount of time, duration, course",
 "definitions":[
 "period of time",
 "time",
@@ -25990,7 +26065,7 @@
 "traditional":"小姐",
 "pinyin":"xiǎo jie",
 "pinyinNumbered":"xiao3 jie5",
-"gloss":"Signorina, Senorita, senorita, signorina, young lady, damosel, Dona, mum, young lady, damoiselle, missy, tootsy, demoiselle, damsel, Miss, Fraulein, miss, sheila, sister, toots, senhorita, damozel, Ladyship, ladyship, Mademoiselle, mademoiselle",
+"gloss":"Signorina, Senorita, senorita, signorina, young lady, damosel",
 "definitions":[
 "young lady",
 "miss",
@@ -26025,7 +26100,7 @@
 "traditional":"整體",
 "pinyin":"zhěng tǐ",
 "pinyinNumbered":"zheng3 ti3",
-"gloss":"integrity, allness, entirety, integer, integral, monolith, entireness, ensemble, wholeness, entire, tout ensemble, whole, totality, unity",
+"gloss":"integrity, allness, entirety, integer, integral, monolith",
 "definitions":[
 "whole; entirety",
 "overall; whole; general",
@@ -26048,7 +26123,7 @@
 "traditional":"採用",
 "pinyin":"cǎi yòng",
 "pinyinNumbered":"cai3 yong4",
-"gloss":"invoke, admit, assume, adoptive, use, adopt, select for use, embrace, accept, employment, take, introduce, take up, take on, take over, take on, borrow, employ, adoption",
+"gloss":"invoke, admit, assume, adoptive, use, adopt",
 "definitions":[
 "to adopt",
 "to employ",
@@ -26149,7 +26224,7 @@
 "pinyinNumbered":"ou1 zhou1",
 "gloss":"Europe",
 "definitions":[
-"Europe (abbr. for 歐羅巴洲|欧罗巴洲[Ou1 luo2 ba1 Zhou1])"
+"Europe (abbr. for 歐羅巴洲|欧罗巴洲[ŌuluóbāZhōu])"
 ],
 "hsk":6,
 "hsk3":null,
@@ -26215,7 +26290,7 @@
 "pinyinNumbered":"jia1 yi3",
 "gloss":"handle; treat (used before polysyllabic verbs or verbal nouns)",
 "definitions":[
-"(formal) to apply; to carry out; to take action to (do sth) (used before a disyllabic verb, indicating that the action is directed at sth previously mentioned, e.g. 加以說明|加以说明[jia1 yi3 shuo1 ming2]); to apply (restrictions etc); to give (support, consideration etc)",
+"(formal) to apply; to carry out; to take action to (do sth) (used before a disyllabic verb, indicating that the action is directed at sth previously mentioned, e.g. 加以說明|加以说明[jiāyǐshuōmíng]); to apply (restrictions etc); to give (support, consideration etc)",
 "(literary) moreover; in addition"
 ],
 "hsk":null,
@@ -26228,7 +26303,7 @@
 "traditional":"充滿",
 "pinyin":"chōng mǎn",
 "pinyinNumbered":"chong1 man3",
-"gloss":"swarm, be brimming, inhabit, be brimming with, teem, crawl, fill, lard, pullulate with, brim, be permeated with, bathe, be filled with, permeated with, abound in, implement, exuberate, fill up, flow, abound, burst, perfuse, foam, bristle, crackle, inform, pervade, be imbued with, simmer, glut, teem in, permeate, congest, be full of, reek, charge, suffuse, pullulate, overfill, swell",
+"gloss":"swarm, be brimming, inhabit, be brimming with, teem, crawl",
 "definitions":[
 "full of",
 "brimming with",
@@ -26394,7 +26469,7 @@
 "traditional":"頗",
 "pinyin":"pō",
 "pinyinNumbered":"po1",
-"gloss":"pretty, quite an, very, quite, jolly, fearfully, quite a, molto, middling, considerably, greatly",
+"gloss":"pretty, quite an, very, quite, jolly, fearfully",
 "definitions":[
 "rather",
 "quite",
@@ -26479,7 +26554,7 @@
 "in every case; always; invariably",
 "anyway; after all; eventually; sooner or later",
 "surely",
-"(after a person's name) abbr. for 總經理|总经理[zong3 jing1 li3] or 總編|总编[zong3 bian1] etc"
+"(after a person's name) abbr. for 總經理|总经理[zǒngjīnglǐ] or 總編|总编[zǒngbiān] etc"
 ],
 "hsk":null,
 "hsk3":3,
@@ -26546,7 +26621,7 @@
 "pinyinNumbered":"shen1",
 "gloss":"deepen, penetrating, profound, deep, dark",
 "definitions":[
-"old variant of 深[shen1]"
+"(lit. and fig.) deep"
 ],
 "hsk":4,
 "hsk3":3,
@@ -26605,7 +26680,7 @@
 {
 "id":14037693,
 "zh":"这份报告正确吗？",
-"pinyin":"zhè fèn bào gào zhèng què má？",
+"pinyin":"zhè fèn bào gào zhèng què ma？",
 "en":"Is this report correct?"
 }
 ]
@@ -26652,7 +26727,7 @@
 "traditional":"在於",
 "pinyin":"zài yú",
 "pinyinNumbered":"zai4 yu2",
-"gloss":"be at, on, lie, in, depend on, lie in, rest with, lie in, be determined by, consist in, consist in",
+"gloss":"be at, on, lie, in, depend on, lie in",
 "definitions":[
 "to rest with; to lie in; to be due to (a certain attribute)",
 "(of a matter) to be determined by; to be up to (sb)"
@@ -26685,7 +26760,7 @@
 "one side",
 "other",
 "different",
-"lateral component of a Chinese character (such as 刂[dao1], 亻[ren2] etc)"
+"lateral component of a Chinese character (such as 刂[dāo], 亻[rén] etc)"
 ],
 "hsk":null,
 "hsk3":5,
@@ -26718,7 +26793,8 @@
 "pinyinNumbered":"xiao4",
 "gloss":"smile, laugh",
 "definitions":[
-"old variant of 笑[xiao4]"
+"to laugh; to smile",
+"to laugh at"
 ],
 "hsk":2,
 "hsk3":1,
@@ -26813,10 +26889,10 @@
 "traditional":"意識",
 "pinyin":"yì shí",
 "pinyinNumbered":"yi4 shi2",
-"gloss":"consciousness, witting, sensibility, conscious, conscience, ideology, awareness, subconscious, mentality",
+"gloss":"consciousness, witting, sensibility, conscious, conscience, ideology",
 "definitions":[
 "consciousness; awareness",
-"(usu. followed by 到[dao4]) to be aware of; to realize"
+"(usu. followed by 到[dào]) to be aware of; to realize"
 ],
 "hsk":6,
 "hsk3":5,
@@ -26861,7 +26937,7 @@
 "traditional":"民族",
 "pinyin":"mín zú",
 "pinyinNumbered":"min2 zu2",
-"gloss":"tribe, citizenry, ethnos, ethnic minority/group, race, nationality, group, Volk, nation, folk, people, ethnic group, ethnographer, family, ethnic minority",
+"gloss":"tribe, citizenry, ethnos, ethnic minority/group, race, nationality",
 "definitions":[
 "nationality; ethnic group"
 ],
@@ -26922,7 +26998,7 @@
 "traditional":"大眾",
 "pinyin":"dà zhòng",
 "pinyinNumbered":"da4 zhong4",
-"gloss":"the broad masses, roughscuff, the public, herd, concourse, commonality, riffraff, masses, commonness, the masses, throng, multitude, commonage, commonalty, plebeian, plebs, horde, the people/masses, community, the people, million, mass, public",
+"gloss":"the broad masses, roughscuff, the public, herd, concourse, commonality",
 "definitions":[
 "the masses",
 "the great bulk of the population",
@@ -26991,7 +27067,10 @@
 "pinyinNumbered":"yuan4",
 "gloss":"will, wish, may, desire",
 "definitions":[
-"honest and prudent"
+"(bound form) wish; hope; desire",
+"to be willing",
+"to wish (that sth may happen); may ...",
+"vow; pledge"
 ],
 "hsk":null,
 "hsk3":5,
@@ -27005,7 +27084,7 @@
 {
 "id":1776642,
 "zh":"你愿意来吗？",
-"pinyin":"nǐ yuàn yì lái má？",
+"pinyin":"nǐ yuàn yì lái ma？",
 "en":"Would you like to come?"
 },
 {
@@ -27063,7 +27142,7 @@
 "traditional":"大概",
 "pinyin":"dà gài",
 "pinyinNumbered":"da4 gai4",
-"gloss":"chiefly, if not, perchance, approximately, believably, maybe, presumably, plausibly, almost, conceivably, most likely, assumedly, ablings, likely, perhaps, probably, supposedly, ablins, credibly, assumably, belike",
+"gloss":"chiefly, if not, perchance, approximately, believably, maybe",
 "definitions":[
 "roughly",
 "probably",
@@ -27101,7 +27180,7 @@
 "traditional":"對方",
 "pinyin":"duì fāng",
 "pinyinNumbered":"dui4 fang1",
-"gloss":"other party, the other party, fellow, party, other side, adversary, other side/party",
+"gloss":"other party, the other party, fellow, party, other side, adversary",
 "definitions":[
 "the other person; the other side; the other party"
 ],
@@ -27134,7 +27213,7 @@
 "traditional":"官員",
 "pinyin":"guān yuán",
 "pinyinNumbered":"guan1 yuan2",
-"gloss":"beg, official, mandarinate, administrative official, office-bearer, officer, bureaucrat, placeman, federal agent, government officials, agent, officialism, functionary, director, officeholder, officialdom, myrmidon",
+"gloss":"beg, official, mandarinate, administrative official, office-bearer, officer",
 "definitions":[
 "official (in an organization or government)",
 "administrator"
@@ -27156,7 +27235,7 @@
 "traditional":"發表",
 "pinyin":"fā biǎo",
 "pinyinNumbered":"fa1 biao3",
-"gloss":"voice, enounce, enunciate, publish, free, sound, announce, pronounce, deliver, circulation, put out, release, issue, vend, circularize, give, give out, denote, present, circulate, publicize, blazon, promulgate, mouth",
+"gloss":"voice, enounce, enunciate, publish, free, sound",
 "definitions":[
 "to issue",
 "to publish"
@@ -27268,7 +27347,7 @@
 {
 "id":3783369,
 "zh":"她是正确的吗？",
-"pinyin":"tā shì zhèng què de má？",
+"pinyin":"tā shì zhèng què de ma？",
 "en":"Is she right?"
 },
 {
@@ -27557,7 +27636,7 @@
 {
 "id":43,
 "zh":"你肯定吗？",
-"pinyin":"nǐ kěn dìng má？",
+"pinyin":"nǐ kěn dìng ma？",
 "en":"Seriously?"
 },
 {
@@ -27588,7 +27667,7 @@
 "slightly more than",
 "vigorous",
 "violent",
-"best in their category, e.g. see 百強|百强[bai3 qiang2]"
+"best in their category, e.g. see 百強|百强[bǎiqiáng]"
 ],
 "hsk":null,
 "hsk3":3,
@@ -27724,7 +27803,7 @@
 "traditional":"適合",
 "pinyin":"shì hé",
 "pinyinNumbered":"shi4 he2",
-"gloss":"qualify, conform, fit, go, befit, quadrate, will, accord, tailor, beseem, serve, comport, gee, answer, become, fit in, service, pertain, like, accommodate, agree, belong, characterize, make, suit, match",
+"gloss":"qualify, conform, fit, go, befit, quadrate",
 "definitions":[
 "to fit; to suit"
 ],
@@ -27800,7 +27879,7 @@
 "don't ...!",
 "to fasten with a pin or clip",
 "to stick in; to insert (in order to hinder movement)",
-"(noun suffix) category (as in 性別|性别[xing4 bie2], 派別|派别[pai4 bie2])"
+"(noun suffix) category (as in 性別|性别[xìngbié], 派別|派别[pàibié])"
 ],
 "hsk":2,
 "hsk3":1,
@@ -27903,7 +27982,7 @@
 "gloss":"Russia, Soviet, USSR, Soviet Union",
 "definitions":[
 "Soviet Union, 1922-1991",
-"abbr. for Union of Soviet Socialist Republics (USSR) 蘇維埃社會主義共和國聯盟|苏维埃社会主义共和国联盟[Su1 wei2 ai1 She4 hui4 zhu3 yi4 Gong4 he2 guo2 Lian2 meng2]"
+"abbr. for Union of Soviet Socialist Republics (USSR) 蘇維埃社會主義共和國聯盟|苏维埃社会主义共和国联盟[SūwéiāiShèhuìzhǔyìGònghéguóLiánméng]"
 ],
 "hsk":null,
 "hsk3":null,
@@ -27934,7 +28013,7 @@
 "traditional":"成績",
 "pinyin":"chéng jì",
 "pinyinNumbered":"cheng2 ji4",
-"gloss":"execution, carrying into action, achievement, result, showing, carrying out, performance, grade, success, doing, batting average",
+"gloss":"execution, carrying into action, achievement, result, showing, carrying out",
 "definitions":[
 "achievement",
 "performance records",
@@ -27969,7 +28048,7 @@
 "traditional":"人物",
 "pinyin":"rén wù",
 "pinyinNumbered":"ren2 wu4",
-"gloss":"character, persona, original, spirit, figure painting, character in literature, figure, person in literature, person, fish, personage, personality",
+"gloss":"character, persona, original, spirit, figure painting, character in literature",
 "definitions":[
 "person; personage; figure (esp. sb of importance)",
 "character (in a play, novel etc)",
@@ -28180,7 +28259,7 @@
 "traditional":"居民",
 "pinyin":"jū mín",
 "pinyinNumbered":"ju1 min2",
-"gloss":"municipality, population, citizen, denizen, townie, people, dweller, populace, residenter, resident, towny, inhabitant, habitant, liver",
+"gloss":"municipality, population, citizen, denizen, townie, people",
 "definitions":[
 "resident; inhabitant"
 ],
@@ -28302,7 +28381,7 @@
 "traditional":"帶來",
 "pinyin":"dài lái",
 "pinyinNumbered":"dai4 lai2",
-"gloss":"bring, redound, impart, bring on, bring on, express, fetch, lend, convey, contribute, bring about, bestow, carry, bring oneself, add, usher, incur, land",
+"gloss":"bring, redound, impart, bring on, bring on, express",
 "definitions":[
 "to bring",
 "(fig.) to bring about; to produce"
@@ -28313,13 +28392,13 @@
 {
 "id":9709532,
 "zh":"你带来了吗？",
-"pinyin":"nǐ dài lái le má？",
+"pinyin":"nǐ dài lái le ma？",
 "en":"Did you bring it?"
 },
 {
 "id":420564,
 "zh":"身份证你带来吗？",
-"pinyin":"shēn fèn zhèng nǐ dài lái má？",
+"pinyin":"shēn fèn zhèng nǐ dài lái ma？",
 "en":"Have you brought your ID card with you?"
 },
 {
@@ -28407,7 +28486,7 @@
 "traditional":"感情",
 "pinyin":"gǎn qíng",
 "pinyinNumbered":"gan3 qing2",
-"gloss":"warmheartedness, reticence, sensation, affection, susceptibility, feeling, feelings, heart, affective, withers, expression, tenderness, emotion, sentiment, fondness, soul, affectionateness, soulfulness, passion",
+"gloss":"warmheartedness, reticence, sensation, affection, susceptibility, feeling",
 "definitions":[
 "emotion; sentiment",
 "affection; feelings between two persons"
@@ -28545,7 +28624,7 @@
 "traditional":"全部",
 "pinyin":"quán bù",
 "pinyinNumbered":"quan2 bu4",
-"gloss":"lot, aggregate, all, gross, entirety, allness, shebang, caboodle, complete, bunch, sum, total, gamut, entire, det.: all, totality, whole, everything",
+"gloss":"lot, aggregate, all, gross, entirety, allness",
 "definitions":[
 "whole; all"
 ],
@@ -28561,7 +28640,7 @@
 {
 "id":5780615,
 "zh":"这就是全部吗？",
-"pinyin":"zhè jiù shì quán bù má？",
+"pinyin":"zhè jiù shì quán bù ma？",
 "en":"Is this everything?"
 },
 {
@@ -28646,7 +28725,7 @@
 "traditional":"英國",
 "pinyin":"yīng guó",
 "pinyinNumbered":"ying1 guo2",
-"gloss":"Britain, Great Britain, England, chapel, Great Britain, English, UK, reeve, John Bull",
+"gloss":"Britain, Great Britain, England, chapel, Great Britain, English",
 "definitions":[
 "United Kingdom (UK); Britain"
 ],
@@ -28714,7 +28793,7 @@
 "traditional":"面臨",
 "pinyin":"miàn lín",
 "pinyinNumbered":"mian4 lin2",
-"gloss":"have, face, confront, envisage, flank, present, be faced with, be up against, bide, meet",
+"gloss":"have, face, confront, envisage, flank, present",
 "definitions":[
 "to face sth; to be confronted with"
 ],
@@ -28747,7 +28826,7 @@
 "traditional":"選手",
 "pinyin":"xuǎn shǒu",
 "pinyinNumbered":"xuan3 shou3",
-"gloss":"participant, basketeer, athlete selected for a sports meet, basketball player, jock, contestant, cap, cager, athlete, player, champ, performer, player selected as contestant",
+"gloss":"participant, basketeer, athlete selected for a sports meet, basketball player, jock, contestant",
 "definitions":[
 "athlete",
 "contestant"
@@ -28814,7 +28893,7 @@
 "traditional":"內部",
 "pinyin":"nèi bù",
 "pinyinNumbered":"nei4 bu4",
-"gloss":"entrails, bowel, interior, inner, within, bosom, inside, innards, internal, inward",
+"gloss":"entrails, bowel, interior, inner, within, bosom",
 "definitions":[
 "interior",
 "inside (part, section)",
@@ -28837,7 +28916,7 @@
 "traditional":"西方",
 "pinyin":"xī fāng",
 "pinyinNumbered":"xi1 fang1",
-"gloss":"the Occident, West, New World, occidental, westward, west, the West, the west, Hesperian, occident, Western, sunset, western hemisphere, western",
+"gloss":"the Occident, West, New World, occidental, westward, west",
 "definitions":[
 "the West",
 "the Occident",
@@ -28872,7 +28951,7 @@
 "traditional":"人家",
 "pinyin":"rén jiā",
 "pinyinNumbered":"ren2 jia1",
-"gloss":"I (used by females), dwelling, I, sb. else, sb. else's house, family, household",
+"gloss":"I (used by females), dwelling, I, sb. else, sb. else's house, family",
 "definitions":[
 "household",
 "dwelling",
@@ -28982,8 +29061,8 @@
 "pinyinNumbered":"yan3",
 "gloss":"eye, small hole, aperture, salient/weighted point, salient/weighted point",
 "definitions":[
-"eye (CL:隻|只[zhi1],雙|双[shuang1])",
-"(often used with 一[yi1]) a look; a glance",
+"eye (CL:隻|只[zhī],雙|双[shuāng])",
+"(often used with 一[yī]) a look; a glance",
 "small hole",
 "(bound form) salient point",
 "classifier for wells, cave-dwellings etc"
@@ -29094,7 +29173,7 @@
 "traditional":"成果",
 "pinyin":"chéng guǒ",
 "pinyinNumbered":"cheng2 guo3",
-"gloss":"product, achievement, outcome, gain, production, fruit, positive result, progeny, job",
+"gloss":"product, achievement, outcome, gain, production, fruit",
 "definitions":[
 "result",
 "achievement",
@@ -29124,7 +29203,7 @@
 "traditional":"活",
 "pinyin":"huó",
 "pinyinNumbered":"huo2",
-"gloss":"alive, live, vivid, save (sb.'s life), activate, save, be",
+"gloss":"alive, live, vivid, save (sb.'s life), activate, save",
 "definitions":[
 "to live",
 "alive",
@@ -29161,7 +29240,7 @@
 "traditional":"心情",
 "pinyin":"xīn qíng",
 "pinyinNumbered":"xin1 qing2",
-"gloss":"cognitive state, cue, frame of mind, form, stomach, pulse, humor, feeling, temper, state of mind, cheer, humour, frame/state of mind, mood, vein, spirit, feelings, frame, frame of mind, habit of mind, mind, tune",
+"gloss":"cognitive state, cue, frame of mind, form, stomach, pulse",
 "definitions":[
 "mood; frame of mind"
 ],
@@ -29230,7 +29309,7 @@
 "traditional":"現場",
 "pinyin":"xiàn chǎng",
 "pinyinNumbered":"xian4 chang3",
-"gloss":"scene (of an incident), location, site, locale, scene of a crime, locality, live, scene, spot, field",
+"gloss":"scene (of an incident), location, site, locale, scene of a crime, locality",
 "definitions":[
 "the scene (of a crime, accident etc)",
 "(on) the spot",
@@ -29265,7 +29344,7 @@
 "traditional":"突然",
 "pinyin":"tū rán",
 "pinyinNumbered":"tu1 ran2",
-"gloss":"suddenly, presto, unexpectedly, abruptly, at once, all at once, all together, all of a sudden, all at once",
+"gloss":"suddenly, presto, unexpectedly, abruptly, at once, all at once",
 "definitions":[
 "sudden; abrupt; unexpected"
 ],
@@ -29298,7 +29377,7 @@
 "traditional":"客戶",
 "pinyin":"kè hù",
 "pinyinNumbered":"ke4 hu4",
-"gloss":"clientage, custom, customer, client, business, patronage, clientele",
+"gloss":"clientage, custom, customer, client, business, patronage",
 "definitions":[
 "client; customer"
 ],
@@ -29369,7 +29448,7 @@
 "traditional":"印象",
 "pinyin":"yìn xiàng",
 "pinyinNumbered":"yin4 xiang4",
-"gloss":"effect, mark, impress, embossment, impressional, image, imprint, engram, sound, intuition, impression",
+"gloss":"effect, mark, impress, embossment, impressional, image",
 "definitions":[
 "impression (sth that stays in one's mind)",
 "a memory"
@@ -29442,7 +29521,7 @@
 "traditional":"海",
 "pinyin":"hǎi",
 "pinyinNumbered":"hai3",
-"gloss":"water, foam, bottom, main, huge group of people, Surname, sea catfish, the sea, sea, mare, drink, fishpond, briny, great capacity, Neptune, billow, huge group of things, depth, waters, pond, wave, brine, big lake",
+"gloss":"water, foam, bottom, main, huge group of people, Surname",
 "definitions":[
 "ocean",
 "sea",
@@ -29514,7 +29593,7 @@
 "traditional":"時期",
 "pinyin":"shí qī",
 "pinyinNumbered":"shi2 qi1",
-"gloss":"epoch, season, date, period of time, phase, day, occasion, estate, period, length, period (of time), phase angle, stage, conjuncture, chapter, times, era, leg, guardianship",
+"gloss":"epoch, season, date, period of time, phase, day",
 "definitions":[
 "period",
 "phase"
@@ -29621,7 +29700,7 @@
 "traditional":"幫助",
 "pinyin":"bāng zhù",
 "pinyinNumbered":"bang1 zhu4",
-"gloss":"aid, bridge over, help, bestead, bring on, tide over, serve, support, facilitate, accommodate, carry through, assist, administer, attend to, assistance, befriend, further, favour",
+"gloss":"aid, bridge over, help, bestead, bring on, tide over",
 "definitions":[
 "assistance; aid",
 "to help; to assist"
@@ -29689,7 +29768,7 @@
 "traditional":"個人",
 "pinyin":"gè rén",
 "pinyinNumbered":"ge4 ren2",
-"gloss":"individual person, man jack, personal, individual (person), man jack, individual, individuality, identity",
+"gloss":"individual person, man jack, personal, individual (person), man jack, individual",
 "definitions":[
 "an individual; oneself; (attributive) personal; one's own"
 ],
@@ -29770,7 +29849,7 @@
 "traditional":"生",
 "pinyin":"shēng",
 "pinyinNumbered":"sheng1",
-"gloss":"give birth to, bear, grow, get, have, cause to happen, make (a fire), exist, live",
+"gloss":"give birth to, bear, grow, get, have, cause to happen",
 "definitions":[
 "to grow; to give birth; to produce; to be born",
 "to arise; to occur",
@@ -29783,8 +29862,8 @@
 "(bound form) male role in traditional opera",
 "(bound form) life; lifetime",
 "(bound form) means of livelihood",
-"(bound form) very; intensely (as in 生疼[sheng1 teng2])",
-"(bound form) in a forced manner (as in 生拉硬拽[sheng1 la1 ying4 zhuai4])"
+"(bound form) very; intensely (as in 生疼[shēngténg])",
+"(bound form) in a forced manner (as in 生拉硬拽[shēnglāyìngzhuài])"
 ],
 "hsk":null,
 "hsk3":2,
@@ -29914,7 +29993,7 @@
 "traditional":"讀",
 "pinyin":"dú",
 "pinyinNumbered":"du2",
-"gloss":"study, read, attend school, take, read aloud, read (aloud), peruse",
+"gloss":"study, read, attend school, take, read aloud, read (aloud)",
 "definitions":[
 "to read out; to read aloud",
 "to read",
@@ -29960,13 +30039,13 @@
 {
 "id":9409467,
 "zh":"明天也可以来吗？",
-"pinyin":"míng tiān yě kě yǐ lái má？",
+"pinyin":"míng tiān yě kě yǐ lái ma？",
 "en":"Is it OK to come tomorrow, too?"
 },
 {
 "id":1409046,
 "zh":"我可以来点喝的吗？",
-"pinyin":"wǒ kě yǐ lái diǎn hē de má？",
+"pinyin":"wǒ kě yǐ lái diǎn hē de ma？",
 "en":"Can I get some drinks?"
 },
 {
@@ -29983,7 +30062,7 @@
 "traditional":"或許",
 "pinyin":"huò xǔ",
 "pinyinNumbered":"huo4 xu3",
-"gloss":"possibly, in all probability, peradventure, conceivably, mayhap, likely, perhaps, perchance, probably, maybe, haply, in all likelihood, belike",
+"gloss":"possibly, in all probability, peradventure, conceivably, mayhap, likely",
 "definitions":[
 "perhaps; maybe"
 ],
@@ -30038,7 +30117,7 @@
 {
 "id":2298602,
 "zh":"下课了吗？",
-"pinyin":"xià kè le má？",
+"pinyin":"xià kè le ma？",
 "en":"You get out of class?"
 },
 {
@@ -30055,7 +30134,7 @@
 "traditional":"病人",
 "pinyin":"bìng rén",
 "pinyinNumbered":"bing4 ren2",
-"gloss":"shut-in, patient, subject, sufferer, case, valetudinarian, invalid",
+"gloss":"shut-in, patient, subject, sufferer, case, valetudinarian",
 "definitions":[
 "sick person",
 "patient",
@@ -30126,7 +30205,7 @@
 "traditional":"有時候",
 "pinyin":"yǒu shí hou",
 "pinyinNumbered":"you3 shi2 hou5",
-"gloss":"from time to time, on occasion, occasionally, somewhile, otherwhile, now and again, sometimes, now and then, at times, on occasion, whiles, once in a while",
+"gloss":"from time to time, on occasion, occasionally, somewhile, otherwhile, now and again",
 "definitions":[
 "sometimes"
 ],
@@ -30159,7 +30238,7 @@
 "traditional":"辦理",
 "pinyin":"bàn lǐ",
 "pinyinNumbered":"ban4 li3",
-"gloss":"handle, manage, attend, conduct, enact, transact, transaction",
+"gloss":"handle, manage, attend, conduct, enact, transact",
 "definitions":[
 "to handle; to transact; to conduct"
 ],
@@ -30173,7 +30252,7 @@
 "traditional":"部門",
 "pinyin":"bù mén",
 "pinyinNumbered":"bu4 men2",
-"gloss":"category, section, department, service, instrumentality, branch, realm, sector, ministry, province, divisional, classification, departmental, division",
+"gloss":"category, section, department, service, instrumentality, branch",
 "definitions":[
 "department",
 "branch",
@@ -30209,7 +30288,7 @@
 "traditional":"類似",
 "pinyin":"lèi sì",
 "pinyinNumbered":"lei4 si4",
-"gloss":"analogize, conform, analogic, be similar to, resemble, similar, analogous",
+"gloss":"analogize, conform, analogic, be similar to, resemble, similar",
 "definitions":[
 "similar; analogous"
 ],
@@ -30271,7 +30350,7 @@
 "traditional":"送",
 "pinyin":"sòng",
 "pinyinNumbered":"song4",
-"gloss":"accompaniment, escort, see sb. off, see sb. off/out, to dispatch, see ... off, accompany, to deliver, send, direct, serve, guide, give as a present, deliver, see sb. out, see, lead, see ... out, conduct, give, to send, carry, delivery, carriage, take, hospitalize",
+"gloss":"accompaniment, escort, see sb. off, see sb. off/out, to dispatch, see ... off",
 "definitions":[
 "to send; to deliver; to transmit",
 "to give (as a present)",
@@ -30320,13 +30399,13 @@
 {
 "id":686616,
 "zh":"钱够吗？",
-"pinyin":"qián gòu má？",
+"pinyin":"qián gòu ma？",
 "en":"Was there enough money?"
 },
 {
 "id":2081687,
 "zh":"不够吗？",
-"pinyin":"bù gòu má？",
+"pinyin":"bù gòu ma？",
 "en":"Is that not enough?"
 },
 {
@@ -30413,7 +30492,7 @@
 "traditional":"商業",
 "pinyin":"shāng yè",
 "pinyinNumbered":"shang1 ye4",
-"gloss":"business enterprise, commercial, people, mercantilism, commercial pursuit, commercial enterprise, business sector, merchantry, trade, mercantile pursuit, business, commerce",
+"gloss":"business enterprise, commercial, people, mercantilism, commercial pursuit, commercial enterprise",
 "definitions":[
 "business",
 "trade",
@@ -30442,7 +30521,7 @@
 "traditional":"掌握",
 "pinyin":"zhǎng wò",
 "pinyinNumbered":"zhang3 wo4",
-"gloss":"take ... into one's hands, know well, master, have in hand, grasp, command, possess, control",
+"gloss":"take ... into one's hands, know well, master, have in hand, grasp, command",
 "definitions":[
 "to grasp (often fig.)",
 "to control",
@@ -30501,7 +30580,7 @@
 "pinyinNumbered":"men2",
 "gloss":"door, gate",
 "definitions":[
-"gate; door; doorway; gateway; opening (CL:扇[shan4])",
+"gate; door; doorway; gateway; opening (CL:扇[shàn])",
 "valve; switch; other door-like or gate-like structure",
 "way to do sth; knack; method; approach",
 "family; household; lineage",
@@ -30539,7 +30618,7 @@
 "traditional":"方案",
 "pinyin":"fāng àn",
 "pinyinNumbered":"fang1 an4",
-"gloss":"formula, plan, scheme, projection, programme, proposal, schema, strategy, project, design, program",
+"gloss":"formula, plan, scheme, projection, programme, proposal",
 "definitions":[
 "plan",
 "program (for action etc)",
@@ -30575,7 +30654,7 @@
 "traditional":"至少",
 "pinyin":"zhì shǎo",
 "pinyinNumbered":"zhi4 shao3",
-"gloss":"leastwise, leastways, at (the) least, at least, only, fully, even a little, at least, at any rate, in the least, at least, at the least",
+"gloss":"leastwise, leastways, at (the) least, at least, only, fully",
 "definitions":[
 "at least",
 "(to say the) least"
@@ -30609,7 +30688,7 @@
 "traditional":"看法",
 "pinyin":"kàn fǎ",
 "pinyinNumbered":"kan4 fa3",
-"gloss":"side, view, mentality, idea, outlook, a way of looking at a thing, opinion, thought, sight, standpoint, hypothesis, attitude, hobbyhorse, viewpoint, possibility, theory, slant, pronouncement, way of looking at sth., thinking, supposition, supposal",
+"gloss":"side, view, mentality, idea, outlook, a way of looking at a thing",
 "definitions":[
 "way of looking at a thing",
 "view",
@@ -30700,7 +30779,7 @@
 "traditional":"社團",
 "pinyin":"shè tuán",
 "pinyinNumbered":"she4 tuan2",
-"gloss":"gild, college, lodge, association, organization, club, body of persons, society, mass organization, order, league, guild, confraternity, corporation",
+"gloss":"gild, college, lodge, association, organization, club",
 "definitions":[
 "association",
 "society",
@@ -30715,7 +30794,7 @@
 {
 "id":332432,
 "zh":"你参加社团活动吗？",
-"pinyin":"nǐ cān jiā shè tuán huó dòng má？",
+"pinyin":"nǐ cān jiā shè tuán huó dòng ma？",
 "en":"Do you take part in any community activities?"
 },
 {
@@ -30794,7 +30873,7 @@
 "traditional":"博士",
 "pinyin":"bó shì",
 "pinyinNumbered":"bo2 shi4",
-"gloss":"Ph.D, master of any trade/craft, master of any craft, Dr., holder of doctoral degree, master of any trade, Erudite, doctoral, Doctor of Philosophy, Ph.D., court academician, craft, \"Erudite\", Doctor of Philosophy, doctor",
+"gloss":"Ph.D, master of any trade/craft, master of any craft, Dr., holder of doctoral degree, master of any trade",
 "definitions":[
 "doctor (as an academic degree)",
 "(old) person specialized in a skill or trade",
@@ -30823,7 +30902,7 @@
 "traditional":"道路",
 "pinyin":"dào lù",
 "pinyinNumbered":"dao4 lu4",
-"gloss":"track, path, runway, steps, route, course, toby, road, thoroughfare, way",
+"gloss":"track, path, runway, steps, route, course",
 "definitions":[
 "road",
 "path",
@@ -30894,7 +30973,7 @@
 "traditional":"項目",
 "pinyin":"xiàng mù",
 "pinyinNumbered":"xiang4 mu4",
-"gloss":"event, head, item, particular, article, point, specific, entry, listing, clause, project",
+"gloss":"event, head, item, particular, article, point",
 "definitions":[
 "item; project; (sports) event"
 ],
@@ -30964,7 +31043,7 @@
 "traditional":"學院",
 "pinyin":"xué yuàn",
 "pinyinNumbered":"xue2 yuan4",
-"gloss":"seminary, college, school, hall, institute, academy, faculty",
+"gloss":"seminary, college, school, hall, institute, academy",
 "definitions":[
 "college",
 "educational institute",
@@ -31050,7 +31129,7 @@
 "traditional":"策略",
 "pinyin":"cè lüè",
 "pinyinNumbered":"ce4 lu:e4",
-"gloss":"coup, resource, enginery, wile, stratagem, gambit, practice, plant, diplomacy, artifice, trap, twist, tactical manoeuver, policy, game, mechanism, game plan, ambush, chicanery, finesse, lying in wait, maneuvering, joker, tactics, gimmick, manoeuvering, plan, device, art, tactical maneuver, maneuver, measure, play, tactic, manoeuvre, mechanics, tack, ambuscade, trickery, strategy, setup, r",
+"gloss":"coup, resource, enginery, wile, stratagem, gambit",
 "definitions":[
 "strategy; tactics",
 "crafty; adroit"
@@ -31084,18 +31163,18 @@
 "traditional":"白",
 "pinyin":"bái",
 "pinyinNumbered":"bai2",
-"gloss":"white, clear, pure, plain, wrongly written/mispronounced,",
+"gloss":"white, clear, pure, plain, wrongly written/mispronounced",
 "definitions":[
 "white",
 "in vain",
 "free of charge",
-"(bound form) (of facts, the truth, a situation) clear; evident (e.g. 真相大白[zhen1 xiang4 da4 bai2])",
-"(bound form) plain; without additions (e.g. 白飯|白饭[bai2 fan4])",
-"(bound form) to explain; to state (e.g. 辯白|辩白[bian4 bai2])",
-"(bound form) to give a disdainful look (e.g. 白了他一眼[bai2 le5 ta1 yi1 yan3])",
-"(bound form) vernacular (e.g. 白話|白话[bai2 hua4])",
-"(bound form) spoken lines in opera (e.g. 念白[nian4 bai2])",
-"(bound form) reactionary; anti-communist (e.g. 白區|白区[bai2 qu1])"
+"(bound form) (of facts, the truth, a situation) clear; evident (e.g. 真相大白[zhēnxiàngdàbái])",
+"(bound form) plain; without additions (e.g. 白飯|白饭[báifàn])",
+"(bound form) to explain; to state (e.g. 辯白|辩白[biànbái])",
+"(bound form) to give a disdainful look (e.g. 白了他一眼[báiletāyīyǎn])",
+"(bound form) vernacular (e.g. 白話|白话[báihuà])",
+"(bound form) spoken lines in opera (e.g. 念白[niànbái])",
+"(bound form) reactionary; anti-communist (e.g. 白區|白区[báiqū])"
 ],
 "hsk":2,
 "hsk3":1,
@@ -31234,7 +31313,7 @@
 "traditional":"地位",
 "pinyin":"dì wèi",
 "pinyinNumbered":"di4 wei4",
-"gloss":"station, estate, importance, appointment, character, footing, capacity, chair, estate of the realm, level, situation, status, standing, position, spot, connection, space, sphere, quality, place, condition",
+"gloss":"station, estate, importance, appointment, character, footing",
 "definitions":[
 "position",
 "status",
@@ -31269,7 +31348,7 @@
 "traditional":"體育",
 "pinyin":"tǐ yù",
 "pinyinNumbered":"ti3 yu4",
-"gloss":"training, physical education, athletics, sports, gymnastic, physical education, physical training, physical culture, physical education/training, gym",
+"gloss":"training, physical education, athletics, sports, gymnastic, physical education",
 "definitions":[
 "sports",
 "physical education"
@@ -31343,7 +31422,7 @@
 "pinyinNumbered":"ya4 zhou1",
 "gloss":"Orient, Asian, Asia",
 "definitions":[
-"Asia (abbr. for 亞細亞洲|亚细亚洲[Ya4 xi4 ya4 Zhou1])"
+"Asia (abbr. for 亞細亞洲|亚细亚洲[YàxìyàZhōu])"
 ],
 "hsk":4,
 "hsk3":null,
@@ -31374,7 +31453,7 @@
 "traditional":"採取",
 "pinyin":"cǎi qǔ",
 "pinyinNumbered":"cai3 qu3",
-"gloss":"operate, assume, adopt, accept, strike, take, take up, take over, borrow",
+"gloss":"operate, assume, adopt, accept, strike, take",
 "definitions":[
 "to adopt or carry out (measures, policies, course of action)",
 "to take"
@@ -31413,7 +31492,7 @@
 "(bound form) sun",
 "day",
 "day of the month",
-"(bound form) Japan (abbr. for 日本[Ri4 ben3])",
+"(bound form) Japan (abbr. for 日本[Rìběn])",
 "(vulgar) to fuck; to have sex with"
 ],
 "hsk":1,
@@ -31480,7 +31559,7 @@
 "traditional":"相同",
 "pinyin":"xiāng tóng",
 "pinyinNumbered":"xiang1 tong2",
-"gloss":"be identical/alike, uniform, be identical, overlap, alike, identical, be alike",
+"gloss":"be identical/alike, uniform, be identical, overlap, alike, identical",
 "definitions":[
 "identical; same"
 ],
@@ -31546,7 +31625,7 @@
 "traditional":"法律",
 "pinyin":"fǎ lǜ",
 "pinyinNumbered":"fa3 lu:4",
-"gloss":"constitution, juridical, legal, jus, judiciary, statute law, law, codex, legislation, jurisprudence, lex, code, Themis, statute, judicial, practice of law, prescript, forensic, natural law",
+"gloss":"constitution, juridical, legal, jus, judiciary, statute law",
 "definitions":[
 "law"
 ],
@@ -31579,9 +31658,11 @@
 "traditional":"詞",
 "pinyin":"cí",
 "pinyinNumbered":"ci2",
-"gloss":"vocable, words, phrase, a kind of poetry originating in Tang dyn, statement, a form of classical poetry, part of speech, speech, Ci, Chinese poetry, term, word",
+"gloss":"vocable, words, phrase, a kind of poetry originating in Tang dyn, statement, a form of classical poetry",
 "definitions":[
-"old variant of 詞|词[ci2]"
+"word",
+"statement; speech; lyrics",
+"a form of lyric poetry, flourishing in the Song dynasty 宋朝[Sòngcháo] (CL:首[shǒu])"
 ],
 "hsk":null,
 "hsk3":2,
@@ -31636,8 +31717,8 @@
 "pinyinNumbered":"zhong1 hua2",
 "gloss":"the Chinese nation, China",
 "definitions":[
-"Zhonghua, historical and cultural term for China, often used to denote Chinese civilization and identity (as in 中華文化|中华文化[Zhong1 hua2 wen2 hua4] \"Chinese culture\")",
-"used in the official name of the Republic of China, 中華民國|中华民国[Zhong1 hua2 Min2 guo2]"
+"Zhonghua, historical and cultural term for China, often used to denote Chinese civilization and identity (as in 中華文化|中华文化[Zhōnghuáwénhuà] \"Chinese culture\")",
+"used in the official name of the Republic of China, 中華民國|中华民国[ZhōnghuáMínguó]"
 ],
 "hsk":null,
 "hsk3":6,
@@ -31658,7 +31739,7 @@
 "pinyinNumbered":"tai2 da4",
 "gloss":"National Taiwan University, National Taiwan University Hospital",
 "definitions":[
-"abbr. for 臺灣大學|台湾大学[Tai2 wan1 Da4 xue2]"
+"abbr. for 臺灣大學|台湾大学[TáiwānDàxué]"
 ],
 "hsk":null,
 "hsk3":null,
@@ -31670,7 +31751,7 @@
 "traditional":"意思",
 "pinyin":"yì si",
 "pinyinNumbered":"yi4 si5",
-"gloss":"significance, token of infection, intention, interest, idea, trace, meaning, thought, opinion, substance, etc., import, a token of appreciation/etc., indirect request, wish, a token of affection, desire, appreciation, fun, signification, gratitude, sense, hint, a token of affection/appreciation/etc., suggestion, mind, intent",
+"gloss":"significance, token of infection, intention, interest, idea, trace",
 "definitions":[
 "idea",
 "opinion",
@@ -31782,7 +31863,7 @@
 "traditional":"持續",
 "pinyin":"chí xù",
 "pinyinNumbered":"chi2 xu4",
-"gloss":"perennate, hang on, carry over, persist, steady, keep, carry over, keep on, proceed, stretch, carry on, retain, sustain, persevere, continuity, endure, stay, continue, hang in, hold, maintain, run, span, go on, run for, last, go along, exist, hold on",
+"gloss":"perennate, hang on, carry over, persist, steady, keep",
 "definitions":[
 "to continue; to last; to persist"
 ],
@@ -31817,7 +31898,9 @@
 "pinyinNumbered":"qun2",
 "gloss":"m.[general]",
 "definitions":[
-"variant of 群[qun2]"
+"group",
+"crowd",
+"flock, herd, pack etc"
 ],
 "hsk":4,
 "hsk3":3,
@@ -31995,7 +32078,7 @@
 "traditional":"滿足",
 "pinyin":"mǎn zú",
 "pinyinNumbered":"man3 zu2",
-"gloss":"fulfill, fit, cope with, fill, be satisfied/contented, gloat, contented, arrive, be satisfied, satisfy, sate, gratify, serve, meet, appease, replete, supply, satisfied, fulfill, suffice, assuage, satiate, content, be contented, conform to, suit, match",
+"gloss":"fulfill, fit, cope with, fill, be satisfied/contented, gloat",
 "definitions":[
 "to satisfy",
 "to meet (the needs of)",
@@ -32031,7 +32114,7 @@
 "traditional":"速度",
 "pinyin":"sù dù",
 "pinyinNumbered":"su4 du4",
-"gloss":"pacing, wings, rate, quickness, fastness, velocity, swiftness, lick, pace, rapidity, speed, career, tempo",
+"gloss":"pacing, wings, rate, quickness, fastness, velocity",
 "definitions":[
 "speed; rate; velocity; (music) tempo"
 ],
@@ -32047,7 +32130,7 @@
 {
 "id":9779960,
 "zh":"有速度限制吗?",
-"pinyin":"yǒu sù dù xiàn zhì má?",
+"pinyin":"yǒu sù dù xiàn zhì ma?",
 "en":"Is there a speed limit?"
 },
 {
@@ -32064,7 +32147,7 @@
 "traditional":"重點",
 "pinyin":"zhòng diǎn",
 "pinyinNumbered":"zhong4 dian3",
-"gloss":"taproot, accent, emphasis, focal point, point, keystone, hinge, salient point, stress, gravity",
+"gloss":"taproot, accent, emphasis, focal point, point, keystone",
 "definitions":[
 "important point; main point; focus",
 "key (project etc)",
@@ -32164,7 +32247,7 @@
 {
 "id":9779960,
 "zh":"有速度限制吗?",
-"pinyin":"yǒu sù dù xiàn zhì má?",
+"pinyin":"yǒu sù dù xiàn zhì ma?",
 "en":"Is there a speed limit?"
 },
 {
@@ -32187,7 +32270,7 @@
 "traditional":"符合",
 "pinyin":"fú hé",
 "pinyinNumbered":"fu2 he2",
-"gloss":"fulfil, conform, fit, tally with, fill, come up to, cohere, satisfy, accord, coincide, assort, equate, answer, tally, consist, meet, be in keeping with, chime in, fulfill, look, accord/tally with, relate, chime, live up to, square, accord with, conform to, correspond",
+"gloss":"fulfil, conform, fit, tally with, fill, come up to",
 "definitions":[
 "in accordance with; to agree with; to conform to; to meet (a requirement)",
 "(physics) coincidence"
@@ -32221,7 +32304,7 @@
 "traditional":"利益",
 "pinyin":"lì yì",
 "pinyinNumbered":"li4 yi4",
-"gloss":"privilege, profit, vantage, favor, interest, behoof, account, goodness, gain, increment, avail, boon, plus, commodity, lucre, advantage, stead, boot, benefit, welfare, good, asset, behalf, percentage, stake, favour",
+"gloss":"privilege, profit, vantage, favor, interest, behoof",
 "definitions":[
 "benefit",
 "(in sb's) interest"
@@ -32318,7 +32401,7 @@
 "traditional":"看見",
 "pinyin":"kàn jiàn",
 "pinyinNumbered":"kan4 jian4",
-"gloss":"seeing, behold, see, descry, show, perceive, lay eyes on, lamp, spy, show up, sight, catch sight of, catch sight of",
+"gloss":"seeing, behold, see, descry, show, perceive",
 "definitions":[
 "to see; to catch sight of"
 ],
@@ -32340,7 +32423,7 @@
 {
 "id":10182763,
 "zh":"您看见它了吗？",
-"pinyin":"nín kàn jiàn tā le má？",
+"pinyin":"nín kàn jiàn tā le ma？",
 "en":"Did you see it?"
 }
 ]
@@ -32351,7 +32434,7 @@
 "traditional":"立刻",
 "pinyin":"lì kè",
 "pinyinNumbered":"li4 ke4",
-"gloss":"in a short time, at once, promptly, offhand, at once, anon, instantly, straightway, now, slapbang, pronto, right away, immediately, without delay, right away, forthwith, presto, at a time, before long, in a minute, swith, directly, in no time, incontinent, subito, without delay, in real time, shortly, tout-de-suite, away, soon, presently, in a few seconds, very fast, chop-chop, at o",
+"gloss":"in a short time, at once, promptly, offhand, at once, anon",
 "definitions":[
 "immediately; at once; right away"
 ],
@@ -32440,7 +32523,7 @@
 {
 "id":10695968,
 "zh":"那算数吗？",
-"pinyin":"nà suàn shù má？",
+"pinyin":"nà suàn shù ma？",
 "en":"Does that count?"
 }
 ]
@@ -32550,7 +32633,7 @@
 {
 "id":333959,
 "zh":"死是唯一的解脱吗？",
-"pinyin":"sǐ shì wéi yī de jiě tuō má？",
+"pinyin":"sǐ shì wéi yī de jiě tuō ma？",
 "en":"Is death the only release?"
 },
 {
@@ -32634,7 +32717,7 @@
 "traditional":"主題",
 "pinyin":"zhǔ tí",
 "pinyinNumbered":"zhu3 ti2",
-"gloss":"motif, lemma, musical theme, theme, thesis, idea, literary argument, argument, motive, leitmotiv, matter, subject matter, keynote, issue, subject, topic, mythos, melodic theme",
+"gloss":"motif, lemma, musical theme, theme, thesis, idea",
 "definitions":[
 "theme",
 "subject"
@@ -32754,7 +32837,7 @@
 {
 "id":420390,
 "zh":"小区安全吗？夜晚有照明设施吗？",
-"pinyin":"xiǎo qū ān quán má？ yè wǎn yǒu zhào míng shè shī má？",
+"pinyin":"xiǎo qū ān quán ma？ yè wǎn yǒu zhào míng shè shī ma？",
 "en":"Is this community safe? Are there lighting installations for the night?"
 }
 ]
@@ -32905,7 +32988,7 @@
 "traditional":"失去",
 "pinyin":"shī qù",
 "pinyinNumbered":"shi1 qu4",
-"gloss":"desert, shear, outgrow, loss, lost, miss, lose",
+"gloss":"desert, shear, outgrow, loss, lost, miss",
 "definitions":[
 "to lose"
 ],
@@ -32938,7 +33021,7 @@
 "traditional":"做為",
 "pinyin":"zuò wéi",
 "pinyinNumbered":"zuo4 wei2",
-"gloss":"excuse, to be as, to look upon as, purport, roof, to take for, to regard as, look on as, regard as, take for",
+"gloss":"excuse, to be as, to look upon as, purport, roof, to take for",
 "definitions":[
 "to act as",
 "used erroneously for 作為|作为"
@@ -33016,7 +33099,7 @@
 "action; function; activity",
 "impact; result; effect",
 "purpose; intent",
-"(suffix) -ation, -tion etc, as in 抑制作用[yi4 zhi4 zuo4 yong4], inhibition"
+"(suffix) -ation, -tion etc, as in 抑制作用[yìzhìzuòyòng], inhibition"
 ],
 "hsk":3,
 "hsk3":2,
@@ -33070,7 +33153,9 @@
 "pinyinNumbered":"zhan4",
 "gloss":"constitute, make up, account for",
 "definitions":[
-"variant of 占[zhan4]"
+"to take possession of",
+"to occupy",
+"to take up"
 ],
 "hsk":null,
 "hsk3":2,
@@ -33103,7 +33188,7 @@
 "pinyinNumbered":"gao1 zhong1",
 "gloss":"senior middle school, senior high school, senior high school",
 "definitions":[
-"senior high school (abbr. for 高級中學|高级中学[gao1 ji2 zhong1 xue2])"
+"senior high school (abbr. for 高級中學|高级中学[gāojízhōngxué])"
 ],
 "hsk":null,
 "hsk3":2,
@@ -33134,7 +33219,7 @@
 "traditional":"動作",
 "pinyin":"dòng zuò",
 "pinyinNumbered":"dong4 zuo4",
-"gloss":"demeanor, motion, behavior, performance, demeanour, play, turn, operation, operative, looseness, agency, gesticulation, movement, gesture, comportment, business, action, move",
+"gloss":"demeanor, motion, behavior, performance, demeanour, play",
 "definitions":[
 "movement; motion; action",
 "to act; to move"
@@ -33168,7 +33253,7 @@
 "traditional":"模式",
 "pinyin":"mó shì",
 "pinyinNumbered":"mo2 shi4",
-"gloss":"example, normal, rule, formula, pattern, form, shape, style, way, mode, convention, fashion, model",
+"gloss":"example, normal, rule, formula, pattern, form",
 "definitions":[
 "mode; pattern; model"
 ],
@@ -33189,7 +33274,7 @@
 "traditional":"吸引",
 "pinyin":"xī yǐn",
 "pinyinNumbered":"xi1 yin3",
-"gloss":"engross, arrest, appeal, fascinate, attraction, fetch, draw, transfix, pull in, entrance, pull, enamour, spellbind, enamor, capture, trance, captivate, call, grip, fascination, absorb, bewitch, tempt, becharm, speak to, fix, engage, catch, rivet, enchant, beguile, charm, seduce, take, enwrap, magnetize, draw in, attract",
+"gloss":"engross, arrest, appeal, fascinate, attraction, fetch",
 "definitions":[
 "to attract; to appeal to; to fascinate"
 ],
@@ -33222,7 +33307,7 @@
 "traditional":"記得",
 "pinyin":"jì de",
 "pinyinNumbered":"ji4 de5",
-"gloss":"come to mind, think back, remember, recollect, recall, rememberance, mind, retain, place, spring to mind, bear in mind",
+"gloss":"come to mind, think back, remember, recollect, recall, rememberance",
 "definitions":[
 "to remember"
 ],
@@ -33232,7 +33317,7 @@
 {
 "id":444736,
 "zh":"你记得吗？",
-"pinyin":"nǐ jì de má？",
+"pinyin":"nǐ jì de ma？",
 "en":"Do you remember?"
 },
 {
@@ -33255,7 +33340,7 @@
 "traditional":"賣",
 "pinyin":"mài",
 "pinyinNumbered":"mai4",
-"gloss":"bring, parade, prostitute, make living at, go, sell out, show off, negotiate, exert to the utmost, tout, not spare, deal, betray, make living by, at, sell, make living by/at, betrayal, trade, fetch, market, bring in",
+"gloss":"bring, parade, prostitute, make living at, go, sell out",
 "definitions":[
 "to sell",
 "to betray",
@@ -33399,7 +33484,7 @@
 {
 "id":3327522,
 "zh":"可以更具体些吗？",
-"pinyin":"kě yǐ gèng jù tǐ xiē má？",
+"pinyin":"kě yǐ gèng jù tǐ xiē ma？",
 "en":"Can you be more specific?"
 },
 {
@@ -33416,7 +33501,7 @@
 "traditional":"太太",
 "pinyin":"tài tai",
 "pinyinNumbered":"tai4 tai5",
-"gloss":"lady, memsahib, Dona, dona, Mrs, mum, Senora, senora, Mrs., mistress of a household, madam, Frau, goodwife, missus, senhora, married woman, wife, vrouw, Madame, madame, missis, wahine, Signora, signora",
+"gloss":"lady, memsahib, Dona, dona, Mrs, mum",
 "definitions":[
 "married woman",
 "Mrs.",
@@ -33488,7 +33573,7 @@
 "traditional":"宗教",
 "pinyin":"zōng jiào",
 "pinyinNumbered":"zong1 jiao4",
-"gloss":"theology, community, religious, cult, creed, faith, religion",
+"gloss":"theology, community, religious, cult, creed, faith",
 "definitions":[
 "religion"
 ],
@@ -33521,7 +33606,7 @@
 "traditional":"舊",
 "pinyin":"jiù",
 "pinyinNumbered":"jiu4",
-"gloss":"old, aged, onetime, bygone, used, worn, past, former",
+"gloss":"old, aged, onetime, bygone, used, worn",
 "definitions":[
 "old",
 "opposite: new 新",
@@ -33572,7 +33657,7 @@
 {
 "id":3289562,
 "zh":"我反应过度了吗？",
-"pinyin":"wǒ fǎn yìng guò dù le má？",
+"pinyin":"wǒ fǎn yìng guò dù le ma？",
 "en":"Am I overreacting?"
 },
 {
@@ -33595,7 +33680,7 @@
 "traditional":"觀眾",
 "pinyin":"guān zhòng",
 "pinyinNumbered":"guan1 zhong4",
-"gloss":"onlooker, TV audience, attendance, audience, spectator, viewers, followers, crowd, gallery, viewer, following, house, viewing audience",
+"gloss":"onlooker, TV audience, attendance, audience, spectator, viewers",
 "definitions":[
 "spectators; audience; visitors (to an exhibition etc)"
 ],
@@ -33628,7 +33713,7 @@
 "traditional":"立場",
 "pinyin":"lì chǎng",
 "pinyinNumbered":"li4 chang3",
-"gloss":"view, stance, language, stand, ground, capacity, standing, situation, position, perspective, standpoint, stand(point)",
+"gloss":"view, stance, language, stand, ground, capacity",
 "definitions":[
 "position",
 "standpoint"

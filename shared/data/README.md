@@ -11,7 +11,7 @@ python3 -I shared/data/scripts/build_data.py --cache DIR # reuse a download cach
 
 ```jsonc
 {
-  "version": 1,
+  "version": 2,
   "words": [{
     "rank": 1,                     // 1-based frequency rank (Wiktionary list order, duplicates removed)
     "simplified": "一",
@@ -34,7 +34,7 @@ polyphonic characters.
 
 ```jsonc
 {
-  "version": 1,
+  "version": 2,
   "characters": {
     "你": {
       "definition": "you, second person pronoun",
