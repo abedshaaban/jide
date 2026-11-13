@@ -76,22 +76,81 @@ enum StudyQueue {
         return counts(due: due, new: fresh)
     }
 
-    /// Counts for many decks with a single fetch (Decks tab).
-    @MainActor
-    static func counts(_ scopes: [DeckScope], _ context: ModelContext, now: Date = Date()) -> [String: Counts] {
-        let cards = activeCards(context)
-        let enabled = AppSettings.enabledDirections
-        let remaining = AppSettings.newPerDay - newIntroducedToday(context, now: now)
-        let decks = (try? context.fetch(FetchDescriptor<Deck>())) ?? []
+    /// The fields queue selection needs, read once from SwiftData so many decks can be counted cheaply.
+    struct CardInfo {
+        var wordID: String
+        var isCustom: Bool
+        var rank: Int
+        var hsk: Int?
+        var directionRaw: String
+        var state: CardState
+        var due: Date
+        var isLeech: Bool
+
+        init(wordID: String, isCustom: Bool = false, rank: Int, hsk: Int? = nil, directionRaw: String,
+             state: CardState, due: Date, isLeech: Bool = false) {
+            self.wordID = wordID; self.isCustom = isCustom; self.rank = rank; self.hsk = hsk
+            self.directionRaw = directionRaw; self.state = state; self.due = due; self.isLeech = isLeech
+        }
+    }
+
+    /// Same rules as `select`, counting only. Unsuspended cards only.
+    static func counts(_ infos: [CardInfo], scopes: [DeckScope], customWordIDs: [String: Set<String>],
+                       enabled: Set<Direction>, newRemaining: Int, now: Date,
+                       calendar: Calendar = .current) -> [String: Counts] {
+        let enabledRaw = Set(enabled.map(\.rawValue))
+        let endOfDay = calendar.startOfTomorrow(now)
+        let learnUntil = now.addingTimeInterval(learnAhead)
+        let active = infos.filter { enabledRaw.contains($0.directionRaw) }
         var out: [String: Counts] = [:]
         for s in scopes {
-            var ids: Set<String> = []
-            if case .custom(let id, _) = s { ids = Set(decks.first { $0.id == id }?.wordIDs ?? []) }
-            let (due, fresh) = select(from: cards, scope: s, customWordIDs: ids, enabled: enabled,
-                                      newRemaining: remaining, now: now)
-            out[s.id] = counts(due: due, new: fresh)
+            let ids = customWordIDs[s.id] ?? []
+            var c = Counts()
+            for i in active where s.contains(wordID: i.wordID, isCustom: i.isCustom, rank: i.rank, hsk: i.hsk,
+                                             isLeech: i.isLeech, customWordIDs: ids) {
+                switch i.state {
+                case .new: c.new += 1
+                case .learning, .relearning: if i.due <= learnUntil { c.learning += 1 }
+                case .review: if i.due < endOfDay { c.review += 1 }
+                }
+            }
+            c.new = min(c.new, max(0, newRemaining))
+            out[s.id] = c
         }
         return out
+    }
+
+    /// Two flat fetches; the word ID comes from the card ID ("<wordID>|<direction>") so no relationship faults.
+    @MainActor
+    static func cardInfos(_ context: ModelContext) -> [CardInfo] {
+        struct W { var isCustom: Bool; var rank: Int; var hsk: Int? }
+        var words: [String: W] = [:]
+        for w in (try? context.fetch(FetchDescriptor<Word>())) ?? [] {
+            words[w.id] = W(isCustom: w.isCustom, rank: w.rank, hsk: w.hsk)
+        }
+        let cards = (try? context.fetch(FetchDescriptor<Card>(predicate: #Predicate { !$0.suspended }))) ?? []
+        var out: [CardInfo] = []
+        out.reserveCapacity(cards.count)
+        for c in cards {
+            guard let bar = c.id.lastIndex(of: "|") else { continue }
+            let wordID = String(c.id[..<bar])
+            guard let w = words[wordID] else { continue }
+            out.append(CardInfo(wordID: wordID, isCustom: w.isCustom, rank: w.rank, hsk: w.hsk,
+                                directionRaw: c.directionRaw, state: c.state, due: c.due, isLeech: c.isLeech))
+        }
+        return out
+    }
+
+    /// Counts for many decks (Decks tab): one read of the store, then plain-value counting.
+    @MainActor
+    static func counts(_ scopes: [DeckScope], _ context: ModelContext, now: Date = Date()) -> [String: Counts] {
+        let decks = (try? context.fetch(FetchDescriptor<Deck>())) ?? []
+        var ids: [String: Set<String>] = [:]
+        for s in scopes {
+            if case .custom(let id, _) = s { ids[s.id] = Set(decks.first { $0.id == id }?.wordIDs ?? []) }
+        }
+        return counts(cardInfos(context), scopes: scopes, customWordIDs: ids, enabled: AppSettings.enabledDirections,
+                      newRemaining: AppSettings.newPerDay - newIntroducedToday(context, now: now), now: now)
     }
 }
 
