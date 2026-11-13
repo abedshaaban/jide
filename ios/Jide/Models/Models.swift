@@ -186,12 +186,18 @@ enum DeckScope: Hashable, Identifiable {
 
     func contains(_ card: Card, customWordIDs: Set<String>) -> Bool {
         guard let word = card.word else { return false }
+        return contains(wordID: word.id, isCustom: word.isCustom, rank: word.rank, hsk: word.hsk,
+                        isLeech: card.isLeech, customWordIDs: customWordIDs)
+    }
+
+    func contains(wordID: String, isCustom: Bool, rank: Int, hsk: Int?, isLeech: Bool,
+                  customWordIDs: Set<String>) -> Bool {
         switch self {
-        case .all: return true
-        case .rankRange(let r): return !word.isCustom && r.contains(word.rank)
-        case .hsk(let l): return word.hsk == l
-        case .custom: return customWordIDs.contains(word.id)
-        case .leeches: return card.isLeech
+        case .all: true
+        case .rankRange(let r): !isCustom && r.contains(rank)
+        case .hsk(let l): hsk == l
+        case .custom: customWordIDs.contains(wordID)
+        case .leeches: isLeech
         }
     }
 }
