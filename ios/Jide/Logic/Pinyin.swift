@@ -6,6 +6,9 @@ enum Pinyin {
         var text: String
         /// 1-4, 5 = neutral, 0 = not a syllable (punctuation, letters).
         var tone: Int
+
+        /// CC-CEDICT writes erhua as a separate "r5" syllable (一点儿 = yi1 dian3 r5).
+        var isErhua: Bool { tone == 5 && text.lowercased() == "r" }
     }
 
     private static let marks: [Character: [Character]] = [
@@ -51,8 +54,22 @@ enum Pinyin {
         numbered.split(whereSeparator: { $0.isWhitespace }).map { syllable(fromNumbered: String($0)) }
     }
 
+    /// "ni3 hao3" -> "nǐ hǎo"; erhua attaches to the previous syllable ("yi1 dian3 r5" -> "yī diǎnr").
     static func marks(fromNumbered numbered: String) -> String {
-        syllables(numbered: numbered).map(\.text).joined(separator: " ")
+        joined(syllables(numbered: numbered)).map(\.text).joined(separator: " ")
+    }
+
+    /// Syllables as displayed: an erhua "r" is merged into the syllable before it (keeping that tone).
+    static func joined(_ syllables: [Syllable]) -> [Syllable] {
+        var out: [Syllable] = []
+        for s in syllables {
+            if s.isErhua, let last = out.last {
+                out[out.count - 1] = Syllable(text: last.text + s.text, tone: last.tone)
+            } else {
+                out.append(s)
+            }
+        }
+        return out
     }
 
     /// Tone of a syllable written with marks ("hǎo" -> 3, "ma" -> 5).
@@ -66,13 +83,17 @@ enum Pinyin {
     static func normalizeInput(_ input: String) -> String {
         input.split(whereSeparator: { $0.isWhitespace || $0 == "'" }).map { tokenSub in
             let token = String(tokenSub)
-            if let last = token.last, last.isNumber { return token.lowercased().replacingOccurrences(of: "ü", with: "u:") }
+            if let last = token.last, last.isNumber {
+                return token.lowercased().replacingOccurrences(of: "ü", with: "u:").replacingOccurrences(of: "v", with: "u:")
+            }
             var tone = 5
             var plain = ""
             for ch in token {
                 if let (base, t) = markToBase[ch] { tone = t; plain.append(base) } else { plain.append(ch) }
             }
-            return plain.lowercased().replacingOccurrences(of: "ü", with: "u:") + String(tone)
+            let base = plain.lowercased().replacingOccurrences(of: "ü", with: "u:").replacingOccurrences(of: "v", with: "u:")
+            // A bare "r" after a syllable is erhua, which CC-CEDICT writes as r5.
+            return base == "r" ? "r5" : base + String(tone)
         }.joined(separator: " ")
     }
 
@@ -82,8 +103,9 @@ enum Pinyin {
         for ch in s.lowercased() {
             if let (base, _) = markToBase[ch] { out.append(base == "ü" ? "u" : base) }
             else if ch == "ü" { out.append("u") }
+            else if ch == "v" { out.append("u") }
             else if ch.isLetter { out.append(ch) }
         }
-        return out.replacingOccurrences(of: "u:", with: "u")
+        return out
     }
 }

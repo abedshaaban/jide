@@ -23,8 +23,7 @@ struct StatsSnapshot {
 
 enum StatsBuilder {
     @MainActor
-    static func build(_ context: ModelContext, now: Date = Date()) -> StatsSnapshot {
-        let cal = Calendar.current
+    static func build(_ context: ModelContext, now: Date = Date(), calendar cal: Calendar = .current) -> StatsSnapshot {
         let today = cal.startOfDay(for: now)
         var s = StatsSnapshot()
 
@@ -36,11 +35,11 @@ enum StatsBuilder {
         (s.streak, s.longestStreak) = streaks(days: Set(perDay.keys), today: today, cal: cal)
 
         s.last30 = (0..<30).reversed().map { i in
-            let d = cal.date(byAdding: .day, value: -i, to: today)!
+            let d = cal.addingDays(-i, to: today)
             return DayCount(day: d, count: perDay[d] ?? 0)
         }
 
-        let monthAgo = cal.date(byAdding: .day, value: -30, to: today)!
+        let monthAgo = cal.addingDays(-30, to: today)
         let reviewLogs = logs.filter { $0.date >= monthAgo && $0.stateBefore == CardState.review.rawValue }
         if !reviewLogs.isEmpty {
             s.retention30 = Double(reviewLogs.filter { $0.rating > 1 }.count) / Double(reviewLogs.count)
@@ -48,6 +47,7 @@ enum StatsBuilder {
 
         let cards = (try? context.fetch(FetchDescriptor<Card>())) ?? []
         let enabled = Set(AppSettings.enabledDirections.map(\.rawValue))
+
         var forecast: [Date: Int] = [:]
         var started = Set<String>()
         for c in cards {
@@ -68,7 +68,7 @@ enum StatsBuilder {
         }
         s.wordsStarted = started.count
         s.forecast = (0..<14).map { i in
-            let d = cal.date(byAdding: .day, value: i, to: today)!
+            let d = cal.addingDays(i, to: today)
             return DayCount(day: d, count: forecast[d] ?? 0)
         }
         s.leeches.sort { $0.lapses > $1.lapses }
@@ -78,18 +78,26 @@ enum StatsBuilder {
     /// Current streak counts today if reviewed, otherwise it is still alive from yesterday.
     static func streaks(days: Set<Date>, today: Date, cal: Calendar) -> (current: Int, longest: Int) {
         var current = 0
-        var d = days.contains(today) ? today : cal.date(byAdding: .day, value: -1, to: today)!
+        var d = days.contains(today) ? today : cal.addingDays(-1, to: today)
         while days.contains(d) {
             current += 1
-            d = cal.date(byAdding: .day, value: -1, to: d)!
+            d = cal.addingDays(-1, to: d)
         }
         var longest = 0, run = 0
         var prev: Date?
         for day in days.sorted() {
-            if let p = prev, cal.date(byAdding: .day, value: 1, to: p) == day { run += 1 } else { run = 1 }
+            if let p = prev, cal.addingDays(1, to: p) == day { run += 1 } else { run = 1 }
             longest = max(longest, run)
             prev = day
         }
         return (current, longest)
+    }
+}
+
+extension Calendar {
+    /// Start of the day `days` away from `date`'s day (DST safe).
+    func addingDays(_ days: Int, to date: Date) -> Date {
+        let start = startOfDay(for: date)
+        return self.date(byAdding: .day, value: days, to: start).map { startOfDay(for: $0) } ?? start
     }
 }
