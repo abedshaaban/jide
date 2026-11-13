@@ -3,8 +3,11 @@ import Foundation
 
 /// Where the owner's recordings live: Documents/Recordings/<hex(wordID)>.m4a (visible in the Files app).
 enum RecordingStore {
+    /// Parent of the Recordings folder. Tests point this somewhere else.
+    static var baseDirectory: URL = URL.documentsDirectory
+
     static var directory: URL {
-        let dir = URL.documentsDirectory.appending(path: "Recordings", directoryHint: .isDirectory)
+        let dir = baseDirectory.appending(path: "Recordings", directoryHint: .isDirectory)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         return dir
     }
@@ -31,6 +34,17 @@ enum RecordingStore {
     static func exists(_ wordID: String) -> Bool { FileManager.default.fileExists(atPath: url(for: wordID).path) }
     static func delete(_ wordID: String) { try? FileManager.default.removeItem(at: url(for: wordID)) }
 
+    /// Deletes recordings whose word no longer exists. Returns how many were removed.
+    @discardableResult
+    static func pruneOrphans(keeping wordIDs: Set<String>) -> Int {
+        var removed = 0
+        for r in all() where !wordIDs.contains(r.wordID) {
+            try? FileManager.default.removeItem(at: r.url)
+            removed += 1
+        }
+        return removed
+    }
+
     static func all() -> [(wordID: String, url: URL)] {
         let files = (try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)) ?? []
         return files.compactMap { u in wordID(fromFileName: u.lastPathComponent).map { ($0, u) } }
@@ -44,8 +58,8 @@ final class VoicePlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published private(set) var isPlaying = false
 
     func play(_ url: URL) {
+        AudioCoordinator.takeOver(for: .playback)
         AudioSessionConfig.activate()
-        Speech.shared.stop()
         player = try? AVAudioPlayer(contentsOf: url)
         player?.delegate = self
         player?.volume = 1
@@ -64,18 +78,22 @@ final class VoicePlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 /// Records one take per word, replacing the previous one.
 @MainActor
-final class VoiceRecorder: NSObject, ObservableObject {
+final class VoiceRecorder: NSObject, ObservableObject, AVAudioRecorderDelegate {
+    /// The recorder that is currently recording, so TTS/playback can stop it first.
+    static weak var current: VoiceRecorder?
+
     @Published private(set) var isRecording = false
     @Published private(set) var level: Float = 0
     @Published var permissionDenied = false
     private var recorder: AVAudioRecorder?
+    private var target: URL?
     private var meterTimer: Timer?
 
     func start(wordID: String) async {
+        guard !isRecording else { return }
         let granted = await AVAudioApplication.requestRecordPermission()
         guard granted else { permissionDenied = true; return }
-        Speech.shared.stop()
-        VoicePlayer.shared.stop()
+        AudioCoordinator.takeOver(for: .recording)
         AudioSessionConfig.activate()
         let settings: [String: Any] = [
             AVFormatIDKey: kAudioFormatMPEG4AAC,
@@ -84,10 +102,16 @@ final class VoiceRecorder: NSObject, ObservableObject {
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
         ]
         do {
-            let r = try AVAudioRecorder(url: RecordingStore.url(for: wordID), settings: settings)
+            // Record to a temp file and move it into place on success, so a failed or interrupted take
+            // never replaces the previous good recording.
+            let temp = FileManager.default.temporaryDirectory.appending(path: "take-\(UUID().uuidString).m4a")
+            let r = try AVAudioRecorder(url: temp, settings: settings)
             r.isMeteringEnabled = true
-            r.record()
+            r.delegate = self
+            guard r.record() else { return }
             recorder = r
+            target = RecordingStore.url(for: wordID)
+            VoiceRecorder.current = self
             isRecording = true
             meterTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
                 Task { @MainActor in
@@ -101,12 +125,27 @@ final class VoiceRecorder: NSObject, ObservableObject {
         }
     }
 
+    /// Stops and keeps the take if it has audio. Safe to call when not recording.
     func stop() {
-        recorder?.stop()
+        guard let r = recorder else { return }
+        let duration = r.currentTime
+        r.stop()
         recorder = nil
+        if let target, duration > 0.2 {
+            try? FileManager.default.removeItem(at: target)
+            try? FileManager.default.moveItem(at: r.url, to: target)
+        } else {
+            try? FileManager.default.removeItem(at: r.url)
+        }
+        target = nil
+        if VoiceRecorder.current === self { VoiceRecorder.current = nil }
         meterTimer?.invalidate()
         meterTimer = nil
         isRecording = false
         level = 0
+    }
+
+    nonisolated func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        Task { @MainActor in self.stop() }
     }
 }
