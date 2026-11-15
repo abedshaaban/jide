@@ -63,6 +63,85 @@ struct EtymologyText: View {
     }
 }
 
+/// How each character of a word is built, shown on the answer side of a card:
+/// 好 = 女 woman + 子 child, "A woman 女 with a son 子". Tap a row for the character page.
+struct WordBreakdown: View {
+    var text: String
+
+    /// Characters worth a row: known ones, skipping a lone character that has no parts to show.
+    private var characters: [Character] {
+        let known = text.filter { Library.shared.character($0) != nil }
+        if known.count == 1, let ch = known.first, Library.shared.character(ch)?.components.isEmpty != false { return [] }
+        var seen = Set<Character>()
+        return known.filter { seen.insert($0).inserted }
+    }
+
+    var body: some View {
+        let chars = characters
+        if !chars.isEmpty {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("How it's built").font(.caption.bold()).foregroundStyle(.secondary)
+                ForEach(chars, id: \.self) { ch in
+                    NavigationLink { CharacterDetailView(character: ch) } label: { row(ch) }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("breakdown.\(ch)")
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 12).fill(Color.secondary.opacity(0.1)))
+        }
+    }
+
+    private func row(_ ch: Character) -> some View {
+        let info = Library.shared.character(ch)
+        let comps = info?.components ?? []
+        return HStack(alignment: .top, spacing: 12) {
+            Text(String(ch)).font(.system(size: 34))
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 6) {
+                    if let p = info?.pinyin.first {
+                        Text(p).foregroundStyle(ToneColor.color(Pinyin.tone(ofMarked: p)))
+                    }
+                    Text(Self.short(info?.definition)).foregroundStyle(.primary)
+                }
+                .font(.subheadline)
+                if !comps.isEmpty {
+                    Text(comps.map { c in
+                        let d = Self.short(Library.shared.character(c)?.definition)
+                        return d.isEmpty ? String(c) : "\(c) \(d)"
+                    }.joined(separator: "  +  "))
+                        .font(.subheadline.weight(.medium))
+                }
+                if let story = Self.story(info?.etymology) {
+                    Text(story).font(.caption).foregroundStyle(.secondary)
+                }
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
+        }
+        .contentShape(Rectangle())
+    }
+
+    /// First sense of a dictionary definition: "woman, girl; female" → "woman".
+    static func short(_ definition: String?) -> String {
+        let first = (definition ?? "").split(whereSeparator: { $0 == "," || $0 == ";" }).first.map(String.init) ?? ""
+        return first.trimmingCharacters(in: .whitespaces)
+    }
+
+    /// One sentence on why the character looks the way it does.
+    static func story(_ e: CharacterInfo.Etymology?) -> String? {
+        guard let e else { return nil }
+        let hint = e.hint?.replacingOccurrences(of: "\u{00A0}", with: " ")
+        if let semantic = e.semantic, let phonetic = e.phonetic {
+            let meaning = hint.map { " (\($0))" } ?? ""
+            return "\(semantic) gives the meaning\(meaning), \(phonetic) gives the sound."
+        }
+        if e.type == "pictographic", let hint { return "Picture: \(hint)" }
+        return hint
+    }
+}
+
 /// Character page: breakdown, stroke order, writing practice.
 struct CharacterDetailView: View {
     var character: Character
