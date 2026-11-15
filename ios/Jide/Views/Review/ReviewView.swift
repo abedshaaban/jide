@@ -248,6 +248,8 @@ struct CardBack: View {
                 .background(RoundedRectangle(cornerRadius: 12).fill(Color.yellow.opacity(0.12)))
             }
 
+            WordBreakdown(text: word.simplified)
+
             GroupBox("Your pronunciation") {
                 PronunciationPractice(word: word)
             }
