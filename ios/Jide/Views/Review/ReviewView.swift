@@ -25,6 +25,7 @@ struct ReviewView: View {
                         AudioCoordinator.stopAll()
                         dismiss()
                     }
+                    .keyboardShortcut(.cancelAction)
                     .accessibilityIdentifier("review.close")
                 }
             }
@@ -56,6 +57,7 @@ struct ReviewSessionView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 8)
+                .readableWidth()
 
                 ScrollView {
                     VStack(spacing: 20) {
@@ -66,7 +68,7 @@ struct ReviewSessionView: View {
                         }
                     }
                     .padding()
-                    .frame(maxWidth: .infinity)
+                    .readableWidth()
                 }
                 .contentShape(Rectangle())
                 .onTapGesture { if !revealed { reveal(word) } }
@@ -148,6 +150,7 @@ struct ReviewSessionView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(color(r))
+                        .keyboardShortcut(shortcut(r), modifiers: [])
                         .accessibilityIdentifier("rate.\(r.label.lowercased())")
                     }
                 }
@@ -162,10 +165,12 @@ struct ReviewSessionView: View {
                     Text("Show answer").font(.headline).frame(maxWidth: .infinity).padding(.vertical, 8)
                 }
                 .buttonStyle(.borderedProminent)
+                .keyboardShortcut(.space, modifiers: [])
                 .accessibilityIdentifier("review.show")
             }
         }
         .padding()
+        .readableWidth()
         .background(.bar)
     }
 
@@ -173,6 +178,9 @@ struct ReviewSessionView: View {
         revealed = true
         if autoPlay && session.current?.direction != .audioToHanzi { Speech.shared.speak(word.simplified) }
     }
+
+    /// Hardware keyboard: space shows the answer, 1–4 rate it (Again … Easy).
+    private func shortcut(_ r: Rating) -> KeyEquivalent { KeyEquivalent(Character("\(r.rawValue)")) }
 
     private func color(_ r: Rating) -> Color {
         switch r {

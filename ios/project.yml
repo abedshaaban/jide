@@ -33,7 +33,14 @@ targets:
         # Keep this stable: changing it makes iOS treat the app as new and its data is lost.
         PRODUCT_BUNDLE_IDENTIFIER: com.abedshaaban.jide
         PRODUCT_NAME: Jide
-        TARGETED_DEVICE_FAMILY: "1"
+        # iPad family (2) is only there because Mac Catalyst needs it.
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: YES
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        # Mac build is signed to run locally: no 7-day expiry, no provisioning profile.
+        "CODE_SIGN_IDENTITY[sdk=macosx*]": "-"
+        "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": JideMac.entitlements
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: 记得
         INFOPLIST_KEY_NSMicrophoneUsageDescription: Record your own pronunciation to compare tones with the reference audio.
