@@ -86,8 +86,9 @@ final class JideUITests: XCTestCase {
 
         tab("Decks")
         wait(el("deck.all"))
-        XCTAssertTrue(el("deck.hsk:1").exists)
+        XCTAssertTrue(el("deck.components").exists)
         XCTAssertTrue(el("deck.rank:1-100").exists)
+        scrollTo(el("deck.hsk:1"))  // below the frequency decks, so not loaded until scrolled to
         scrollTo(el("deck.leeches")).tap()
         wait(el("review.empty"))  // no leeches yet: empty state, not a blank screen
         el("review.close").tap()

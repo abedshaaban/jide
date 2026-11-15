@@ -15,11 +15,13 @@ enum SettingsKey {
     static let reminderMinute = "reminderMinute"
     static let toneQuizCorrect = "toneQuizCorrect"
     static let toneQuizTotal = "toneQuizTotal"
+    static let teachComponents = "teachComponents"
 
     /// Keys included in backups, with their types for decoding.
     static let exported: [String] = [
         newPerDay, enabledDirections, autoPlayAudio, slowRate, voiceIdentifier, desiredRetention,
         leechThreshold, suspendLeeches, reminderEnabled, reminderHour, reminderMinute, toneQuizCorrect, toneQuizTotal,
+        teachComponents,
     ]
 
     static func registerDefaults(_ d: UserDefaults = AppSettings.defaults) {
@@ -37,6 +39,7 @@ enum SettingsKey {
             reminderMinute: 0,
             toneQuizCorrect: 0,
             toneQuizTotal: 0,
+            teachComponents: true,
         ])
     }
 }
@@ -50,6 +53,8 @@ enum AppSettings {
     static var desiredRetention: Double { d.double(forKey: SettingsKey.desiredRetention) }
     static var leechThreshold: Int { max(2, d.integer(forKey: SettingsKey.leechThreshold)) }
     static var suspendLeeches: Bool { d.bool(forKey: SettingsKey.suspendLeeches) }
+    /// Character parts come up in "All words" and frequency decks; they stay in their own deck either way.
+    static var teachComponents: Bool { d.object(forKey: SettingsKey.teachComponents) as? Bool ?? true }
     static var slowRate: Float { Float(d.double(forKey: SettingsKey.slowRate)) }
 
     static var enabledDirections: Set<Direction> {

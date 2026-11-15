@@ -11,6 +11,7 @@ struct SettingsView: View {
     @AppStorage(SettingsKey.desiredRetention) private var retention = 0.9
     @AppStorage(SettingsKey.leechThreshold) private var leechThreshold = 8
     @AppStorage(SettingsKey.suspendLeeches) private var suspendLeeches = false
+    @AppStorage(SettingsKey.teachComponents) private var teachComponents = true
     @AppStorage(SettingsKey.reminderEnabled) private var reminderOn = false
     @AppStorage(SettingsKey.reminderHour) private var reminderHour = 19
     @AppStorage(SettingsKey.reminderMinute) private var reminderMinute = 0
@@ -42,6 +43,8 @@ struct SettingsView: View {
                     }
                     Stepper("Leech after \(leechThreshold) lapses", value: $leechThreshold, in: 3...20)
                     Toggle("Suspend leeches", isOn: $suspendLeeches)
+                    Toggle("Teach character parts before words", isOn: $teachComponents)
+                        .accessibilityIdentifier("settings.teachComponents")
                 }
 
                 Section {

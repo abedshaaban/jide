@@ -15,7 +15,8 @@ SYL = re.compile(r"[A-Za-z:]+[1-5]")
 
 
 def main():
-    words = json.load(open(os.path.join(DATA, "words.json"), encoding="utf-8"))["words"]
+    data = json.load(open(os.path.join(DATA, "words.json"), encoding="utf-8"))
+    words, components = data["words"], data["components"]
     chars = json.load(open(os.path.join(DATA, "characters.json"), encoding="utf-8"))["characters"]
     hard = {}
     soft = {}
@@ -35,12 +36,19 @@ def main():
     hard["strokes/medians mismatch"] = [
         c for c, v in chars.items() if "strokes" in v and len(v["strokes"]) != len(v["medians"])]
 
+    word_set = {w["simplified"] for w in words}
+    hard["component isWord flag wrong"] = [c["char"] for c in components if c["isWord"] != (c["char"] in word_set)]
+    hard["component without meaning or strokes"] = [
+        c["char"] for c in components if not c["definition"].strip() or "strokes" not in chars.get(c["char"], {})]
+    hard["duplicate component"] = [k for k, v in collections.Counter(c["char"] for c in components).items() if v > 1]
+
+    soft["component without pinyin"] = [c["char"] for c in components if not c["pinyinNumbered"]]
     soft["word without example sentence"] = [w["simplified"] for w in words if not w["sentences"]]
     soft["word without HSK level"] = [w["simplified"] for w in words if w["hsk"] is None]
     soft["neutral-tone single character"] = [w["simplified"] for w in words if w["pinyinNumbered"].endswith("5")
                                              and len(w["simplified"]) == 1]
 
-    print(f"{len(words)} words, {len(chars)} characters ({len(word_chars)} used by words)")
+    print(f"{len(words)} words, {len(components)} components, {len(chars)} characters ({len(word_chars)} used by words)")
     for title, group in (("errors", hard), ("info", soft)):
         print(f"-- {title}")
         for k, v in group.items():

@@ -60,7 +60,7 @@ enum StatsBuilder {
                 s.reviewCards += 1
                 if c.stability >= 21 { s.matureCards += 1 }
             }
-            if c.state != .new, let w = c.word { started.insert(w.id) }
+            if c.state != .new, !c.isComponent, let w = c.word { started.insert(w.id) }
             if c.state != .new && !c.suspended {
                 let d = max(today, cal.startOfDay(for: c.due))
                 forecast[d, default: 0] += 1

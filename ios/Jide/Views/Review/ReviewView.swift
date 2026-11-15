@@ -12,7 +12,7 @@ struct ReviewView: View {
         NavigationStack {
             Group {
                 if let session {
-                    ReviewSessionView(session: session)
+                    ReviewSessionView(session: session, close: close)
                 } else {
                     ProgressView()
                 }
@@ -21,12 +21,8 @@ struct ReviewView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {
-                        AudioCoordinator.stopAll()
-                        dismiss()
-                    }
-                    .keyboardShortcut(.cancelAction)
-                    .accessibilityIdentifier("review.close")
+                    Button("Close", action: close)
+                        .accessibilityIdentifier("review.close")
                 }
             }
         }
@@ -34,10 +30,16 @@ struct ReviewView: View {
             if session == nil { session = StudySession(scope: scope, context: context) }
         }
     }
+
+    private func close() {
+        AudioCoordinator.stopAll()
+        dismiss()
+    }
 }
 
 struct ReviewSessionView: View {
     @ObservedObject var session: StudySession
+    var close: () -> Void
     @State private var revealed = false
     @State private var showDetails = false
     @State private var now = Date()
@@ -51,6 +53,10 @@ struct ReviewSessionView: View {
                     Text(card.direction.label).font(.caption).foregroundStyle(.secondary)
                         .accessibilityIdentifier("review.direction")
                         .accessibilityValue(card.direction.rawValue)
+                    if word.isComponent {
+                        Text("· character part").font(.caption).foregroundStyle(.secondary)
+                            .accessibilityIdentifier("review.part")
+                    }
                     if card.isLeech { Image(systemName: "ant.fill").foregroundStyle(.red).font(.caption) }
                     Spacer()
                     Text("\(session.remaining) left · \(session.reviewedCount) done").font(.caption).foregroundStyle(.secondary)
@@ -106,6 +112,7 @@ struct ReviewSessionView: View {
                 Spacer()
             }
         }
+        .background(KeyCatcher(isActive: !showDetails, onKey: handleKey))
         .onReceive(timer) { t in
             now = t
             if session.current == nil, let u = session.waitingUntil, u <= t { session.advance() }
@@ -133,9 +140,7 @@ struct ReviewSessionView: View {
                 HStack(spacing: 8) {
                     ForEach(Rating.allCases) { r in
                         Button {
-                            AudioCoordinator.stopAll()
-                            revealed = false
-                            session.rate(r)
+                            rate(r)
                         } label: {
                             VStack(spacing: 2) {
                                 Text(r.label).font(.subheadline.bold())
@@ -150,7 +155,6 @@ struct ReviewSessionView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(color(r))
-                        .keyboardShortcut(shortcut(r), modifiers: [])
                         .accessibilityIdentifier("rate.\(r.label.lowercased())")
                     }
                 }
@@ -165,7 +169,6 @@ struct ReviewSessionView: View {
                     Text("Show answer").font(.headline).frame(maxWidth: .infinity).padding(.vertical, 8)
                 }
                 .buttonStyle(.borderedProminent)
-                .keyboardShortcut(.space, modifiers: [])
                 .accessibilityIdentifier("review.show")
             }
         }
@@ -176,11 +179,33 @@ struct ReviewSessionView: View {
 
     private func reveal(_ word: Word) {
         revealed = true
-        if autoPlay && session.current?.direction != .audioToHanzi { Speech.shared.speak(word.simplified) }
+        // Parts without a reading (⺀) have nothing to say.
+        if autoPlay && session.current?.direction != .audioToHanzi && !word.pinyinNumbered.isEmpty {
+            Speech.shared.speak(word.simplified)
+        }
     }
 
-    /// Hardware keyboard: space shows the answer, 1–4 rate it (Again … Easy).
-    private func shortcut(_ r: Rating) -> KeyEquivalent { KeyEquivalent(Character("\(r.rawValue)")) }
+    private func rate(_ r: Rating) {
+        AudioCoordinator.stopAll()
+        revealed = false
+        session.rate(r)
+    }
+
+    /// Space shows the answer, 1–4 rate it (Again … Easy), Esc closes.
+    private func handleKey(_ key: UIKey) -> Bool {
+        guard key.modifierFlags.intersection([.command, .control, .alternate, .shift]).isEmpty else { return false }
+        if key.keyCode == .keyboardEscape { close(); return true }
+        guard let word = session.current?.word else { return false }
+        if key.keyCode == .keyboardSpacebar {
+            if !revealed { reveal(word) }
+            return true
+        }
+        if revealed, let n = Int(key.charactersIgnoringModifiers), let r = Rating(rawValue: n) {
+            rate(r)
+            return true
+        }
+        return false
+    }
 
     private func color(_ r: Rating) -> Color {
         switch r {
@@ -235,7 +260,7 @@ struct CardBack: View {
             if card.direction != .meaningToHanzi {
                 Text(word.shortMeaning).font(.title3).multilineTextAlignment(.center)
             }
-            SpeakButtons(text: word.simplified, compact: true)
+            if !word.pinyinNumbered.isEmpty { SpeakButtons(text: word.simplified, compact: true) }
 
             if !word.mnemonic.isEmpty || !word.note.isEmpty {
                 VStack(alignment: .leading, spacing: 6) {
@@ -248,10 +273,14 @@ struct CardBack: View {
                 .background(RoundedRectangle(cornerRadius: 12).fill(Color.yellow.opacity(0.12)))
             }
 
-            WordBreakdown(text: word.simplified)
+            if word.isComponent {
+                PartUses(character: word.simplified)
+            } else {
+                WordBreakdown(text: word.simplified)
 
-            GroupBox("Your pronunciation") {
-                PronunciationPractice(word: word)
+                GroupBox("Your pronunciation") {
+                    PronunciationPractice(word: word)
+                }
             }
 
             if let s = (word.isCustom ? [] : Library.shared.sentences(for: word.simplified)).first {

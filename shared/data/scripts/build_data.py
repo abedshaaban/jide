@@ -2,7 +2,7 @@
 """Regenerate shared/data/words.json and shared/data/characters.json.
 
 Usage:
-    python3 -I shared/data/scripts/build_data.py [--cache DIR] [--count 1000]
+    python3 -I shared/data/scripts/build_data.py [--cache DIR] [--count 3000]
 
 Downloads (cached in --cache, default: a temp dir) and joins:
   * Wiktionary "Appendix:Mandarin Frequency lists" (CC BY-SA)  -> word order
@@ -31,6 +31,8 @@ OUT_DIR = os.path.dirname(HERE)
 SOURCES = {
     "wikt1.json": "https://en.wiktionary.org/w/api.php?action=parse&page=Appendix:Mandarin_Frequency_lists/1-1000&prop=wikitext&format=json",
     "wikt2.json": "https://en.wiktionary.org/w/api.php?action=parse&page=Appendix:Mandarin_Frequency_lists/1001-2000&prop=wikitext&format=json",
+    "wikt3.json": "https://en.wiktionary.org/w/api.php?action=parse&page=Appendix:Mandarin_Frequency_lists/2001-3000&prop=wikitext&format=json",
+    "wikt4.json": "https://en.wiktionary.org/w/api.php?action=parse&page=Appendix:Mandarin_Frequency_lists/3001-4000&prop=wikitext&format=json",
     "cedict.txt.gz": "https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz",
     "hsk.json": "https://raw.githubusercontent.com/drkameleon/complete-hsk-vocabulary/main/complete.json",
     "cmn_sentences.tsv.bz2": "https://downloads.tatoeba.org/exports/per_language/cmn/cmn_sentences.tsv.bz2",
@@ -41,9 +43,14 @@ SOURCES = {
 }
 
 # Bump when the output changes so installed apps refresh dictionary fields.
-DATA_VERSION = 3
+DATA_VERSION = 4
 MAX_SENTENCES = 3
 MAX_SENTENCE_LEN = 18
+MIN_COMPONENT_USES = 3
+# The frequency list comes from a Taiwanese corpus: local institutions that are not vocabulary,
+# and 牠们, a Taiwan-only spelling of 它们 (which is in the list too).
+SKIP_WORDS = {"政大", "国科会", "省府", "大台北", "牠们"}
+MAX_COMPONENT_EXAMPLES = 8
 
 # ---------------------------------------------------------------- pinyin utils
 
@@ -114,7 +121,7 @@ def load_frequency(cache, count, cedict):
         for e in es:
             by_trad.setdefault(e["traditional"], simp)
     words, seen = [], set()
-    for name in ("wikt1.json", "wikt2.json"):
+    for name in ("wikt1.json", "wikt2.json", "wikt3.json", "wikt4.json"):
         with open(fetch(cache, name), encoding="utf-8") as f:
             text = json.load(f)["parse"]["wikitext"]["*"]
         text = re.sub(r"\{\{audio[^}]*\}\}", "", text)
@@ -127,7 +134,9 @@ def load_frequency(cache, count, cedict):
             trad, simp, pinyin, gloss = (p.strip() for p in parts)
             if simp not in cedict and simp in by_trad:
                 simp = by_trad[simp]  # list gives a traditional form, e.g. 旅遊 -> 旅游
-            if not simp or simp in seen:
+            elif simp not in cedict and trad in by_trad:
+                simp = by_trad[trad]  # list's simplified form is half converted, e.g. 遊戏 -> 游戏
+            if not simp or simp in seen or simp in SKIP_WORDS:
                 continue
             seen.add(simp)
             gloss = re.sub(r"\{\{[^}]*\}\}", "", gloss).replace("_", " ").strip()
@@ -201,7 +210,7 @@ def choose_entry(simp, wikt_pinyin, cedict, trad=None, gloss=""):
 
     lower = [e for e in cands if not e["pinyinNumbered"][:1].isupper()] or cands
     for e in lower:
-        if marks(e) == target:
+        if marks(e) == target and (not all(STUB_DEF.match(d) for d in e["definitions"]) or resolve_variants(e, cedict)):
             return e
     target_tones = [MARK_TO_PLAIN[ch][1] for ch in target if ch in MARK_TO_PLAIN]
 
@@ -221,7 +230,13 @@ def choose_entry(simp, wikt_pinyin, cedict, trad=None, gloss=""):
         return (shared, real > 0, particle, real)
 
     same = [e for e in lower if strip_tones(marks(e)) == strip_tones(target)]
-    return max(same or lower, key=score)
+    best = max(same or lower, key=score)
+    if all(STUB_DEF.match(d) for d in best["definitions"]) and not resolve_variants(best, cedict):
+        # Only "used in ..." stubs (绿 lu4, 佛 fu2): take the reading that has real senses.
+        real = [e for e in cedict[simp] if any(not STUB_DEF.match(d) for d in e["definitions"])]
+        if real:
+            best = max(real, key=lambda e: sum(1 for d in e["definitions"] if not STUB_DEF.match(d)))
+    return best
 
 
 def bracket_marks(d):
@@ -342,10 +357,72 @@ def load_sentences(cache, words, cedict, pinyin_for):
     return result
 
 
+def marks_to_numbered(syl):
+    """'nǚ' -> 'nu:3', 'zi' -> 'zi5'. Inverse of numbered_to_marks for one syllable."""
+    tone, out = 5, []
+    for ch in syl:
+        if ch in MARK_TO_PLAIN:
+            base, tone = MARK_TO_PLAIN[ch]
+            out.append(base)
+        else:
+            out.append(ch)
+    return "".join(out).lower().replace("ü", "u:") + str(tone)
+
+
+def parts_of(char, mmah):
+    """Direct components from the decomposition, without layout operators and unknowns."""
+    return [c for c in mmah.get(char, {}).get("decomposition", "") if not 0x2FF0 <= ord(c) <= 0x2FFF and c != "？"]
+
+
+def build_components(words, mmah, graphics):
+    """Building blocks of the characters in the word list (女 and 子 for 好), nested parts included.
+
+    A component is listed when it has a meaning and at least MIN_COMPONENT_USES characters of the
+    word list contain it. `rank` is the rank of the first word that uses it, so apps can teach the
+    part right before that word.
+    """
+    word_set = {w["simplified"] for w in words}
+    first_rank, used_in = {}, {}
+    seen_chars = set()
+    for w in words:
+        for ch in w["simplified"]:
+            if ch in seen_chars:
+                continue
+            seen_chars.add(ch)
+            # Parts and their parts (想 -> 相 心 -> 木 目); deeper levels are mostly single strokes.
+            closure = []
+            for c in parts_of(ch, mmah):
+                for x in [c] + parts_of(c, mmah):
+                    if x != ch and x not in closure:
+                        closure.append(x)
+            for c in closure:
+                first_rank.setdefault(c, w["rank"])
+                used_in.setdefault(c, []).append(ch)
+    out = []
+    for c, chars in used_in.items():
+        d = mmah.get(c)
+        if not d or not (d.get("definition") or "").strip() or len(chars) < MIN_COMPONENT_USES:
+            continue
+        if c not in word_set and (len(graphics.get(c, {}).get("strokes", [])) < 2 or "kwukyel" in d["definition"]):
+            continue  # single strokes (丨 丿 丶) and placeholder definitions teach nothing
+        py = (d.get("pinyin") or [""])[0]
+        out.append({
+            "char": c,
+            "rank": first_rank[c],
+            "pinyinNumbered": marks_to_numbered(py) if py else "",
+            "definition": d["definition"].strip(),
+            "isWord": c in word_set,          # already a card of its own; apps must not add a second one
+            "count": len(chars),
+            "usedIn": chars[:MAX_COMPONENT_EXAMPLES],
+        })
+    out.sort(key=lambda x: (x["rank"], -x["count"], x["char"]))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", default=os.path.join(tempfile.gettempdir(), "jide-data-cache"))
-    ap.add_argument("--count", type=int, default=1000)
+    ap.add_argument("--count", type=int, default=3000)
     args = ap.parse_args()
     os.makedirs(args.cache, exist_ok=True)
 
@@ -395,7 +472,8 @@ def main():
     mmah, graphics = load_mmah(args.cache)
     # Every character gets pinyin/meaning/decomposition (custom words, component breakdown);
     # stroke graphics only for characters of the bundled words, to keep the app small.
-    stroke_chars = {c for w in words for c in w["simplified"]}
+    components = build_components(words, mmah, graphics)
+    stroke_chars = {c for w in words for c in w["simplified"]} | {c["char"] for c in components}
     characters = {}
     for c in sorted(mmah):
         d = mmah[c]
@@ -413,7 +491,8 @@ def main():
         characters[c] = entry
 
     with open(os.path.join(OUT_DIR, "words.json"), "w", encoding="utf-8") as f:
-        json.dump({"version": DATA_VERSION, "words": words}, f, ensure_ascii=False, indent=0, separators=(",", ":"))
+        json.dump({"version": DATA_VERSION, "words": words, "components": components}, f, ensure_ascii=False, indent=0,
+                  separators=(",", ":"))
         f.write("\n")
     with open(os.path.join(OUT_DIR, "characters.json"), "w", encoding="utf-8") as f:
         json.dump({"version": DATA_VERSION, "characters": characters}, f, ensure_ascii=False, separators=(",", ":"))
@@ -423,6 +502,7 @@ def main():
     with_hsk = sum(1 for w in words if w["hsk"])
     print(f"words: {len(words)}  (no CEDICT match: {missing})", file=sys.stderr)
     print(f"words with sentences: {with_sent}  with HSK level: {with_hsk}", file=sys.stderr)
+    print(f"components: {len(components)}  not already words: {sum(1 for c in components if not c['isWord'])}", file=sys.stderr)
     print(f"characters: {len(characters)}  with strokes: {sum(1 for v in characters.values() if 'strokes' in v)}", file=sys.stderr)
 
 

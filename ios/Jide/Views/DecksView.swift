@@ -9,13 +9,22 @@ struct DecksView: View {
     @State private var newDeckName = ""
     @State private var showNewDeck = false
 
-    private let rankScopes: [DeckScope] = stride(from: 1, to: 1000, by: 100).map { .rankRange($0...($0 + 99)) }
+    private let rankScopes: [DeckScope] = DeckScope.frequencyDecks(wordCount: Library.shared.words.count)
     private let hskScopes: [DeckScope] = (1...6).map { .hsk($0) }
 
     var body: some View {
         NavigationStack {
             List {
-                Section { row(.all) }
+                Section {
+                    row(.all)
+                } footer: {
+                    Text("New cards follow word frequency. The parts a word's characters are built from come up just before it.")
+                }
+                Section {
+                    row(.components)
+                } footer: {
+                    Text("Building blocks like 女, 扌 and 宀 on their own, most used first.")
+                }
                 Section("By frequency") { ForEach(rankScopes) { row($0) } }
                 Section("HSK 2.0 level") { ForEach(hskScopes) { row($0) } }
                 Section {
@@ -69,7 +78,7 @@ struct DecksView: View {
     }
 
     private func refresh() {
-        let scopes = [DeckScope.all, .leeches] + rankScopes + hskScopes + decks.map { .custom($0.id, $0.name) }
+        let scopes = [DeckScope.all, .components, .leeches] + rankScopes + hskScopes + decks.map { .custom($0.id, $0.name) }
         counts = StudyQueue.counts(scopes, context)
     }
 }

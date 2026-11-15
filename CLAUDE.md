@@ -19,7 +19,8 @@ Personal Mandarin learning app. Single user (the owner). No backend, no accounts
 - Audio via `AVSpeechSynthesizer` `zh-CN` (owner has the premium Chinese voice installed; prefer it when available).
 - Record own voice and play it back next to the TTS audio to compare tones (high priority, owner wants this).
 - Personal notes and mnemonics per card.
-- Character breakdown into components.
+- Character breakdown into components, shown on the answer side of cards. Components (女, 扌, 宀) are also
+  cards of their own, taught right before the first word that uses them, with a "Character parts" deck.
 - Stroke order animation + writing practice (PencilKit).
 - Tone quiz (hear audio, pick tone).
 - Example sentences.
@@ -28,7 +29,7 @@ Personal Mandarin learning app. Single user (the owner). No backend, no accounts
 - Scheduling: FSRS.
 
 ## Data sources (open licenses, personal use)
-- Word order: Wiktionary Mandarin frequency list 1–1000 (CC BY-SA).
+- Word order: Wiktionary Mandarin frequency list 1–3000 (CC BY-SA).
 - Pinyin + definitions: CC-CEDICT (CC BY-SA).
 - Stroke order: Make Me a Hanzi / Hanzi Writer data.
 - Example sentences: Tatoeba (CC BY).
