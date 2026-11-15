@@ -19,7 +19,8 @@ enum Direction: String, CaseIterable, Codable, Identifiable {
 
 @Model
 final class Word {
-    /// "zh:<simplified>" for bundled words, "custom:<uuid>" for words the owner added.
+    /// "zh:<simplified>" for bundled words, "cmp:<character>" for character parts (see `isComponent`),
+    /// "custom:<uuid>" for words the owner added.
     @Attribute(.unique) var id: String
     var rank: Int
     var simplified: String
@@ -52,6 +53,15 @@ final class Word {
     }
 
     static func builtinID(_ simplified: String) -> String { "zh:\(simplified)" }
+
+    static let componentPrefix = "cmp:"
+    static func componentID(_ character: String) -> String { componentPrefix + character }
+
+    /// A building block of characters (扌, 宀, 木) that is taught on its own but is not a word.
+    var isComponent: Bool { id.hasPrefix(Word.componentPrefix) }
+
+    /// Parts are only asked 汉字 → meaning: many have no sound of their own and are never written alone.
+    var directions: [Direction] { isComponent ? [.hanziToMeaning] : Direction.allCases }
 
     /// Short meaning for the front of meaning→汉字 cards.
     var shortMeaning: String {
@@ -92,6 +102,9 @@ final class Card {
     }
 
     var direction: Direction { Direction(rawValue: directionRaw) ?? .hanziToMeaning }
+    /// The word's ID, taken from the card ID so the relationship is not faulted in.
+    var wordID: String { id.lastIndex(of: "|").map { String(id[..<$0]) } ?? id }
+    var isComponent: Bool { id.hasPrefix(Word.componentPrefix) }
     var state: CardState { CardState(rawValue: stateRaw) ?? .new }
 
     var scheduling: SchedulingInfo {
@@ -162,6 +175,7 @@ enum DeckScope: Hashable, Identifiable {
     case rankRange(ClosedRange<Int>)
     case hsk(Int)
     case custom(UUID, String)
+    case components
     case leeches
 
     var id: String {
@@ -170,6 +184,7 @@ enum DeckScope: Hashable, Identifiable {
         case .rankRange(let r): "rank:\(r.lowerBound)-\(r.upperBound)"
         case .hsk(let l): "hsk:\(l)"
         case .custom(let id, _): "custom:\(id)"
+        case .components: "components"
         case .leeches: "leeches"
         }
     }
@@ -180,23 +195,46 @@ enum DeckScope: Hashable, Identifiable {
         case .rankRange(let r): "Top \(r.lowerBound)–\(r.upperBound)"
         case .hsk(let l): "HSK \(l)"
         case .custom(_, let name): name
+        case .components: "Character parts"
         case .leeches: "Leeches"
         }
     }
 
+    /// Frequency decks covering the bundled word list: hundreds up to 1000, where most of the early
+    /// studying happens, then steps of 500 so the list stays short.
+    static func frequencyDecks(wordCount: Int) -> [DeckScope] {
+        var out: [DeckScope] = []
+        var start = 1
+        while start <= wordCount {
+            let size = start <= 1000 ? 100 : 500
+            out.append(.rankRange(start...(start + size - 1)))
+            start += size
+        }
+        return out
+    }
+
+    /// Reads the word relationship only for HSK decks: faulting it in for thousands of cards is slow.
     func contains(_ card: Card, customWordIDs: Set<String>) -> Bool {
-        guard let word = card.word else { return false }
-        return contains(wordID: word.id, isCustom: word.isCustom, rank: word.rank, hsk: word.hsk,
+        var hsk: Int?
+        if case .hsk = self {
+            guard let word = card.word else { return false }
+            hsk = word.hsk
+        }
+        let wordID = card.wordID
+        return contains(wordID: wordID, isCustom: wordID.hasPrefix("custom:"), rank: card.rank, hsk: hsk,
                         isLeech: card.isLeech, customWordIDs: customWordIDs)
     }
 
     func contains(wordID: String, isCustom: Bool, rank: Int, hsk: Int?, isLeech: Bool,
                   customWordIDs: Set<String>) -> Bool {
-        switch self {
-        case .all: true
-        case .rankRange(let r): !isCustom && r.contains(rank)
+        // Parts sit at the rank of the first word that uses them, so they come up right before it.
+        let partAllowed = !wordID.hasPrefix(Word.componentPrefix) || AppSettings.teachComponents
+        return switch self {
+        case .all: partAllowed
+        case .rankRange(let r): !isCustom && r.contains(rank) && partAllowed
         case .hsk(let l): hsk == l
         case .custom: customWordIDs.contains(wordID)
+        case .components: Library.shared.componentWordIDs.contains(wordID)
         case .leeches: isLeech
         }
     }

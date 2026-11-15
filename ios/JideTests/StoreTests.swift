@@ -62,11 +62,73 @@ final class SeederTests: StoreTestCase {
     }
 
     func testRealBundledDataSeeds() throws {
-        let outcome = Seeder.run(context, words: Library.shared.words, version: Library.shared.dataVersion, defaults: defaults)
-        XCTAssertEqual(outcome, .seeded(inserted: 1000, updated: 0))
-        XCTAssertEqual(try context.fetchCount(FetchDescriptor<Card>()), 3000)
-        XCTAssertEqual(Seeder.run(context, words: Library.shared.words, version: Library.shared.dataVersion,
+        let lib = Library.shared
+        let parts = lib.components.filter { !$0.isWord }.count
+        XCTAssertEqual(lib.words.count, 3000)
+        XCTAssertGreaterThan(parts, 100)
+        let outcome = Seeder.run(context, words: lib.words, components: lib.components, version: lib.dataVersion,
+                                 defaults: defaults)
+        XCTAssertEqual(outcome, .seeded(inserted: 3000 + parts, updated: 0))
+        XCTAssertEqual(try context.fetchCount(FetchDescriptor<Card>()), 9000 + parts, "Parts get one card")
+        XCTAssertEqual(Seeder.run(context, words: lib.words, components: lib.components, version: lib.dataVersion,
                                   defaults: defaults), .skipped)
+    }
+
+    /// Going from the 1000-word list to 3000 words plus parts must leave what was learned alone.
+    func testGrowingTheListKeepsProgress() throws {
+        let lib = Library.shared
+        Seeder.run(context, words: Array(lib.words.prefix(1000)), version: 3, defaults: defaults)
+        let hao = try word("好")
+        hao.mnemonic = "woman + child"
+        let progress = SchedulingInfo(state: .review, step: 0, stability: 30, difficulty: 5,
+                                      due: Date(timeIntervalSince1970: 2_000_000_000), reps: 9, lapses: 0,
+                                      lastReview: Date(timeIntervalSince1970: 1_999_000_000))
+        try XCTUnwrap(hao.card(.audioToHanzi)).scheduling = progress
+        try context.save()
+
+        let parts = lib.components.filter { !$0.isWord }.count
+        XCTAssertEqual(Seeder.run(context, words: lib.words, components: lib.components, version: lib.dataVersion,
+                                  defaults: defaults), .seeded(inserted: 2000 + parts, updated: 1000))
+        let after = try word("好")
+        XCTAssertEqual(after.mnemonic, "woman + child")
+        XCTAssertEqual(after.card(.audioToHanzi)?.scheduling, progress)
+        XCTAssertEqual(after.cards.count, 3)
+    }
+
+    func testPartsAreTaughtRightBeforeTheWordThatUsesThem() throws {
+        let part = BundledComponent(char: "亻", rank: 1, pinyinNumbered: "ren2", definition: "man, person; people",
+                                    isWord: false, count: 3, usedIn: ["你"])
+        let alsoWord = BundledComponent(char: "好", rank: 2, pinyinNumbered: "hao3", definition: "good", isWord: true,
+                                        count: 3, usedIn: [])
+        XCTAssertEqual(Seeder.run(context, words: Self.fixture, components: [part, alsoWord], version: 1, defaults: defaults),
+                       .seeded(inserted: 4, updated: 0), "A part that is already a word gets no second entry")
+        let w = try XCTUnwrap(try words().first { $0.id == "cmp:亻" })
+        XCTAssertTrue(w.isComponent)
+        XCTAssertEqual(w.cards.map(\.direction), [.hanziToMeaning])
+        XCTAssertEqual(w.definitions, ["man, person", "people"])
+        XCTAssertEqual(w.pinyin, "rén")
+
+        func newCards(_ scope: DeckScope) throws -> [String] {
+            StudyQueue.select(from: try cards(), scope: scope, customWordIDs: [], enabled: Set(Direction.allCases),
+                              newRemaining: 2, now: Date()).new.map(\.id)
+        }
+        XCTAssertEqual(try newCards(.all), ["cmp:亻|hanzi_meaning", "zh:你|hanzi_meaning"])
+        XCTAssertEqual(try newCards(.rankRange(1...100)).first, "cmp:亻|hanzi_meaning")
+        defaults.set(false, forKey: SettingsKey.teachComponents)
+        XCTAssertEqual(try newCards(.all), ["zh:你|hanzi_meaning", "zh:你|meaning_hanzi"], "Switched off in Settings")
+    }
+
+    func testRealPartsDeck() throws {
+        let lib = Library.shared
+        XCTAssertEqual(lib.component("女")?.isWord, true)
+        XCTAssertTrue(lib.componentWordIDs.contains("zh:女"), "Words that are parts are in the parts deck too")
+        XCTAssertTrue(lib.componentWordIDs.contains("cmp:扌"))
+        XCTAssertNil(lib.component("丨"), "Single strokes are not taught")
+        for c in lib.components {
+            XCTAssertFalse(c.definition.isEmpty, c.char)
+            XCTAssertGreaterThanOrEqual(c.count, 3, c.char)
+            XCTAssertNotNil(HanziGraphics(lib.character(Character(c.char))), "\(c.char) has stroke data")
+        }
     }
 }
 

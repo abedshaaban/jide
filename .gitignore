@@ -12,3 +12,6 @@ local.properties
 # iOS
 ios/Jide.xcodeproj/
 ios/Local.xcconfig
+
+# Python
+__pycache__/

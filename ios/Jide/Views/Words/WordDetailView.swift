@@ -17,14 +17,16 @@ struct WordDetailView: View {
                     PinyinText(numbered: word.pinyinNumbered, font: .title2)
                     HStack(spacing: 8) {
                         if word.traditional != word.simplified { Tag(text: "繁 \(word.traditional)") }
-                        if !word.isCustom { Tag(text: "#\(word.rank)") }
+                        if word.isComponent { Tag(text: "Character part") } else if !word.isCustom { Tag(text: "#\(word.rank)") }
                         if let h = word.hsk { Tag(text: "HSK \(h)") }
                         if word.isCustom { Tag(text: "My word") }
                     }
-                    SpeakButtons(text: word.simplified)
+                    if !word.pinyinNumbered.isEmpty { SpeakButtons(text: word.simplified) }
                 }
                 .padding(.vertical, 4)
             }
+
+            if word.isComponent { Section("Used in") { UsedInList(character: word.simplified) } }
 
             Section("Meaning") {
                 ForEach(Array(word.definitions.enumerated()), id: \.offset) { _, d in Text(d) }
@@ -33,9 +35,11 @@ struct WordDetailView: View {
                 }
             }
 
-            Section("Pronunciation practice") {
-                PronunciationPractice(word: word)
-                    .padding(.vertical, 4)
+            if !word.isComponent {
+                Section("Pronunciation practice") {
+                    PronunciationPractice(word: word)
+                        .padding(.vertical, 4)
+                }
             }
 
             Section {
@@ -115,6 +119,20 @@ struct WordDetailView: View {
                 context.delete(word)
                 try? context.save()
                 dismiss()
+            }
+        }
+    }
+}
+
+/// Characters of the word list that contain a part: 女 → 好 她 妈 …
+struct UsedInList: View {
+    var character: String
+
+    var body: some View {
+        let chars = (Library.shared.component(character)?.usedIn ?? []).compactMap(\.first)
+        ForEach(chars, id: \.self) { ch in
+            NavigationLink { CharacterDetailView(character: ch) } label: {
+                ComponentRow(character: ch, expandable: false)
             }
         }
     }
@@ -242,7 +260,7 @@ struct AddWordView: View {
         } else {
             let builtinID = Word.builtinID(h)
             let exists = (try? context.fetchCount(FetchDescriptor<Word>(predicate: #Predicate { $0.id == builtinID }))) ?? 0
-            if exists > 0 { error = "\(h) is already in the top 1000. Find it in Words."; return }
+            if exists > 0 { error = "\(h) is already in the word list. Find it in Words."; return }
             let count = (try? context.fetchCount(FetchDescriptor<Word>(predicate: #Predicate { $0.isCustom }))) ?? 0
             let w = Word(id: "custom:\(UUID().uuidString)", rank: 100_000 + count, simplified: h, traditional: h,
                          pinyinNumbered: numbered, gloss: defs.first ?? m, definitions: defs, isCustom: true)

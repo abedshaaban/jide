@@ -117,7 +117,7 @@ struct ToneQuizView: View {
         let n = syllableCount
         let all = (try? context.fetch(FetchDescriptor<Word>())) ?? []
         let pool = all.filter { w in
-            ToneQuiz.isEligible(simplified: w.simplified, syllables: w.syllables, count: n)
+            !w.isComponent && ToneQuiz.isEligible(simplified: w.simplified, syllables: w.syllables, count: n)
                 && (!onlyStudied || w.cards.contains { $0.state != .new })
         }
         word = pool.randomElement()

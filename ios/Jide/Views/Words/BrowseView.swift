@@ -8,7 +8,8 @@ struct BrowseView: View {
     @State private var showAdd = false
 
     enum Filter: String, CaseIterable {
-        case all = "All", learning = "Studied", fresh = "New", custom = "Mine", notes = "Notes", leech = "Leeches"
+        case all = "All", learning = "Studied", fresh = "New", custom = "Mine", parts = "Parts", notes = "Notes",
+             leech = "Leeches"
     }
 
     var body: some View {
@@ -54,6 +55,7 @@ struct BrowseView: View {
             case .learning: guard w.cards.contains(where: { $0.state != .new }) else { return false }
             case .fresh: guard w.cards.allSatisfy({ $0.state == .new }) else { return false }
             case .custom: guard w.isCustom else { return false }
+            case .parts: guard w.isComponent else { return false }
             case .notes: guard !w.note.isEmpty || !w.mnemonic.isEmpty else { return false }
             case .leech: guard w.cards.contains(where: \.isLeech) else { return false }
             }
@@ -73,7 +75,8 @@ struct WordRow: View {
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 2) {
-                Text(word.isCustom ? "mine" : "#\(word.rank)").font(.caption2).foregroundStyle(.secondary)
+                Text(word.isCustom ? "mine" : word.isComponent ? "part" : "#\(word.rank)")
+                    .font(.caption2).foregroundStyle(.secondary)
                 if word.cards.contains(where: \.isLeech) { Image(systemName: "ant.fill").font(.caption2).foregroundStyle(.red) }
             }
         }

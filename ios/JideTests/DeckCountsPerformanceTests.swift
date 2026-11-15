@@ -2,14 +2,15 @@ import SwiftData
 import XCTest
 @testable import Jide
 
-/// Decks tab counts on the real 1000-word / 3000-card store.
+/// Decks tab counts on the real store: 3000 words with three cards each, plus character parts.
 final class DeckCountsPerformanceTests: StoreTestCase {
-    static let scopes: [DeckScope] = [.all, .leeches]
-        + stride(from: 1, to: 1000, by: 100).map { .rankRange($0...($0 + 99)) }
+    static let scopes: [DeckScope] = [.all, .components, .leeches]
+        + DeckScope.frequencyDecks(wordCount: Library.shared.words.count)
         + (1...6).map { .hsk($0) }
 
     func seedReal() throws {
-        Seeder.run(context, words: Library.shared.words, version: Library.shared.dataVersion, defaults: defaults)
+        Seeder.run(context, words: Library.shared.words, components: Library.shared.components,
+                   version: Library.shared.dataVersion, defaults: defaults)
         try context.save()
     }
 
@@ -54,5 +55,6 @@ final class DeckCountsPerformanceTests: StoreTestCase {
         XCTAssertGreaterThan(fast["all"]?.learning ?? 0, 0)
         XCTAssertEqual(fast["all"]?.new, 20)
         XCTAssertGreaterThan(fast["leeches"]?.total ?? 0, 0)
+        XCTAssertGreaterThan(fast["components"]?.total ?? 0, 0)
     }
 }

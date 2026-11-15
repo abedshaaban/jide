@@ -142,6 +142,40 @@ struct WordBreakdown: View {
     }
 }
 
+/// Answer side of a character-part card: the characters it helps build, e.g. 扌 → 打 找 把.
+struct PartUses: View {
+    var character: String
+
+    var body: some View {
+        let chars = (Library.shared.component(character)?.usedIn ?? []).compactMap(\.first)
+        if !chars.isEmpty {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("You will see it in").font(.caption.bold()).foregroundStyle(.secondary)
+                ForEach(chars.prefix(5), id: \.self) { ch in
+                    let info = Library.shared.character(ch)
+                    NavigationLink { CharacterDetailView(character: ch) } label: {
+                        HStack(spacing: 12) {
+                            Text(String(ch)).font(.system(size: 30))
+                            if let p = info?.pinyin.first {
+                                Text(p).foregroundStyle(ToneColor.color(Pinyin.tone(ofMarked: p)))
+                            }
+                            Text(WordBreakdown.short(info?.definition)).foregroundStyle(.primary)
+                            Spacer(minLength: 0)
+                            Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
+                        }
+                        .font(.subheadline)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 12).fill(Color.secondary.opacity(0.1)))
+        }
+    }
+}
+
 /// Character page: breakdown, stroke order, writing practice.
 struct CharacterDetailView: View {
     var character: Character

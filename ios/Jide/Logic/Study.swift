@@ -30,9 +30,41 @@ enum StudyQueue {
         return Set((try? context.fetch(d))?.first?.wordIDs ?? [])
     }
 
+    /// The cards a session could draw from now, without loading the whole store: studied cards that are due,
+    /// and new cards in rank order until `newRemaining` of them match the scope. `select` applies the exact rules.
     @MainActor
-    static func activeCards(_ context: ModelContext) -> [Card] {
-        (try? context.fetch(FetchDescriptor<Card>(predicate: #Predicate { !$0.suspended }))) ?? []
+    static func candidates(_ context: ModelContext, scope: DeckScope, customWordIDs: Set<String>, enabled: Set<Direction>,
+                           newRemaining: Int, now: Date, calendar: Calendar = .current) -> [Card] {
+        let newRaw = CardState.new.rawValue
+        let cutoff = max(calendar.startOfTomorrow(now), now.addingTimeInterval(learnAhead))
+        var out = (try? context.fetch(FetchDescriptor<Card>(
+            predicate: #Predicate { !$0.suspended && $0.stateRaw != newRaw && $0.due <= cutoff }))) ?? []
+        guard newRemaining > 0 else { return out }
+
+        let enabledRaw = Set(enabled.map(\.rawValue))
+        // A frequency deck far down the list would otherwise page through every card above it.
+        var lowest = Int.min, highest = Int.max
+        if case .rankRange(let r) = scope { (lowest, highest) = (r.lowerBound, r.upperBound) }
+        let page = 300
+        var matchedRanks: [Int] = []
+        var offset = 0
+        while true {
+            var d = FetchDescriptor<Card>(
+                predicate: #Predicate { !$0.suspended && $0.stateRaw == newRaw && $0.rank >= lowest && $0.rank <= highest },
+                sortBy: [SortDescriptor(\.rank), SortDescriptor(\.id)])
+            d.fetchLimit = page
+            d.fetchOffset = offset
+            let cards = (try? context.fetch(d)) ?? []
+            for c in cards where enabledRaw.contains(c.directionRaw) && scope.contains(c, customWordIDs: customWordIDs) {
+                out.append(c)
+                matchedRanks.append(c.rank)
+            }
+            offset += cards.count
+            // Enough once every card of the last needed rank has been seen (ties are ordered in `select`).
+            if cards.count < page { break }
+            if matchedRanks.count >= newRemaining, let last = cards.last, last.rank > matchedRanks[newRemaining - 1] { break }
+        }
+        return out
     }
 
     /// Pure queue selection: due learning/review cards and today's new cards for a scope.
@@ -44,23 +76,26 @@ enum StudyQueue {
         var due: [Card] = []
         var fresh: [Card] = []
         for c in all where !c.suspended && enabledRaw.contains(c.directionRaw)
-            && scope.contains(c, customWordIDs: customWordIDs) {
+            && scope.contains(c, customWordIDs: customWordIDs) && c.word != nil {
             switch c.state {
             case .new: fresh.append(c)
             case .learning, .relearning: if c.due <= now.addingTimeInterval(learnAhead) { due.append(c) }
             case .review: if c.due < endOfDay { due.append(c) }
             }
         }
-        fresh.sort { ($0.rank, $0.direction.order) < ($1.rank, $1.direction.order) }
+        // Same rank: a character part comes before the word that uses it.
+        fresh.sort { ($0.rank, $0.isComponent ? 0 : 1, $0.direction.order) < ($1.rank, $1.isComponent ? 0 : 1, $1.direction.order) }
         due.sort { $0.due < $1.due }
         return (due, Array(fresh.prefix(max(0, newRemaining))))
     }
 
     @MainActor
     static func build(_ scope: DeckScope, _ context: ModelContext, now: Date = Date()) -> (due: [Card], new: [Card]) {
-        select(from: activeCards(context), scope: scope, customWordIDs: customWordIDs(scope, context),
-               enabled: AppSettings.enabledDirections,
-               newRemaining: AppSettings.newPerDay - newIntroducedToday(context, now: now), now: now)
+        let ids = customWordIDs(scope, context)
+        let enabled = AppSettings.enabledDirections
+        let newRemaining = AppSettings.newPerDay - newIntroducedToday(context, now: now)
+        let cards = candidates(context, scope: scope, customWordIDs: ids, enabled: enabled, newRemaining: newRemaining, now: now)
+        return select(from: cards, scope: scope, customWordIDs: ids, enabled: enabled, newRemaining: newRemaining, now: now)
     }
 
     static func counts(due: [Card], new: [Card]) -> Counts {
@@ -120,22 +155,25 @@ enum StudyQueue {
         return out
     }
 
-    /// Two flat fetches; the word ID comes from the card ID ("<wordID>|<direction>") so no relationship faults.
+    /// One flat fetch of the cards. The word ID comes from the card ID ("<wordID>|<direction>"), the rank from
+    /// the card and the HSK level from the bundled list (the store for custom words), so no relationship faults.
     @MainActor
     static func cardInfos(_ context: ModelContext) -> [CardInfo] {
-        struct W { var isCustom: Bool; var rank: Int; var hsk: Int? }
-        var words: [String: W] = [:]
-        for w in (try? context.fetch(FetchDescriptor<Word>())) ?? [] {
-            words[w.id] = W(isCustom: w.isCustom, rank: w.rank, hsk: w.hsk)
+        var customHSK: [String: Int] = [:]
+        for w in (try? context.fetch(FetchDescriptor<Word>(predicate: #Predicate { $0.isCustom }))) ?? [] {
+            if let h = w.hsk { customHSK[w.id] = h }
         }
-        let cards = (try? context.fetch(FetchDescriptor<Card>(predicate: #Predicate { !$0.suspended }))) ?? []
+        let bundledHSK = Library.shared.hskByWordID
+        var d = FetchDescriptor<Card>(predicate: #Predicate { !$0.suspended })
+        d.propertiesToFetch = [\.id, \.rank, \.directionRaw, \.stateRaw, \.due, \.isLeech]
+        let cards = (try? context.fetch(d)) ?? []
         var out: [CardInfo] = []
         out.reserveCapacity(cards.count)
         for c in cards {
-            guard let bar = c.id.lastIndex(of: "|") else { continue }
-            let wordID = String(c.id[..<bar])
-            guard let w = words[wordID] else { continue }
-            out.append(CardInfo(wordID: wordID, isCustom: w.isCustom, rank: w.rank, hsk: w.hsk,
+            let wordID = c.wordID
+            let isCustom = wordID.hasPrefix("custom:")
+            out.append(CardInfo(wordID: wordID, isCustom: isCustom, rank: c.rank,
+                                hsk: isCustom ? customHSK[wordID] : bundledHSK[wordID],
                                 directionRaw: c.directionRaw, state: c.state, due: c.due, isLeech: c.isLeech))
         }
         return out

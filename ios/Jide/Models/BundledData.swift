@@ -21,6 +21,21 @@ struct BundledWord: Codable {
     var sentences: [Sentence]
 }
 
+/// A building block of the bundled words' characters (`components` in words.json).
+struct BundledComponent: Codable {
+    var char: String
+    /// Rank of the first word that uses it.
+    var rank: Int
+    var pinyinNumbered: String
+    var definition: String
+    /// Already a bundled word, so it has cards of its own.
+    var isWord: Bool
+    var count: Int
+    var usedIn: [String]
+
+    var wordID: String { isWord ? Word.builtinID(char) : Word.componentID(char) }
+}
+
 struct CharacterInfo: Codable {
     struct Etymology: Codable {
         var type: String?
@@ -50,21 +65,35 @@ final class Library {
     static let shared = Library()
 
     private(set) var words: [BundledWord] = []
+    private(set) var components: [BundledComponent] = []
+    /// Word IDs in the "Character parts" deck: parts, and bundled words that are also parts (女, 口).
+    private(set) var componentWordIDs: Set<String> = []
+    private var componentsByChar: [String: BundledComponent] = [:]
+    /// HSK 2.0 level by word ID, for counting decks without reading words from the store.
+    private(set) var hskByWordID: [String: Int] = [:]
     private(set) var dataVersion = 0
     private var sentencesBySimplified: [String: [Sentence]] = [:]
     private var characters: [String: CharacterInfo]?
     private let lock = NSLock()
 
     private init() {
-        struct File: Codable { var version: Int; var words: [BundledWord] }
+        struct File: Codable { var version: Int; var words: [BundledWord]; var components: [BundledComponent]? }
         if let url = Bundle.main.url(forResource: "words", withExtension: "json"),
            let data = try? Data(contentsOf: url),
            let file = try? JSONDecoder().decode(File.self, from: data) {
             words = file.words
             dataVersion = file.version
-            for w in file.words { sentencesBySimplified[w.simplified] = w.sentences }
+            for w in file.words {
+                sentencesBySimplified[w.simplified] = w.sentences
+                if let h = w.hsk { hskByWordID[Word.builtinID(w.simplified)] = h }
+            }
+            components = file.components ?? []
+            for c in components { componentsByChar[c.char] = c }
+            componentWordIDs = Set(components.map(\.wordID))
         }
     }
+
+    func component(_ char: String) -> BundledComponent? { componentsByChar[char] }
 
     func sentences(for simplified: String) -> [Sentence] {
         if let s = sentencesBySimplified[simplified] { return s }
@@ -116,14 +145,17 @@ enum Seeder {
     @MainActor
     @discardableResult
     static func run(_ context: ModelContext) -> Outcome {
-        run(context, words: Library.shared.words, version: Library.shared.dataVersion, defaults: AppSettings.defaults)
+        run(context, words: Library.shared.words, components: Library.shared.components,
+            version: Library.shared.dataVersion, defaults: AppSettings.defaults)
     }
 
-    /// Inserts missing bundled words (with their three cards) and refreshes dictionary fields of existing ones.
-    /// Notes, mnemonics, scheduling and custom words are never touched. Skips when this data version is done.
+    /// Inserts missing bundled words and character parts (with their cards) and refreshes dictionary fields
+    /// of existing ones. Notes, mnemonics, scheduling and custom words are never touched. Skips when this
+    /// data version is done.
     @MainActor
     @discardableResult
-    static func run(_ context: ModelContext, words bundled: [BundledWord], version: Int, defaults: UserDefaults) -> Outcome {
+    static func run(_ context: ModelContext, words bundled: [BundledWord], components: [BundledComponent] = [],
+                    version: Int, defaults: UserDefaults) -> Outcome {
         let existingCount = (try? context.fetchCount(FetchDescriptor<Word>(predicate: #Predicate { !$0.isCustom }))) ?? 0
         if existingCount > 0 && defaults.integer(forKey: versionKey) >= version { return .skipped }
 
@@ -155,6 +187,27 @@ enum Seeder {
                 inserted += 1
             }
         }
+        for c in components where !c.isWord {
+            let id = Word.componentID(c.char)
+            let defs = c.definition.split(separator: ";").map { $0.trimmingCharacters(in: .whitespaces) }
+            if let w = byID[id] {
+                if w.rank != c.rank { for card in w.cards { card.rank = c.rank } }
+                w.rank = c.rank
+                w.pinyinNumbered = c.pinyinNumbered
+                w.pinyin = Pinyin.marks(fromNumbered: c.pinyinNumbered)
+                w.gloss = defs.first ?? c.definition
+                w.definitions = defs
+                ensureCards(w, context)
+                updated += 1
+            } else {
+                let w = Word(id: id, rank: c.rank, simplified: c.char, traditional: c.char,
+                             pinyinNumbered: c.pinyinNumbered, gloss: defs.first ?? c.definition, definitions: defs)
+                context.insert(w)
+                byID[id] = w
+                ensureCards(w, context)
+                inserted += 1
+            }
+        }
         do {
             try context.save()
             defaults.set(version, forKey: versionKey)
@@ -167,7 +220,7 @@ enum Seeder {
 
     @MainActor
     static func ensureCards(_ word: Word, _ context: ModelContext) {
-        for d in Direction.allCases where word.card(d) == nil {
+        for d in word.directions where word.card(d) == nil {
             let c = Card(word: word, direction: d)
             context.insert(c)
             c.word = word

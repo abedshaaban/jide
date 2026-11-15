@@ -23,10 +23,12 @@ same structure. Dates are ISO 8601 strings in UTC with milliseconds
     "reminderHour": 19,
     "reminderMinute": 0,
     "toneQuizCorrect": 0,
-    "toneQuizTotal": 0
+    "toneQuizTotal": 0,
+    "teachComponents": true                // character parts come up before the words that use them
   },
   "words": [{                              // bundled words with notes, and all custom words
-    "id": "zh:我",                         // bundled: "zh:" + simplified; custom: "custom:" + UUID
+    "id": "zh:我",                         // bundled: "zh:" + simplified; character part: "cmp:" + character;
+                                           // custom: "custom:" + UUID
     "isCustom": false,
     "note": "",
     "mnemonic": "",
@@ -69,7 +71,8 @@ same structure. Dates are ISO 8601 strings in UTC with milliseconds
 
 - Merge, file wins: entries with an ID that exists locally are overwritten; others are added.
 - Review logs are added only if their `id` is not already present.
-- Words that are neither custom nor in the bundled list are skipped.
+- Words that are neither custom nor in the bundled list (words and character parts) are skipped.
+- Character parts (`cmp:`) only have the `hanzi_meaning` card.
 - A recording replaces the local recording for that word.
 - Reject files whose `format` differs, whose `version` is not supported (only 1 exists), or that do not
   decode. Validate fully before changing anything; a failed import must leave local data untouched.

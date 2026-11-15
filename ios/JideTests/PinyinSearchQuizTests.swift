@@ -132,7 +132,7 @@ final class ToneQuizTests: XCTestCase {
 
     func testBundledPoolsAreUsable() {
         let words = Library.shared.words
-        XCTAssertEqual(words.count, 1000)
+        XCTAssertEqual(words.count, 3000)
         for n in 1...2 {
             let pool = words.filter { ToneQuiz.isEligible(simplified: $0.simplified, syllables: syl($0.pinyinNumbered), count: n) }
             XCTAssertGreaterThan(pool.count, 100, "n=\(n)")
