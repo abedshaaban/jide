@@ -50,6 +50,7 @@ struct WritingPracticeView: View {
             }
             .aspectRatio(1, contentMode: .fit)
             .background(Color(.secondarySystemBackground))
+            .frame(maxWidth: 420)
 
             HStack {
                 if mode == .quiz {

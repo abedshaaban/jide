@@ -68,6 +68,7 @@ struct TodayView: View {
                     }
                 }
                 .padding()
+                .readableWidth()
             }
             .navigationTitle("记得")
             .onAppear(perform: refresh)

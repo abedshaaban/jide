@@ -114,6 +114,7 @@ struct CharacterDetailView: View {
                 }
             }
             .padding()
+            .readableWidth()
         }
         .navigationTitle(String(character))
         .navigationBarTitleDisplayMode(.inline)

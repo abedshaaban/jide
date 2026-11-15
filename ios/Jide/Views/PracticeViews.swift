@@ -87,6 +87,7 @@ struct ToneQuizView: View {
                     .font(.caption2).foregroundStyle(.secondary)
             }
             .padding()
+            .readableWidth()
         }
         .navigationTitle("Tone quiz")
         .onAppear { if word == nil { next() } }
@@ -158,6 +159,7 @@ struct WritingDrillView: View {
                 }
             }
             .padding()
+            .readableWidth()
         }
         .navigationTitle("Writing drill")
         .onAppear { if character == nil { next() } }

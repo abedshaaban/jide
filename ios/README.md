@@ -29,6 +29,26 @@ xcodebuild -project Jide.xcodeproj -scheme Jide -destination 'platform=iOS,name=
 xcrun devicectl device install app --device <UDID> build/Build/Products/Debug-iphoneos/Jide.app
 ```
 
+## Mac app
+
+The same target also builds as a Mac Catalyst app. It is signed to run locally, so it never expires
+and does not count toward the three sideloaded apps.
+
+```sh
+cd ios && xcodegen generate
+xcodebuild -project Jide.xcodeproj -scheme Jide -configuration Release \
+  -destination 'platform=macOS,variant=Mac Catalyst' -derivedDataPath build build
+ditto build/Build/Products/Release-maccatalyst/Jide.app /Applications/Jide.app
+```
+
+Or in Xcode: pick `My Mac (Mac Catalyst)` as the run destination and press Run.
+
+- Data is separate from the iPhone (no iCloud). Move it with Settings › Export backup / Import backup.
+  It lives in `~/Library/Containers/com.abedshaaban.jide`.
+- Install the premium Chinese voice on the Mac too: System Settings › Accessibility › Spoken Content ›
+  System voice › Manage Voices.
+- In a review: Space shows the answer, 1–4 rate it (Again, Hard, Good, Easy), Esc closes.
+
 ## Backup
 
 Settings › Export backup writes one JSON file (see `shared/data/BACKUP_FORMAT.md`). Recordings are
